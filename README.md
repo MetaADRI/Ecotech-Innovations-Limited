@@ -54,10 +54,10 @@ The brand palette (green `#00A651`, deep blue `#0A2F44`, teal `#008080`, gold ac
    [Cloudflare dashboard](https://dash.cloudflare.com) go to **Workers & Pages →
    Create → Pages → Connect to Git**. Pick this repo and use these settings:
 
-   - Framework preset: **Next.js (Static HTML)** (or leave auto-detected)
    - Build command: `npm run build`
-   - Build output directory: `out`
-   - Environment variable: `NODE_VERSION=22`
+   - Deploy command: `npx wrangler pages deploy out --project-name ecotech-innovations-limited`
+     (repeat the same for the non-production branch deploy command)
+   - Environment variable: `NODE_VERSION=22` (optional; Node 22 is auto-detected)
 
    Every push to `main` then auto-deploys. Free tier — no config needed.
 
