@@ -1,9 +1,0 @@
-// Tells `npx wrangler deploy` (Cloudflare Pages deploy command) to serve the
-// static export in `out/` instead of running the OpenNext serverless migration.
-// The site is 100% static — no server/worker needed.
-{
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "ecotech-innovations-limited",
-  "compatibility_date": "2026-08-10",
-  "pages_build_output_dir": "out"
-}
