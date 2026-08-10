@@ -50,16 +50,15 @@ The brand palette (green `#00A651`, deep blue `#0A2F44`, teal `#008080`, gold ac
 3. **Real data** — replace the placeholder stats, phones and emails in `lib/site.ts`.
 4. **Photos** — the site uses gradients/SVG art so it works with zero assets. Drop real Zambian
    photos into `public/` and swap them in where imagery is wanted.
-5. **Deploy (Cloudflare Pages)** — push to GitHub, then in the
-   [Cloudflare dashboard](https://dash.cloudflare.com) go to **Workers & Pages →
-   Create → Pages → Connect to Git**. Pick this repo and use these settings:
+5. **Deploy (Netlify)** — push to GitHub, then in [app.netlify.com](https://app.netlify.com):
 
-   - Build command: `npm run build`
-   - Deploy command: `npx wrangler pages deploy out --project-name ecotech-innovations-limited`
-     (repeat the same for the non-production branch deploy command)
-   - Environment variable: `NODE_VERSION=22` (optional; Node 22 is auto-detected)
+   **Add new site → Import an existing project → GitHub**, authorize Netlify and
+   pick this repo. The included [`netlify.toml`](netlify.toml) already sets the
+   build command (`npm run build`), publish directory (`out`) and Node 22 — so
+   just click **Deploy site**.
 
-   Every push to `main` then auto-deploys. Free tier — no config needed.
+   Every push to `main` then auto-deploys to `https://<site-name>.netlify.app`.
+   Free tier — no config needed.
 
 ## Structure
 

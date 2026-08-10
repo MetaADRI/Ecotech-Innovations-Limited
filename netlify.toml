@@ -1,0 +1,12 @@
+# Netlify build config for the Ecotech Innovations site.
+# The site is a fully static Next.js export (output: "export" -> out/).
+
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Keep Netlify from injecting the server-rendering Next.js runtime plugin —
+  # not needed for a static export and it would break routing.
+  NEXT_DISABLE_PLUGIN = "true"
