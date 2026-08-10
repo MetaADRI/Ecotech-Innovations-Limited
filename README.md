@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ecotech Innovations Limited — Company Website
 
-## Getting Started
+A modern, green-led marketing website for **Ecotech Innovations Limited**, the Zambian
+sustainability-driven technology company behind **FixCycle** (User & Pro apps).
 
-First, run the development server:
+Built with **Next.js 16 · Tailwind CSS v4 · Framer Motion** — all pages are statically
+pre-rendered for fast loading and great SEO.
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install        # first time only
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Production build:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start      # serves the production build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+> A preview server is already running at **http://localhost:3000** if you just
+> finished setting this up.
 
-## Learn More
+## Where to edit content
 
-To learn more about Next.js, take a look at the following resources:
+Almost all editable content lives in **one file**: [`lib/site.ts`](lib/site.ts).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| You want to change… | Edit… |
+| --- | --- |
+| Contact details, emails, phones, addresses | `site.email`, `site.phoneLusaka`, … |
+| Stats (artisans, downloads, CO₂, jobs) | `site.stats` |
+| Testimonials | `site.testimonials` |
+| Company timeline | `milestones` |
+| Sustainability goals / progress bars | `impactGoals` |
+| Volunteer roles & benefits | `volunteerRoles`, `volunteerBenefits` |
+| Navigation links | `navLinks` |
+| Facebook / LinkedIn links | `site.facebook`, `site.linkedin` |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The brand palette (green `#00A651`, deep blue `#0A2F44`, teal `#008080`, gold accent
+`#C9A227` sampled from the logo) and global styles live in [`app/globals.css`](app/globals.css).
 
-## Deploy on Vercel
+## Going live
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Contact & volunteer forms** — create a free [Formspree](https://formspree.io) form and
+   paste its endpoint into `site.formspreeContact` / `site.formspreeVolunteer`.
+   Until then, forms fall back to opening the visitor's email app (mailto).
+2. **Newsletter** — the signup boxes are placeholder UX; connect a provider when the CEO wants it.
+3. **Real data** — replace the placeholder stats, phones and emails in `lib/site.ts`.
+4. **Photos** — the site uses gradients/SVG art so it works with zero assets. Drop real Zambian
+   photos into `public/` and swap them in where imagery is wanted.
+5. **Deploy** — push to GitHub and connect to **Vercel** or **Netlify** (free tier, no config needed).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Structure
+
+```
+app/                  routes (Home, About, FixCycle, Solutions, Impact, Get Involved, Blog, Contact)
+components/           shared UI (Navbar, Footer, buttons, reveals, counters, phone mockup…)
+components/sections/  home-page sections
+lib/site.ts           ALL editable content
+public/logo.jpeg      company logo
+```

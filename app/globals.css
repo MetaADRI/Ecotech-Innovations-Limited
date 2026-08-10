@@ -1,26 +1,159 @@
 @import "tailwindcss";
 
+/* Class-based dark mode: toggled by .dark on <html> (see layout.tsx theme script) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* ── Brand palette (green-led; gold accent sampled from the logo) ── */
+  /* brand-green-dark / brand-mint / brand-cream / brand-ink flip in dark mode
+     (defined below in @theme inline via CSS variables) */
+  --color-brand-green: #00a651;
+  --color-brand-green-deep: #006b33;
+  --color-brand-green-light: #35c97c;
+  --color-brand-blue: #0a2f44;
+  --color-brand-blue-soft: #12415f;
+  --color-brand-teal: #008080;
+  --color-brand-gold: #c9a227;
+  --color-brand-gold-light: #e3c564;
+
+  /* ── Typography ── */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-poppins), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", "Cascadia Code", monospace;
+
+  /* ── Shadows ── */
+  --shadow-soft: 0 10px 40px -12px rgb(10 47 68 / 0.12);
+  --shadow-lift: 0 24px 60px -20px rgb(10 47 68 / 0.28);
+  --shadow-glow: 0 12px 45px -8px rgb(0 166 81 / 0.5);
+  --shadow-glow-gold: 0 12px 45px -8px rgb(201 162 39 / 0.5);
+
+  /* ── Radii ── */
+  --radius-4xl: 2rem;
+
+  /* ── Animations ── */
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+  --animate-bounce-soft: bounce-soft 2.2s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-18px);
+    }
+  }
+  @keyframes bounce-soft {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translateY(10px);
+      opacity: 0.35;
+    }
+  }
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1e1e1e;
+}
+
+/* ── Theme-aware tokens ────────────────────────────────────────────────────────
+   These flip with the .dark class so components using them adapt automatically.
+   bg-white / text-white stay constant on purpose (white buttons, dark banners). */
+:root {
+  --surface: #ffffff; /* cards, panels, nav, forms */
+  --surface-soft: #f4f9f4; /* section bands, chips (light green-tinted cream) */
+  --ink: #1e1e1e; /* body + heading text */
+  --mint: #e8f7ee; /* light green tint surfaces */
+  --green-text: #008a42; /* green text on light surfaces */
+  color-scheme: light;
+}
+
+.dark {
+  --background: #0f2233;
+  --surface: #14293a; /* deep blue-tinted card surface */
+  --surface-soft: #0f2233; /* section bands, slightly deeper */
+  --ink: #e9f1ec; /* soft off-white text */
+  --mint: #0d2a1c; /* dark green tint */
+  --green-text: #4ae28f; /* bright green for text */
+  color-scheme: dark;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-brand-cream: var(--surface-soft);
+  --color-brand-ink: var(--ink);
+  --color-brand-mint: var(--mint);
+  --color-brand-green-dark: var(--green-text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* use the theme-aware ink token so unstyled text inherits readable color in dark mode */
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+::selection {
+  background: rgb(0 166 81 / 0.22);
+  color: #006b33;
+}
+
+/* Slim, brand-tinted scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #eef6f0;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00a651, #008a42);
+  border-radius: 999px;
+  border: 2px solid #eef6f0;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0f2233;
+}
+.dark ::-webkit-scrollbar-thumb {
+  border-color: #0f2233;
+}
+
+/* ── Reusable helpers ── */
+.text-gradient {
+  background: linear-gradient(92deg, #35c97c 0%, #00a651 45%, #e3c564 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(92deg, #e3c564, #c9a227);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid-dark {
+  background-image: linear-gradient(rgb(255 255 255 / 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.055) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgb(0 166 81 / 0.16) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
