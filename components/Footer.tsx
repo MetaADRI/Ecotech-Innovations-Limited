@@ -24,7 +24,7 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Link href="/" className="flex items-center gap-3">
               <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-white/20">
-                <Image src="/logo.jpeg" alt="Ecotech Innovations logo" width={48} height={48} className="h-full w-full object-cover" />
+                <Image src="/logo.png" alt="Ecotech Innovations logo" width={48} height={48} className="h-full w-full object-cover" />
               </span>
               <span className="font-display text-xl font-bold leading-tight">
                 Ecotech <span className="text-brand-green-light">Innovations</span>

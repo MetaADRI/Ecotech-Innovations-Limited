@@ -67,5 +67,5 @@ app/                  routes (Home, About, FixCycle, Solutions, Impact, Get Invo
 components/           shared UI (Navbar, Footer, buttons, reveals, counters, phone mockup…)
 components/sections/  home-page sections
 lib/site.ts           ALL editable content
-public/logo.jpeg      company logo
+public/logo.png       company logo
 ```

@@ -15,7 +15,7 @@ export default function Logo({ light = false, size = "md" }: { light?: boolean; 
         )}
       >
         <Image
-          src="/logo.jpeg"
+          src="/logo.png"
           alt="Ecotech Innovations Limited logo"
           width={56}
           height={56}
