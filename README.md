@@ -13,11 +13,11 @@ npm install        # first time only
 npm run dev        # http://localhost:3000
 ```
 
-Production build:
+Production build (static export into `out/`):
 
 ```bash
 npm run build
-npm run start      # serves the production build
+npm run preview   # serves the static build locally
 ```
 
 > A preview server is already running at **http://localhost:3000** if you just
@@ -50,7 +50,16 @@ The brand palette (green `#00A651`, deep blue `#0A2F44`, teal `#008080`, gold ac
 3. **Real data** — replace the placeholder stats, phones and emails in `lib/site.ts`.
 4. **Photos** — the site uses gradients/SVG art so it works with zero assets. Drop real Zambian
    photos into `public/` and swap them in where imagery is wanted.
-5. **Deploy** — push to GitHub and connect to **Vercel** or **Netlify** (free tier, no config needed).
+5. **Deploy (Cloudflare Pages)** — push to GitHub, then in the
+   [Cloudflare dashboard](https://dash.cloudflare.com) go to **Workers & Pages →
+   Create → Pages → Connect to Git**. Pick this repo and use these settings:
+
+   - Framework preset: **Next.js (Static HTML)** (or leave auto-detected)
+   - Build command: `npm run build`
+   - Build output directory: `out`
+   - Environment variable: `NODE_VERSION=22`
+
+   Every push to `main` then auto-deploys. Free tier — no config needed.
 
 ## Structure
 
