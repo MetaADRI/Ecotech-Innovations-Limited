@@ -1,32 +1,43 @@
 import Link from "next/link";
-import { ArrowUpRight, Boxes, FlaskConical, Sprout, Truck } from "lucide-react";
+import { ArrowUpRight, BadgeCheck, PackageSearch, Ship, Sprout, Truck } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 
-const sectors = [
+const services = [
   {
-    icon: Truck,
-    tint: "bg-brand-mint text-brand-green-dark",
-    title: "Green Logistics",
-    text: "Low-emission last-mile delivery that moves goods without moving the needle on carbon.",
-  },
-  {
-    icon: Sprout,
-    tint: "bg-emerald-50 text-emerald-600",
-    title: "Agri-Tech",
-    text: "Smart-farming support and market linkages that put more value in farmers' hands.",
-  },
-  {
-    icon: Boxes,
+    id: "export-import-trading",
+    icon: Ship,
     tint: "bg-sky-50 text-sky-600",
-    title: "Supply Chain Innovation",
-    text: "Transparent, efficient supply chains built for reliability and sustainability.",
+    title: "Export & Import Trading",
+    text: "Reliable cross-border trade support — connecting Zambian businesses to regional and international markets, and bringing quality goods in.",
   },
   {
-    icon: FlaskConical,
+    id: "strategic-sourcing-procurement",
+    icon: PackageSearch,
+    tint: "bg-brand-mint text-brand-green-dark",
+    title: "Strategic Sourcing & Procurement",
+    text: "We source, vet and procure goods and equipment on your behalf — cutting costs, cutting delays, and cutting out the guesswork.",
+  },
+  {
+    id: "freight-brokerage",
+    icon: Truck,
     tint: "bg-amber-50 text-amber-600",
-    title: "Research & Consultancy",
-    text: "Sustainability advisory that turns data into cleaner, smarter business decisions.",
+    title: "Freight Brokerage",
+    text: "End-to-end freight coordination — matching your cargo with the right carriers, routes and rates, door to destination.",
+  },
+  {
+    id: "business-consultancy-compliance",
+    icon: BadgeCheck,
+    tint: "bg-emerald-50 text-emerald-600",
+    title: "Business Consultancy, Registration & Compliance",
+    text: "From PACRA company registration to NAPSA, NHIMA and Workers' Compensation compliance — we get your business legally set up and stay compliant.",
+  },
+  {
+    id: "green-logistics-agritech",
+    icon: Sprout,
+    tint: "bg-teal-50 text-teal-600",
+    title: "Green Logistics & Agri-Tech",
+    text: "Low-emission last-mile delivery and smart-farming market linkages — sustainability built into every mile and every harvest.",
   },
 ];
 
@@ -35,16 +46,16 @@ export default function BeyondFixCycle() {
     <section className="bg-surface py-24 sm:py-28">
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Beyond FixCycle"
-          title="Green innovation across sectors"
-          subtitle="FixCycle is our flagship — but the mission extends into logistics, agriculture, supply chains and research."
+          eyebrow="What We Do"
+          title="Beyond FixCycle"
+          subtitle="FixCycle is our flagship — but our mission extends into trade, logistics, sourcing and business advisory across Africa."
         />
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {sectors.map((s, i) => (
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s, i) => (
             <Reveal key={s.title} delay={0.08 * i}>
               <Link
-                href="/solutions"
+                href={`/services#${s.id}`}
                 className="group flex h-full flex-col rounded-3xl border border-brand-green/10 bg-surface p-7 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-brand-green/30 hover:shadow-lift"
               >
                 <span

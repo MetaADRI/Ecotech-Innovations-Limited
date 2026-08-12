@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { site } from "@/lib/site";
 
@@ -8,6 +9,11 @@ type Status = "idle" | "sending" | "done" | "error";
 
 const subjects = [
   "General enquiry",
+  "Export & Import Trading",
+  "Strategic Sourcing & Procurement",
+  "Freight Brokerage",
+  "Business Consultancy & Compliance",
+  "Green Logistics & Agri-Tech",
   "FixCycle — I'm a customer",
   "FixCycle Pro — I'm an artisan",
   "Partner with us",
@@ -17,6 +23,9 @@ const subjects = [
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const searchParams = useSearchParams();
+  const requestedSubject = searchParams.get("subject") ?? "";
+  const presetSubject = subjects.includes(requestedSubject) ? requestedSubject : "";
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -82,6 +91,16 @@ export default function ContactForm() {
         Questions, partnerships, feedback — we read everything.
       </p>
 
+      {/* Formspree honeypot — hidden from humans; bots that fill it get silently dropped. */}
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
+
       <div className="mt-7 grid gap-5 sm:grid-cols-2">
         <label className="block">
           <span className="mb-1.5 block text-sm font-semibold text-brand-ink">Name</span>
@@ -109,7 +128,7 @@ export default function ContactForm() {
         <select
           name="subject"
           required
-          defaultValue=""
+          defaultValue={presetSubject}
           className="w-full rounded-xl border border-brand-green/20 bg-brand-cream px-4 py-3 text-[15px] text-brand-ink transition-colors focus:border-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green/25"
         >
           <option value="" disabled>

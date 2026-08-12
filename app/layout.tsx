@@ -23,19 +23,28 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} | ${site.tagline}`,
+    default: "Ecotech Innovations Limited | Trade, Sourcing, Freight, Compliance & Green Tech — Zambia",
     template: `%s | ${site.name}`,
   },
   description:
-    `${site.name} is a Zambian sustainability-driven technology company. ` +
-    "We build smart, eco-friendly digital marketplaces like FixCycle that connect communities, " +
-    "reduce carbon footprints, and drive Africa's green economy.",
+    "Ecotech Innovations Limited (EIL) is a Zambian company offering export & import trading, " +
+    "strategic sourcing & procurement, freight brokerage, business registration & compliance, " +
+    "plus green-tech platforms like FixCycle serving households across Zambia.",
   keywords: [
     "Ecotech Innovations",
     "FixCycle",
     "FixCycle Pro",
     "Zambia",
+    "export import trading Zambia",
+    "strategic sourcing & procurement",
+    "freight brokerage",
+    "business registration Zambia",
+    "PACRA registration",
+    "NAPSA registration",
+    "NHIMA registration",
     "green technology",
+    "green logistics",
+    "agri-tech",
     "sustainability",
     "Lusaka",
     "Ndola",
@@ -47,9 +56,9 @@ export const metadata: Metadata = {
     apple: "/logo.png",
   },
   openGraph: {
-    title: `${site.name} | ${site.tagline}`,
+    title: "Ecotech Innovations Limited | Trade, Sourcing, Freight, Compliance & Green Tech — Zambia",
     description:
-      "Zambian sustainability-driven technology: smart eco-friendly marketplaces, green logistics, agri-tech and research consultancy.",
+      "Zambian company delivering export/import trade, sourcing & procurement, freight brokerage, and business consultancy — alongside green-tech marketplaces for households.",
     type: "website",
     locale: "en_ZM",
     siteName: site.name,

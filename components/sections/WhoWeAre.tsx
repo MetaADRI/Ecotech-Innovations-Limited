@@ -56,16 +56,16 @@ export default function WhoWeAre() {
         {/* Stats */}
         <div className="grid grid-cols-2 gap-5">
           {[
-            { label: "Founded", value: stats.founded, suffix: "" },
-            { label: "Cities with operations", value: stats.cities, suffix: "" },
-            { label: "Verified artisans", value: stats.artisans, suffix: "+" },
-            { label: "App downloads", value: stats.downloads, suffix: "+" },
+            { label: "Founded", value: stats.founded, suffix: "", grouping: false },
+            { label: "Cities with operations", value: stats.cities, suffix: "", grouping: true },
+            { label: "Verified artisans", value: stats.artisans, suffix: "+", grouping: true },
+            { label: "App downloads", value: stats.downloads, suffix: "+", grouping: true },
           ].map((s, i) => (
             <Reveal key={s.label} delay={0.1 * i} direction="up">
               <div className="group relative overflow-hidden rounded-3xl border border-brand-green/10 bg-brand-cream p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-green/30 hover:shadow-lift">
                 <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-brand-green/10 transition-transform duration-500 group-hover:scale-150" aria-hidden />
                 <p className="font-mono text-4xl font-bold tracking-tight text-brand-ink sm:text-[2.6rem]">
-                  <Counter to={s.value} suffix={s.suffix} />
+                  <Counter to={s.value} suffix={s.suffix} grouping={s.grouping} />
                 </p>
                 <p className="mt-2 text-sm font-medium text-brand-ink/60">{s.label}</p>
               </div>

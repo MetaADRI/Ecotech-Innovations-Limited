@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Building2, Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
@@ -26,6 +27,22 @@ const socials = [
   },
 ];
 
+function ContactFormFallback() {
+  return (
+    <div aria-hidden="true" className="rounded-3xl border border-brand-green/15 bg-surface p-8 shadow-soft sm:p-10">
+      <div className="h-7 w-48 animate-pulse rounded-full bg-brand-mint" />
+      <div className="mt-2 h-4 w-72 max-w-full animate-pulse rounded-full bg-brand-mint/60" />
+      <div className="mt-7 grid gap-5 sm:grid-cols-2">
+        <div className="h-12 animate-pulse rounded-xl bg-brand-cream" />
+        <div className="h-12 animate-pulse rounded-xl bg-brand-cream" />
+      </div>
+      <div className="mt-5 h-12 animate-pulse rounded-xl bg-brand-cream" />
+      <div className="mt-5 h-32 animate-pulse rounded-xl bg-brand-cream" />
+      <div className="mt-7 h-12 w-44 animate-pulse rounded-full bg-brand-mint" />
+    </div>
+  );
+}
+
 export default function ContactPage() {
   return (
     <>
@@ -40,7 +57,9 @@ export default function ContactPage() {
         <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Form */}
           <Reveal direction="right">
-            <ContactForm />
+            <Suspense fallback={<ContactFormFallback />}>
+              <ContactForm />
+            </Suspense>
           </Reveal>
 
           {/* Details */}

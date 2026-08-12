@@ -87,6 +87,16 @@ export default function VolunteerForm() {
         Tell us who you are and what you&apos;d love to build. We reply fast.
       </p>
 
+      {/* Formspree honeypot — hidden from humans; bots that fill it get silently dropped. */}
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
+
       <div className="mt-7 grid gap-5 sm:grid-cols-2">
         <label className="block">
           <span className="mb-1.5 block text-sm font-semibold text-brand-ink">Full name</span>

@@ -133,6 +133,7 @@ export const volunteerBenefits = [
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
   { href: "/fixcycle", label: "FixCycle" },
   { href: "/solutions", label: "Solutions" },
   { href: "/impact", label: "Impact" },

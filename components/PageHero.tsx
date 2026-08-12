@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronRight, Leaf } from "lucide-react";
+import { ArrowRight, ChevronRight, Leaf } from "lucide-react";
+import { ButtonLink } from "@/components/Button";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -11,17 +12,25 @@ const anim = {
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
 };
 
+type HeroAction = {
+  label: string;
+  href: string;
+  primary?: boolean;
+};
+
 /** Inner-page hero banner with breadcrumb and decorative background. */
 export default function PageHero({
   eyebrow,
   title,
   subtitle,
   crumb,
+  actions,
 }: {
   eyebrow: string;
   title: string;
   subtitle?: string;
   crumb: string;
+  actions?: HeroAction[];
 }) {
   return (
     <section className="relative overflow-hidden bg-brand-blue pb-24 pt-40 text-white">
@@ -83,6 +92,30 @@ export default function PageHero({
           >
             {subtitle}
           </motion.p>
+        )}
+
+        {actions && actions.length > 0 && (
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={anim}
+            transition={{ delay: 0.48 }}
+            className="mt-9 flex flex-wrap items-center gap-4"
+          >
+            {actions.map((a) => (
+              <ButtonLink
+                key={a.label}
+                href={a.href}
+                variant={a.primary ? "white" : "outline-light"}
+                size="lg"
+              >
+                {a.label}
+                {a.primary && (
+                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                )}
+              </ButtonLink>
+            ))}
+          </motion.div>
         )}
       </div>
     </section>

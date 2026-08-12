@@ -10,6 +10,7 @@ export default function Counter({
   suffix = "",
   decimals = 0,
   duration = 2,
+  grouping = true,
   className,
 }: {
   to: number;
@@ -17,6 +18,8 @@ export default function Counter({
   suffix?: string;
   decimals?: number;
   duration?: number;
+  /** Set to false to disable thousands separators (e.g. for years like 2021). */
+  grouping?: boolean;
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -34,13 +37,14 @@ export default function Counter({
             v.toLocaleString("en-US", {
               minimumFractionDigits: decimals,
               maximumFractionDigits: decimals,
+              useGrouping: grouping,
             }) +
             suffix;
         }
       },
     });
     return () => controls.stop();
-  }, [inView, to, prefix, suffix, decimals, duration]);
+  }, [inView, to, prefix, suffix, decimals, duration, grouping]);
 
   return (
     <span ref={ref} className={className}>
