@@ -55,7 +55,7 @@ export default function FixCyclePage() {
       </section>
 
       {/* Downloads */}
-      <section id="downloads" className="relative overflow-hidden bg-brand-cream py-24 sm:py-28">
+      <section id="downloads" className="relative scroll-mt-24 overflow-hidden bg-brand-cream py-24 sm:py-28">
         <div className="bg-dots absolute right-0 top-0 h-72 w-72 opacity-60" aria-hidden />
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <SectionHeading

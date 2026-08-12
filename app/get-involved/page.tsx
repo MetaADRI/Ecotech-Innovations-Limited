@@ -182,7 +182,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Apply form */}
-      <section id="apply" className="bg-surface py-24 sm:py-28">
+      <section id="apply" className="scroll-mt-24 bg-surface py-24 sm:py-28">
         <div className="mx-auto w-full max-w-4xl px-5 sm:px-8">
           <SectionHeading
             eyebrow="Apply now"

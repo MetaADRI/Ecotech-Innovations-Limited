@@ -33,17 +33,18 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease }}
-              className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-green-light ring-1 ring-white/20 backdrop-blur"
+              className="inline-flex max-w-full flex-wrap items-center gap-x-2 gap-y-1 rounded-full bg-white/10 px-4 py-2 font-mono text-[11px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-brand-green-light ring-1 ring-white/20 backdrop-blur sm:tracking-[0.22em]"
             >
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-green-light" />
-              Zambian sustainability-driven tech · Est. {site.established}
+              <span className="h-1.5 w-1.5 shrink-0 animate-pulse rounded-full bg-brand-green-light" />
+              <span className="min-w-0">Zambian sustainability-driven tech</span>
+              <span className="hidden sm:inline">· Est. {site.established}</span>
             </motion.span>
 
             <motion.h1
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.12, ease }}
-              className="mt-6 font-display text-[2.6rem] font-extrabold leading-[1.06] tracking-tight sm:text-6xl lg:text-[4.2rem]"
+              className="mt-6 font-display text-[2.6rem] font-extrabold leading-[1.06] tracking-tight text-balance sm:text-6xl lg:text-[4.2rem]"
             >
               Innovating Today for a{" "}
               <span className="text-gradient">Sustainable Tomorrow.</span>

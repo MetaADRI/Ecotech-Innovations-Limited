@@ -14,7 +14,7 @@ export default function WhoWeAre() {
   const { stats } = site;
 
   return (
-    <section id="who-we-are" className="relative overflow-hidden bg-surface py-24 sm:py-28">
+    <section id="who-we-are" className="relative scroll-mt-20 overflow-hidden bg-surface py-24 sm:py-28">
       <div className="bg-dots absolute right-0 top-0 h-72 w-72 opacity-60" aria-hidden />
       <div className="mx-auto grid w-full max-w-7xl items-center gap-16 px-5 sm:px-8 lg:grid-cols-2">
         {/* Copy */}

@@ -95,6 +95,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Safety net: never let decorative blobs/chips push the page horizontally on
+     small screens. `clip` (not `hidden`) so position:sticky still works. */
+  overflow-x: clip;
 }
 
 body {
@@ -104,6 +107,18 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Kill the grey flash/highlight on mobile taps */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Mobile forms: keep interactive fields at ≥16px so iOS Safari doesn't zoom in
+   on focus (any smaller font triggers auto-zoom). */
+@media (max-width: 767px) {
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    font-size: 16px;
+  }
 }
 
 ::selection {

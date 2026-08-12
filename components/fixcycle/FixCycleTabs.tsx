@@ -266,7 +266,7 @@ export default function FixCycleTabs() {
                   </div>
 
                   {/* Floating testimonial chip */}
-                  <div className="absolute -bottom-8 -left-6 w-64 animate-float rounded-2xl bg-surface p-4 shadow-lift">
+                  <div className="absolute -bottom-8 -left-4 w-64 animate-float rounded-2xl bg-surface p-4 shadow-lift sm:-left-6">
                     <div className="flex gap-1 text-brand-gold">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <Star key={i} className="h-3.5 w-3.5 fill-current" />

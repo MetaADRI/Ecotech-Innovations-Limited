@@ -34,7 +34,7 @@ export default function Navbar() {
           : "border-b border-brand-green/20 bg-surface/90 shadow-soft backdrop-blur-xl"
       )}
     >
-      <div className="mx-auto flex h-[76px] w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
+      <div className="mx-auto flex h-[76px] w-full max-w-7xl items-center justify-between gap-2 px-4 sm:gap-4 sm:px-8">
         <Logo light={transparent} />
 
         {/* Desktop nav */}
@@ -96,7 +96,7 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             className={cn(
-              "inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors lg:hidden",
+              "inline-flex h-10 w-10 items-center justify-center rounded-full transition-colors sm:h-11 sm:w-11 lg:hidden",
               transparent ? "bg-white/10 text-white ring-1 ring-white/25" : "bg-brand-mint text-brand-ink"
             )}
           >
@@ -117,32 +117,47 @@ export default function Navbar() {
             className="overflow-hidden border-t border-brand-green/10 bg-surface lg:hidden"
             aria-label="Mobile"
           >
-            <div className="space-y-1 px-5 py-4">
-              {navLinks.map((link, i) => {
-                const active = pathname === link.href;
-                return (
-                  <motion.div
-                    key={link.href}
-                    initial={{ x: -16, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.05 * i }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={() => setOpen(false)}
-                      className={cn(
-                        "flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium transition-colors",
-                        active
-                          ? "bg-brand-mint text-brand-green-dark"
-                          : "text-brand-ink/75 hover:bg-brand-cream"
-                      )}
+            {/* Scrollable on short / landscape screens (76px = fixed header height) */}
+            <div className="max-h-[calc(100vh-76px)] overflow-y-auto overscroll-contain supports-[height:100dvh]:max-h-[calc(100dvh-76px)]">
+              <div className="space-y-1 px-4 py-4 sm:px-5">
+                {navLinks.map((link, i) => {
+                  const active = pathname === link.href;
+                  return (
+                    <motion.div
+                      key={link.href}
+                      initial={{ x: -16, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.05 * i }}
                     >
-                      {link.label}
-                      <ArrowRight className="h-4 w-4 opacity-40" />
-                    </Link>
-                  </motion.div>
-                );
-              })}
+                      <Link
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium transition-colors",
+                          active
+                            ? "bg-brand-mint text-brand-green-dark"
+                            : "text-brand-ink/75 hover:bg-brand-cream"
+                        )}
+                      >
+                        {link.label}
+                        <ArrowRight className="h-4 w-4 opacity-40" />
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* The desktop Volunteer CTA is hidden below md — surface it here on mobile */}
+              <div className="px-4 pb-6 pt-1 sm:px-5">
+                <Link
+                  href="/get-involved"
+                  onClick={() => setOpen(false)}
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-brand-green px-5 py-3.5 text-sm font-semibold text-white shadow-glow transition-colors hover:bg-brand-green-deep"
+                >
+                  Volunteer with us
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </motion.nav>
         )}

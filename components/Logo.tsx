@@ -27,7 +27,8 @@ export default function Logo({ light = false, size = "md" }: { light?: boolean; 
         <span
           className={cn(
             "font-display font-bold tracking-tight",
-            size === "lg" ? "text-2xl" : "text-lg",
+            // Shrink the wordmark a touch on very narrow phones so the navbar fits.
+            size === "lg" ? "text-2xl" : "text-[15px] min-[400px]:text-lg",
             light ? "text-white" : "text-brand-ink"
           )}
         >
@@ -36,7 +37,7 @@ export default function Logo({ light = false, size = "md" }: { light?: boolean; 
         </span>
         <span
           className={cn(
-            "font-mono text-[10px] uppercase tracking-[0.2em]",
+            "hidden font-mono text-[10px] uppercase tracking-[0.2em] min-[440px]:block",
             light ? "text-white/60" : "text-brand-ink/45"
           )}
         >

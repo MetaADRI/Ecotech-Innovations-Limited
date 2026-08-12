@@ -35,7 +35,8 @@ export default function ThemeToggle({ className }: { className?: string }) {
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
       title={dark ? "Switch to light mode" : "Switch to dark mode"}
       className={cn(
-        "group inline-flex h-11 w-11 items-center justify-center rounded-full transition-all duration-300 hover:scale-105 active:scale-95",
+        // Slightly smaller on phones so the navbar row fits 320px-wide screens.
+        "group inline-flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 hover:scale-105 active:scale-95 sm:h-11 sm:w-11",
         className
       )}
     >

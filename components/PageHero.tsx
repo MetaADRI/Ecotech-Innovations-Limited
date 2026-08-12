@@ -77,7 +77,7 @@ export default function PageHero({
           animate="show"
           variants={anim}
           transition={{ delay: 0.24 }}
-          className="max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl"
+          className="max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-tight text-balance sm:text-5xl lg:text-6xl"
         >
           {title}
         </motion.h1>
