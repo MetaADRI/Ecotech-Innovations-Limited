@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Apple, Download, Play, Smartphone } from "lucide-react";
+import { Apple, BadgeCheck, Download, Play, Smartphone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
@@ -19,6 +19,13 @@ const stores = [
     sub: "Android — FixCycle",
     note: "Get it on",
     href: "https://play.google.com/store/apps/details?id=com.fixcyclehandy.user",
+  },
+  {
+    icon: BadgeCheck,
+    title: "FixCycle Pro",
+    sub: "Android — for artisans",
+    note: "Get it on",
+    href: "https://play.google.com/store/apps/details?id=com.fixcyclehandy.driver",
   },
   {
     icon: Download,
@@ -64,7 +71,7 @@ export default function FixCyclePage() {
             subtitle="Join thousands of customers and artisans across Lusaka & Ndola. It takes less than a minute."
           />
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {stores.map((s, i) => {
               const linkable = !s.soon && s.href && s.href !== "#";
               const card = (
