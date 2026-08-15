@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { FacebookIcon, LinkedInIcon } from "@/components/icons/BrandIcons";
 import { site } from "@/lib/site";
-import { EilBadge } from "@/components/Logo";
+import Logo from "@/components/Logo";
 
 const divisions = [
   { label: "Trading & Supply", href: "/services#export-import-trading" },
@@ -32,10 +32,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 border-b border-[#F5F1E8]/[0.14] pb-12 min-[760px]:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           {/* Brand */}
           <div className="footer-col footer-brand">
-            <div className="mb-2.5 flex items-center gap-[9px]">
-              <EilBadge className="h-[26px] w-[26px]" />
-              <span className="font-display text-xl font-extrabold leading-none text-lime">eil</span>
-            </div>
+            <Logo light size="lg" />
             <p className="mt-3 max-w-[280px] text-[13.5px] leading-relaxed text-[#F5F1E8]/55">
               Ecotech Innovations Limited — innovating today for a sustainable tomorrow, across
               trading, consultancy, technology and logistics.

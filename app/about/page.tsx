@@ -188,7 +188,7 @@ export default function AboutPage() {
           <div className="mt-14 grid gap-8 lg:grid-cols-2">
             {[
               { city: "Lusaka", note: "Head Office", q: "Lusaka, Zambia", phone: site.phoneLusaka },
-              { city: "Ndola", note: "Branch Office", q: "Ndola, Zambia", phone: site.phoneNdola },
+              { city: "Ndola", note: "Branch Office", q: "Ndola, Zambia" },
             ].map((loc, i) => (
               <Reveal key={loc.city} direction={i === 0 ? "left" : "right"}>
                 <div className="overflow-hidden rounded-[2px] bg-surface shadow-soft ring-1 ring-black/5 dark:ring-white/10 transition-all duration-300 hover:shadow-lift">
@@ -210,10 +210,12 @@ export default function AboutPage() {
                         <p className="text-sm text-brand-ink/55">{loc.note}</p>
                       </div>
                     </div>
-                    <span className="flex items-center gap-2 rounded-[2px] bg-forest px-3.5 py-2 font-mono text-xs font-semibold text-paper">
-                      <Building2 className="h-3.5 w-3.5" />
-                      {loc.phone}
-                    </span>
+                    {loc.phone && (
+                      <span className="flex items-center gap-2 rounded-[2px] bg-forest px-3.5 py-2 font-mono text-xs font-semibold text-paper">
+                        <Building2 className="h-3.5 w-3.5" />
+                        {loc.phone}
+                      </span>
+                    )}
                   </div>
                 </div>
               </Reveal>

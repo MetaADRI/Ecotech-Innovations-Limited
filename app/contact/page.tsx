@@ -86,7 +86,6 @@ export default function ContactPage() {
                     <div>
                       <p className="text-sm text-brand-ink/50">Phone</p>
                       <p className="font-semibold text-brand-ink">{site.phoneLusaka}</p>
-                      <p className="font-semibold text-brand-ink">{site.phoneNdola}</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-4">

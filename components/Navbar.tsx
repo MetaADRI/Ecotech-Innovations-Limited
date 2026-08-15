@@ -45,7 +45,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#F5F1E8]/[0.14] bg-[#14181A]/92 backdrop-blur-md">
       <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-4 px-5 py-[18px] sm:px-8">
-        <Logo />
+        <Logo light />
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-[18px] lg:flex" aria-label="Primary">

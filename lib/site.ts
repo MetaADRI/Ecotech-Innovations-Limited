@@ -17,8 +17,7 @@ export const site = {
   // ── Contact details ──
   email: "ecotechinnoltd@gmail.com", // CEO email
   emailCareers: "ecotechinnoltd@gmail.com", // careers go to the same inbox for now
-  phoneLusaka: "+260 76 9723838", // CEO / main line (placeholder Ndola line below)
-  phoneNdola: "+260 212 000 000",
+  phoneLusaka: "+260 76 9723838", // CEO / main line
   addressLusaka: "Lusaka, Zambia (Head Office)",
   addressNdola: "Ndola, Zambia (Branch Office)",
 
