@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecotech Innovations Limited — Innovating Business. Enabling Sustainable Growth.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1B4640;
+    --forest-deep:#0F2E28;
+    --charcoal:#12332E;
+    --paper:#F5F1E8;
+    --lime:#C9A227;
+    --lime-dim:#AD8B1E;
+    --teal:#2F8F92;
+    --leaf:#5FA646;
+    --ink:#16231D;
+    --sage:#74806C;
+    --line: rgba(245,241,232,0.14);
+    --line-dark: rgba(22,35,29,0.12);
+    --maxw: 1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Poppins',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(20,24,26,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; max-width:var(--maxw); margin:0 auto;
+  }
+  .logo{
+    display:flex; flex-direction:column; gap:2px; color:var(--paper);
+  }
+  .logo-row{ display:flex; align-items:center; gap:9px; }
+  .logo-badge{ width:26px; height:26px; flex-shrink:0; }
+  .logo-mark{ font-family:'Poppins',sans-serif; font-size:20px; font-weight:800; letter-spacing:0; color:var(--lime); line-height:1; }
+  .logo-mark span{ color:var(--lime); }
+  .logo-tag{ font-size:10px; color:var(--sage); letter-spacing:0.12em; }
+  .nav-links{ display:flex; gap:34px; list-style:none; margin:0; padding:0; }
+  .nav-links a{
+    color:var(--paper); text-decoration:none; font-size:13px;
+    font-family:'IBM Plex Mono',monospace; letter-spacing:0.06em; text-transform:uppercase;
+    opacity:0.75; transition:opacity 0.2s ease;
+    padding:4px 2px; border-bottom:1px solid transparent;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{ opacity:1; border-color:var(--lime); }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px; border-radius:2px;
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase;
+    text-decoration:none; cursor:pointer; border:1px solid transparent;
+    transition:transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  }
+  .btn:focus-visible{ outline:2px solid var(--lime); outline-offset:3px; }
+  .btn-solid{ background:var(--lime); color:var(--forest-deep); font-weight:600; }
+  .btn-solid:hover{ transform:translateY(-2px); background:var(--lime-dim); }
+  .btn-outline{ border-color:rgba(245,241,232,0.35); color:var(--paper); }
+  .btn-outline:hover{ transform:translateY(-2px); border-color:var(--lime); color:var(--lime); }
+  .nav-cta{ display:flex; align-items:center; gap:22px; }
+  .nav-toggle{ display:none; background:none; border:none; color:var(--paper); font-size:22px; cursor:pointer; }
+  @media (max-width: 900px){
+    .nav-links{ display:none; }
+    .nav-toggle{ display:block; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    background:radial-gradient(120% 140% at 15% 0%, var(--forest) 0%, var(--forest-deep) 46%, var(--charcoal) 100%);
+    color:var(--paper);
+    padding:120px 0 0;
+  }
+  .hero-grid{
+    max-width:var(--maxw); margin:0 auto; padding:0 32px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
+    position:relative; z-index:2;
+  }
+  @media (max-width:900px){ .hero-grid{ grid-template-columns:1fr; } }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.16em;
+    color:var(--lime); text-transform:uppercase; margin-bottom:22px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:''; width:22px; height:1px; background:var(--lime); display:inline-block; }
+  .hero h1{
+    font-size:clamp(38px, 5.4vw, 68px);
+    font-weight:800; line-height:1.04; margin-bottom:26px;
+  }
+  .hero h1 em{ font-style:normal; color:var(--lime); }
+  .hero p.lede{
+    font-size:17px; color:rgba(245,241,232,0.78); max-width:480px; margin-bottom:38px;
+  }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:64px; }
+  .hero-visual{ position:relative; height:420px; }
+  @media (max-width:900px){ .hero-visual{ height:280px; } }
+  .hero-visual svg{ width:100%; height:100%; }
+  .node{ fill:var(--lime); }
+  .route{ fill:none; stroke:rgba(201,162,39,0.5); stroke-width:1.2; stroke-dasharray:6 5; }
+  .route-solid{ fill:none; stroke:rgba(245,241,232,0.22); stroke-width:1; }
+  .route-teal{ fill:none; stroke:rgba(47,143,146,0.5); stroke-width:1.2; }
+  .pulse{ animation:pulseFade 2.6s ease-in-out infinite; }
+  @keyframes pulseFade{ 0%,100%{opacity:0.35;} 50%{opacity:1;} }
+  .draw{ stroke-dasharray:600; stroke-dashoffset:600; animation:drawIn 2.4s ease forwards; }
+  @keyframes drawIn{ to{ stroke-dashoffset:0; } }
+
+  /* divisions strip */
+  .div-strip{
+    border-top:1px solid var(--line);
+    background:rgba(8,39,32,0.6);
+    position:relative; z-index:2;
+  }
+  .div-strip-inner{
+    max-width:var(--maxw); margin:0 auto; padding:18px 32px;
+    display:flex; flex-wrap:wrap; gap:14px 30px; align-items:center;
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:rgba(245,241,232,0.6);
+  }
+  .div-strip-inner b{ color:var(--paper); font-weight:500; }
+  .div-strip-inner .sep{ color:var(--lime); }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:96px 0; }
+  @media (max-width:640px){ section{ padding:64px 0; } }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head .eyebrow{ color:var(--forest); }
+  .section-head .eyebrow::before{ background:var(--forest); }
+  .light .section-head .eyebrow{ color:var(--forest); }
+  .light .section-head h2{ color:var(--ink); }
+  .dark .section-head .eyebrow{ color:var(--lime); }
+  .dark .section-head .eyebrow::before{ background:var(--lime); }
+  .section-head h2{ font-size:clamp(28px,3.4vw,42px); font-weight:700; line-height:1.15; }
+  .section-head p{ color:var(--sage); margin-top:16px; font-size:15.5px; max-width:520px; }
+
+  /* ---------- WHAT WE DO (cards) ---------- */
+  .light{ background:var(--paper); color:var(--ink); }
+  .card-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line-dark); border:1px solid var(--line-dark);
+  }
+  @media (max-width:980px){ .card-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .card-grid{ grid-template-columns:1fr; } }
+  .card{
+    background:var(--paper); padding:32px 26px; cursor:pointer;
+    border-top:3px solid transparent; transition:border-color 0.25s ease, background 0.25s ease;
+  }
+  .card:hover, .card.active{ border-top-color:var(--forest); background:#EFEAD9; }
+  .card-code{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.1em; color:var(--sage); margin-bottom:18px; display:block; }
+  .card h3{ font-size:20px; margin-bottom:10px; }
+  .card p.desc{ font-size:14.5px; color:#4B554C; margin:0 0 14px; }
+  .card-services{
+    max-height:0; overflow:hidden; transition:max-height 0.35s ease;
+  }
+  .card.active .card-services{ max-height:260px; }
+  .card-services ul{ list-style:none; margin:6px 0 0; padding:14px 0 0; border-top:1px solid var(--line-dark); }
+  .card-services li{
+    font-size:13px; color:#3C453D; padding:5px 0; position:relative; padding-left:14px;
+  }
+  .card-services li::before{ content:'—'; position:absolute; left:0; color:var(--forest); }
+  .card-expand{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--forest); display:inline-flex; align-items:center; gap:6px; }
+  .card-expand .chevron{ transition:transform 0.25s ease; display:inline-block; }
+  .card.active .chevron{ transform:rotate(180deg); }
+
+  /* ---------- PORTFOLIO ---------- */
+  .dark{ background:var(--charcoal); color:var(--paper); }
+  .portfolio-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  @media (max-width:900px){ .portfolio-grid{ grid-template-columns:1fr; } }
+  .pf-card{ background:var(--charcoal); padding:38px 32px; transition:background 0.25s ease; }
+  .pf-card:hover{ background:#1A2020; }
+  .pf-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--lime); border:1px solid rgba(201,162,39,0.4); display:inline-block; padding:4px 9px; border-radius:2px; margin-bottom:18px;
+  }
+  .pf-card h3{ font-size:24px; margin-bottom:10px; }
+  .pf-card p{ font-size:14.5px; color:rgba(245,241,232,0.65); margin:0; max-width:400px; }
+
+  /* ---------- CTA / FOOTER ---------- */
+  .cta-band{
+    background:var(--forest); color:var(--paper); padding:90px 0; text-align:center;
+  }
+  .cta-band h2{ font-size:clamp(28px,4vw,44px); margin-bottom:20px; }
+  .cta-band p{ color:rgba(245,241,232,0.75); max-width:480px; margin:0 auto 34px; font-size:15.5px; }
+  .cta-band .hero-ctas{ justify-content:center; margin-bottom:0; }
+
+  footer{ background:var(--charcoal); color:rgba(245,241,232,0.6); padding:64px 0 28px; }
+  .footer-grid{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:48px; border-bottom:1px solid var(--line);
+  }
+  @media (max-width:760px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+  .footer-col h4{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--sage); margin-bottom:16px;
+  }
+  .footer-col ul{ list-style:none; margin:0; padding:0; }
+  .footer-col li{ margin-bottom:9px; font-size:14px; }
+  .footer-brand .logo-mark{ font-size:20px; margin-bottom:8px; }
+  .footer-brand p{ font-size:13.5px; max-width:280px; color:rgba(245,241,232,0.55); }
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center; padding-top:24px;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.05em; color:rgba(245,241,232,0.4);
+    flex-wrap:wrap; gap:12px;
+  }
+
+  ::selection{ background:var(--lime); color:var(--forest-deep); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-row">
+        <svg class="logo-badge" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="17" fill="none" stroke="var(--lime)" stroke-width="2"/>
+          <path d="M13 27 C13 18 18 13 27 12 C26 21 21 26 13 27 Z" fill="var(--leaf)"/>
+          <path d="M13 27 C16 23 19 20 23 17" stroke="#F5F1E8" stroke-width="1" fill="none"/>
+          <rect x="15" y="22" width="7" height="7" rx="1" fill="#8A9186"/>
+          <path d="M15 21v2M17 21v2M19 21v2M15 30v-2M17 30v-2M19 30v-2M14 24h-2M14 26h-2M23 24h2M23 26h2" stroke="#8A9186" stroke-width="1"/>
+          <path d="M28 14 L23 22 L27 22 L24 29 L31 20 L27 20 Z" fill="var(--teal)"/>
+        </svg>
+        <span class="logo-mark">eil</span>
+      </div>
+      <span class="logo-tag">INNOVATING TODAY FOR A SUSTAINABLE TOMORROW</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#trading">Trading</a></li>
+      <li><a href="#consultancy">Consultancy</a></li>
+      <li><a href="#technology">Technology</a></li>
+      <li><a href="#logistics">Logistics</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-solid">Partner With Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">eil · Ecotech Innovations Limited · Ndola, Zambia</div>
+      <h1>Innovating today for a <em>sustainable</em> tomorrow.</h1>
+      <p class="lede">We deliver trading, consultancy, sustainable technology and logistics solutions that help businesses operate smarter, grow efficiently and transition toward a sustainable future.</p>
+      <div class="hero-ctas">
+        <a href="#portfolio" class="btn btn-solid">Explore Our Solutions</a>
+        <a href="#contact" class="btn btn-outline">Partner With Us</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+        <path class="route-solid draw" d="M40,340 C120,300 140,200 90,140 C60,100 100,60 160,60" />
+        <path class="route draw" d="M40,340 L200,260 L260,320 L380,200" />
+        <path class="route-solid draw" d="M160,60 C220,60 240,120 300,120 C350,120 370,170 340,220" />
+        <path class="route draw" d="M300,120 L260,320" />
+        <path class="route-solid draw" d="M200,260 C170,200 190,140 160,60" />
+        <circle class="node pulse" cx="40" cy="340" r="5" style="animation-delay:0s"/>
+        <circle class="node pulse" cx="160" cy="60" r="4" style="animation-delay:0.3s"/>
+        <circle class="node pulse" cx="300" cy="120" r="6" style="animation-delay:0.6s"/>
+        <circle class="node pulse" cx="380" cy="200" r="4" style="animation-delay:0.9s"/>
+        <circle class="node pulse" cx="260" cy="320" r="5" style="animation-delay:1.2s"/>
+        <circle class="node pulse" cx="200" cy="260" r="4" style="animation-delay:1.5s"/>
+        <circle class="node pulse" cx="340" cy="220" r="3.5" style="animation-delay:1.8s"/>
+        <circle class="node pulse" cx="90" cy="140" r="3.5" style="animation-delay:2.1s"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="div-strip">
+    <div class="div-strip-inner">
+      <span><b>01</b> Trading &amp; Supply</span>
+      <span class="sep">/</span>
+      <span><b>02</b> Business Consultancy</span>
+      <span class="sep">/</span>
+      <span><b>03</b> Sustainable Technology</span>
+      <span class="sep">/</span>
+      <span><b>04</b> Logistics &amp; Mobility</span>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT WE DO -->
+<section class="light" id="what-we-do">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Our Divisions</div>
+      <h2>Four ways we create value</h2>
+      <p>Tap a division to see the full range of services within it.</p>
+    </div>
+  </div>
+  <div class="card-grid" id="cardGrid">
+
+    <div class="card" id="trading">
+      <span class="card-code">DIV.01 — TRADE</span>
+      <h3>Trading &amp; Supply</h3>
+      <p class="desc">Connecting businesses to products, equipment and technology.</p>
+      <span class="card-expand"><span class="chevron">▾</span> View services</span>
+      <div class="card-services">
+        <ul>
+          <li>General trading</li>
+          <li>Industrial supplies</li>
+          <li>Equipment &amp; technology</li>
+          <li>Renewable energy products</li>
+          <li>Procurement &amp; sourcing</li>
+          <li>Import / export</li>
+          <li>Corporate supply</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" id="consultancy">
+      <span class="card-code">DIV.02 — CONSULT</span>
+      <h3>Business Consultancy</h3>
+      <p class="desc">Helping organisations solve operational, commercial and strategic challenges.</p>
+      <span class="card-expand"><span class="chevron">▾</span> View services</span>
+      <div class="card-services">
+        <ul>
+          <li>Business development</li>
+          <li>Supply-chain consultancy</li>
+          <li>Logistics consultancy</li>
+          <li>Project management</li>
+          <li>Procurement advisory</li>
+          <li>Market research</li>
+          <li>Sustainability advisory</li>
+          <li>Digital transformation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" id="technology">
+      <span class="card-code">DIV.03 — TECH</span>
+      <h3>Sustainable Technology</h3>
+      <p class="desc">Developing innovative solutions for a cleaner and smarter future.</p>
+      <span class="card-expand"><span class="chevron">▾</span> View services</span>
+      <div class="card-services">
+        <ul>
+          <li>FixCycle, MobiLink &amp; Lala</li>
+          <li>Solar solutions</li>
+          <li>Smart energy solutions</li>
+          <li>Waste &amp; recycling technologies</li>
+          <li>Digital platforms</li>
+          <li>Climate &amp; green technology</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" id="logistics">
+      <span class="card-code">DIV.04 — MOVE</span>
+      <h3>Logistics &amp; Mobility</h3>
+      <p class="desc">Making movement of people, products and services more efficient.</p>
+      <span class="card-expand"><span class="chevron">▾</span> View services</span>
+      <div class="card-services">
+        <ul>
+          <li>Transport &amp; logistics</li>
+          <li>Last-mile delivery</li>
+          <li>Fleet solutions</li>
+          <li>Intercity transportation</li>
+          <li>Cargo &amp; parcel logistics</li>
+          <li>Supply-chain solutions</li>
+          <li>Electric mobility</li>
+          <li>Logistics technology</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="dark" id="portfolio">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Our Innovation Portfolio</div>
+      <h2>Platforms built for how Zambia actually moves, works and lives</h2>
+      <p>This is where our sustainable technology division comes to life — a portfolio of homegrown digital platforms, not just another trading company.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="pf-card">
+        <span class="pf-tag">Marketplace</span>
+        <h3>FixCycle</h3>
+        <p>A digital marketplace connecting households to repair, maintenance and handyman services — building resilience and local livelihoods.</p>
+      </div>
+      <div class="pf-card">
+        <span class="pf-tag">Mobility &amp; Parcels</span>
+        <h3>MobiLink</h3>
+        <p>An intercity ride-sharing and parcel delivery platform, moving people and cargo between Zambia's cities more efficiently.</p>
+      </div>
+      <div class="pf-card">
+        <span class="pf-tag">Hospitality</span>
+        <h3>Lala</h3>
+        <p>A mobile-first, budget accommodation booking platform via Mobile Money and WhatsApp — covering Lusaka, the Copperbelt and Livingstone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <h2>Let's build what's next.</h2>
+    <p>Whether you need a trading partner, a consultancy engagement, or a technology platform — our four divisions work together to move your business forward.</p>
+    <div class="hero-ctas">
+      <a href="#what-we-do" class="btn btn-solid" style="background:var(--paper); color:var(--forest-deep);">Explore Our Solutions</a>
+      <a href="#portfolio" class="btn btn-outline">See Our Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div class="logo-row" style="margin-bottom:10px;">
+          <svg class="logo-badge" viewBox="0 0 40 40" aria-hidden="true">
+            <circle cx="20" cy="20" r="17" fill="none" stroke="var(--lime)" stroke-width="2"/>
+            <path d="M13 27 C13 18 18 13 27 12 C26 21 21 26 13 27 Z" fill="var(--leaf)"/>
+            <path d="M13 27 C16 23 19 20 23 17" stroke="#12332E" stroke-width="1" fill="none"/>
+            <rect x="15" y="22" width="7" height="7" rx="1" fill="#8A9186"/>
+            <path d="M15 21v2M17 21v2M19 21v2M15 30v-2M17 30v-2M19 30v-2M14 24h-2M14 26h-2M23 24h2M23 26h2" stroke="#8A9186" stroke-width="1"/>
+            <path d="M28 14 L23 22 L27 22 L24 29 L31 20 L27 20 Z" fill="var(--teal)"/>
+          </svg>
+          <span class="logo-mark">eil</span>
+        </div>
+        <p>Ecotech Innovations Limited — innovating today for a sustainable tomorrow, across trading, consultancy, technology and logistics.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Divisions</h4>
+        <ul>
+          <li><a href="#trading">Trading &amp; Supply</a></li>
+          <li><a href="#consultancy">Business Consultancy</a></li>
+          <li><a href="#technology">Sustainable Technology</a></li>
+          <li><a href="#logistics">Logistics &amp; Mobility</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Portfolio</h4>
+        <ul>
+          <li>FixCycle</li>
+          <li>MobiLink</li>
+          <li>Lala</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#portfolio">Innovation Portfolio</a></li>
+          <li><a href="#contact">Partner With Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ECOTECH INNOVATIONS LIMITED</span>
+      <span>NDOLA · ZAMBIA</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      const wasActive = card.classList.contains('active');
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+      if(!wasActive){ card.classList.add('active'); }
+    });
+    card.setAttribute('tabindex','0');
+    card.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); card.click(); }
+    });
+  });
+</script>
+
+</body>
+</html>

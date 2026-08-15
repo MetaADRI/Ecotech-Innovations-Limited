@@ -60,8 +60,8 @@ export default function VolunteerForm() {
 
   if (status === "done") {
     return (
-      <div className="rounded-3xl border border-brand-green/25 bg-brand-mint p-10 text-center">
-        <CheckCircle2 className="mx-auto h-12 w-12 text-brand-green-dark" />
+      <div className="rounded-[2px] border border-forest/25 bg-brand-mint p-10 text-center">
+        <CheckCircle2 className="mx-auto h-12 w-12 text-forest" />
         <h3 className="mt-4 font-display text-xl font-bold text-brand-ink">Application received 🎉</h3>
         <p className="mt-2 text-[15px] text-brand-ink/65">
           Thanks for offering your time! We&apos;ll be in touch with next steps.
@@ -69,7 +69,7 @@ export default function VolunteerForm() {
             <>
               {" "}
               (If your email app didn&apos;t open, write to us directly at{" "}
-              <a href={`mailto:${site.emailCareers}`} className="font-semibold text-brand-green-dark underline">
+              <a href={`mailto:${site.emailCareers}`} className="font-semibold text-forest underline">
                 {site.emailCareers}
               </a>
               .)
@@ -81,7 +81,7 @@ export default function VolunteerForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="rounded-3xl border border-brand-green/15 bg-surface p-8 shadow-soft sm:p-10">
+    <form onSubmit={onSubmit} className="rounded-[2px] border border-ink/15 bg-surface p-8 shadow-soft sm:p-10">
       <h3 className="font-display text-2xl font-bold text-brand-ink">Apply now</h3>
       <p className="mt-2 text-sm text-brand-ink/55">
         Tell us who you are and what you&apos;d love to build. We reply fast.
@@ -104,7 +104,7 @@ export default function VolunteerForm() {
             name="name"
             required
             placeholder="Bwalya M."
-            className="w-full rounded-xl border border-brand-green/20 bg-brand-cream px-4 py-3 text-[15px] text-brand-ink placeholder:text-brand-ink/35 transition-colors focus:border-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green/25"
+            className="w-full rounded-[2px] border border-ink/20 bg-paper-soft px-4 py-3 text-[15px] text-brand-ink placeholder:text-brand-ink/35 transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/25"
           />
         </label>
         <label className="block">
@@ -114,7 +114,7 @@ export default function VolunteerForm() {
             type="email"
             required
             placeholder="you@example.com"
-            className="w-full rounded-xl border border-brand-green/20 bg-brand-cream px-4 py-3 text-[15px] text-brand-ink placeholder:text-brand-ink/35 transition-colors focus:border-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green/25"
+            className="w-full rounded-[2px] border border-ink/20 bg-paper-soft px-4 py-3 text-[15px] text-brand-ink placeholder:text-brand-ink/35 transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/25"
           />
         </label>
       </div>
@@ -125,7 +125,7 @@ export default function VolunteerForm() {
           name="role"
           required
           defaultValue=""
-          className="w-full rounded-xl border border-brand-green/20 bg-brand-cream px-4 py-3 text-[15px] text-brand-ink transition-colors focus:border-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green/25"
+          className="w-full rounded-[2px] border border-ink/20 bg-paper-soft px-4 py-3 text-[15px] text-brand-ink transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/25"
         >
           <option value="" disabled>
             Choose a role
@@ -144,7 +144,7 @@ export default function VolunteerForm() {
           name="message"
           rows={4}
           placeholder="A sentence or two is perfect…"
-          className="w-full resize-y rounded-xl border border-brand-green/20 bg-brand-cream px-4 py-3 text-[15px] text-brand-ink placeholder:text-brand-ink/35 transition-colors focus:border-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green/25"
+          className="w-full resize-y rounded-[2px] border border-ink/20 bg-paper-soft px-4 py-3 text-[15px] text-brand-ink placeholder:text-brand-ink/35 transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/25"
         />
       </label>
 
@@ -161,7 +161,7 @@ export default function VolunteerForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-green px-8 py-4 font-semibold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-green-deep disabled:opacity-60 sm:w-auto"
+        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-[2px] bg-lime px-8 py-4 font-semibold text-forest-deep shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-lime-dim disabled:opacity-60 sm:w-auto"
       >
         {status === "sending" ? (
           <>
@@ -177,7 +177,7 @@ export default function VolunteerForm() {
 
       <p className="mt-4 text-xs text-brand-ink/45">
         Prefer a direct message? Email{" "}
-        <a href={`mailto:${site.emailCareers}`} className="font-semibold text-brand-green-dark">
+        <a href={`mailto:${site.emailCareers}`} className="font-semibold text-forest">
           {site.emailCareers}
         </a>
       </p>

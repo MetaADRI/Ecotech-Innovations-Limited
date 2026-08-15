@@ -4,28 +4,42 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* ── Brand palette (green-led; gold accent sampled from the logo) ── */
-  /* brand-green-dark / brand-mint / brand-cream / brand-ink flip in dark mode
-     (defined below in @theme inline via CSS variables) */
-  --color-brand-green: #00a651;
-  --color-brand-green-deep: #006b33;
-  --color-brand-green-light: #35c97c;
-  --color-brand-blue: #0a2f44;
-  --color-brand-blue-soft: #12415f;
-  --color-brand-teal: #008080;
-  --color-brand-gold: #c9a227;
-  --color-brand-gold-light: #e3c564;
+  /* ── Brand palette — "Innovating today for a sustainable tomorrow."
+     Matches the approved Ecotech Innovations design reference
+     (forest greens + paper + lime/gold accent). ── */
+  --color-forest: #1b4640;
+  --color-forest-deep: #0f2e28;
+  --color-charcoal: #12332e;
+  --color-paper: #f5f1e8;
+  --color-paper-soft: #efeadd;
+  --color-lime: #c9a227;
+  --color-lime-dim: #ad8b1e;
+  --color-teal: #2f8f92;
+  --color-leaf: #5fa646;
+  --color-ink: #16231d;
+  --color-sage: #74806c;
 
-  /* ── Typography ── */
+  /* ── Legacy alias tokens (kept so every component adapts automatically) ── */
+  --color-brand-green: #c9a227; /* primary accent — lime */
+  --color-brand-green-deep: #ad8b1e; /* lime dim */
+  --color-brand-green-light: #e3c564; /* lighter gold for text on dark */
+  --color-brand-blue: #1b4640; /* forest */
+  --color-brand-blue-soft: #0f2e28; /* forest deep */
+  --color-brand-teal: #2f8f92; /* teal */
+  --color-brand-gold: #c9a227; /* lime */
+  --color-brand-gold-light: #e3c564; /* gold light */
+  --color-brand-sage: #74806c; /* sage */
+
+  /* ── Typography (Poppins display / Inter body / IBM Plex Mono) ── */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: var(--font-poppins), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", "Cascadia Code", monospace;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", "Cascadia Code", monospace;
 
-  /* ── Shadows ── */
-  --shadow-soft: 0 10px 40px -12px rgb(10 47 68 / 0.12);
-  --shadow-lift: 0 24px 60px -20px rgb(10 47 68 / 0.28);
-  --shadow-glow: 0 12px 45px -8px rgb(0 166 81 / 0.5);
-  --shadow-glow-gold: 0 12px 45px -8px rgb(201 162 39 / 0.5);
+  /* ── Shadows (retuned to the forest palette) ── */
+  --shadow-soft: 0 10px 40px -12px rgb(18 51 46 / 0.12);
+  --shadow-lift: 0 24px 60px -20px rgb(15 46 40 / 0.28);
+  --shadow-glow: 0 12px 45px -8px rgb(201 162 39 / 0.4);
+  --shadow-glow-gold: 0 12px 45px -8px rgb(201 162 39 / 0.4);
 
   /* ── Radii ── */
   --radius-4xl: 2rem;
@@ -34,6 +48,7 @@
   --animate-float: float 7s ease-in-out infinite;
   --animate-float-slow: float 11s ease-in-out infinite;
   --animate-bounce-soft: bounce-soft 2.2s ease-in-out infinite;
+  --animate-pulse-fade: pulse-fade 2.6s ease-in-out infinite;
 
   @keyframes float {
     0%,
@@ -55,6 +70,15 @@
       opacity: 0.35;
     }
   }
+  @keyframes pulse-fade {
+    0%,
+    100% {
+      opacity: 0.35;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
 }
 
 :root {
@@ -63,24 +87,24 @@
 }
 
 /* ── Theme-aware tokens ────────────────────────────────────────────────────────
-   These flip with the .dark class so components using them adapt automatically.
-   bg-white / text-white stay constant on purpose (white buttons, dark banners). */
+   Light mode: paper canvases, forest ink + accents.
+   Dark mode:  charcoal/forest surfaces, paper text + lime accents. */
 :root {
-  --surface: #ffffff; /* cards, panels, nav, forms */
-  --surface-soft: #f4f9f4; /* section bands, chips (light green-tinted cream) */
-  --ink: #1e1e1e; /* body + heading text */
-  --mint: #e8f7ee; /* light green tint surfaces */
-  --green-text: #008a42; /* green text on light surfaces */
+  --surface: #f5f1e8; /* cards, panels, nav, forms */
+  --surface-soft: #efeadd; /* section bands, chips (paper tint) */
+  --ink: #16231d; /* body + heading text */
+  --mint: #efeadd; /* light paper-tint surfaces */
+  --green-text: #1b4640; /* accent text on light surfaces (forest) */
   color-scheme: light;
 }
 
 .dark {
-  --background: #0f2233;
-  --surface: #14293a; /* deep blue-tinted card surface */
-  --surface-soft: #0f2233; /* section bands, slightly deeper */
-  --ink: #e9f1ec; /* soft off-white text */
-  --mint: #0d2a1c; /* dark green tint */
-  --green-text: #4ae28f; /* bright green for text */
+  --background: #0f2e28;
+  --surface: #12332e; /* charcoal card surface */
+  --surface-soft: #1b4640; /* forest bands */
+  --ink: #f5f1e8; /* paper text */
+  --mint: #1b4640; /* forest tint */
+  --green-text: #c9a227; /* lime accent on dark */
   color-scheme: dark;
 }
 
@@ -100,15 +124,38 @@ html {
   overflow-x: clip;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 body {
   background: var(--background);
   /* use the theme-aware ink token so unstyled text inherits readable color in dark mode */
   color: var(--ink);
   font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   /* Kill the grey flash/highlight on mobile taps */
   -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  margin: 0;
 }
 
 /* Mobile forms: keep interactive fields at ≥16px so iOS Safari doesn't zoom in
@@ -122,8 +169,8 @@ body {
 }
 
 ::selection {
-  background: rgb(0 166 81 / 0.22);
-  color: #006b33;
+  background: var(--lime, #c9a227);
+  color: #0f2e28;
 }
 
 /* Slim, brand-tinted scrollbar */
@@ -131,24 +178,24 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #eef6f0;
+  background: #efeadd;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00a651, #008a42);
+  background: linear-gradient(180deg, #1b4640, #2f8f92);
   border-radius: 999px;
-  border: 2px solid #eef6f0;
+  border: 2px solid #efeadd;
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #0f2233;
+  background: #0f2e28;
 }
 .dark ::-webkit-scrollbar-thumb {
-  border-color: #0f2233;
+  border-color: #0f2e28;
 }
 
 /* ── Reusable helpers ── */
 .text-gradient {
-  background: linear-gradient(92deg, #35c97c 0%, #00a651 45%, #e3c564 100%);
+  background: linear-gradient(92deg, #e3c564 0%, #c9a227 55%, #2f8f92 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -168,7 +215,52 @@ body {
 }
 
 .bg-dots {
-  background-image: radial-gradient(rgb(0 166 81 / 0.16) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(rgb(27 70 64 / 0.16) 1.5px, transparent 1.5px);
   background-size: 22px 22px;
 }
 
+/* ── Hero network visual (reference design) ── */
+.hero-route {
+  fill: none;
+  stroke: rgba(201, 162, 39, 0.5);
+  stroke-width: 1.2;
+  stroke-dasharray: 6 5;
+}
+.hero-route-solid {
+  fill: none;
+  stroke: rgba(245, 241, 232, 0.22);
+  stroke-width: 1;
+}
+.hero-route-teal {
+  fill: none;
+  stroke: rgba(47, 143, 146, 0.5);
+  stroke-width: 1.2;
+}
+.hero-node {
+  fill: var(--lime, #c9a227);
+}
+.hero-draw {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: hero-draw-in 2.4s ease forwards;
+}
+@keyframes hero-draw-in {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.hero-pulse {
+  animation: pulse-fade 2.6s ease-in-out infinite;
+}
+
+/* ── Content rail ── */
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 20px;
+  }
+}

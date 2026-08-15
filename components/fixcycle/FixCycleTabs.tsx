@@ -71,10 +71,10 @@ function StepRow({ steps }: { steps: typeof customerSteps }) {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 + i * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="group relative rounded-3xl border border-brand-green/10 bg-surface p-7 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-green/30 hover:shadow-lift"
+          className="group relative rounded-[2px] border border-ink/10 bg-surface p-7 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-ink/25 hover:shadow-lift"
         >
-          <span className="absolute right-6 top-5 font-mono text-sm font-bold text-brand-green/25">{s.n}</span>
-          <span className="flex h-13 w-13 items-center justify-center rounded-2xl bg-brand-mint text-brand-green-dark transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
+          <span className="absolute right-6 top-5 font-mono text-sm font-bold text-forest/25">{s.n}</span>
+          <span className="flex h-13 w-13 items-center justify-center rounded-[2px] bg-brand-mint text-forest transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
             <s.icon className="h-6 w-6" />
           </span>
           <h3 className="mt-5 font-display text-lg font-bold text-brand-ink">{s.title}</h3>
@@ -97,7 +97,7 @@ export default function FixCycleTabs() {
   return (
     <div>
       {/* Tab switcher */}
-      <div className="mx-auto flex w-fit flex-col gap-3 rounded-full bg-brand-cream p-2 ring-1 ring-brand-green/15 sm:flex-row">
+      <div className="mx-auto flex w-fit flex-col gap-3 rounded-[2px] bg-paper-soft p-2 ring-1 ring-ink/15 sm:flex-row">
         {tabs.map((t) => {
           const on = active === t.id;
           return (
@@ -109,18 +109,18 @@ export default function FixCycleTabs() {
                 history.replaceState(null, "", t.id === "pro" ? "#pro" : "#customer");
               }}
               className={cn(
-                "relative rounded-full px-8 py-3.5 text-left transition-colors duration-300 sm:text-center",
-                on ? "text-white" : "text-brand-ink/65 hover:text-brand-green-dark"
+                "relative rounded-[2px] px-8 py-3.5 text-left transition-colors duration-300 sm:text-center",
+                on ? "text-white" : "text-brand-ink/65 hover:text-forest"
               )}
             >
               {on && (
                 <motion.span
                   layoutId="fixcycle-tab"
                   className={cn(
-                    "absolute inset-0 rounded-full shadow-lift",
+                    "absolute inset-0 rounded-[2px] shadow-lift",
                     isPro
-                      ? "bg-gradient-to-br from-brand-blue via-brand-blue-soft to-brand-teal"
-                      : "bg-gradient-to-br from-brand-green to-brand-green-deep"
+                      ? "bg-gradient-to-br from-charcoal via-forest-deep to-teal"
+                      : "bg-gradient-to-br from-forest to-teal"
                   )}
                   transition={{ type: "spring", stiffness: 350, damping: 32 }}
                 />
@@ -156,7 +156,7 @@ export default function FixCycleTabs() {
                 </div>
                 <div>
                   <h2 className="font-display text-3xl font-bold tracking-tight text-brand-ink sm:text-4xl">
-                    The easiest way to get things <span className="text-brand-green dark:text-brand-green-light">fixed at home</span>
+                    The easiest way to get things <span className="text-forest">fixed at home</span>
                   </h2>
                   <p className="mt-4 max-w-lg text-lg leading-relaxed text-brand-ink/60">
                     From a dripping tap to a full wiring job — FixCycle puts verified
@@ -165,7 +165,7 @@ export default function FixCycleTabs() {
                   <ul className="mt-8 space-y-5">
                     {customerBenefits.map((b) => (
                       <li key={b.title} className="flex gap-4">
-                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-mint text-brand-green-dark">
+                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[2px] bg-brand-mint text-forest">
                           <b.icon className="h-5 w-5" />
                         </span>
                         <div>
@@ -186,7 +186,7 @@ export default function FixCycleTabs() {
 
               <div>
                 <h3 className="mb-9 text-center font-display text-2xl font-bold tracking-tight text-brand-ink sm:text-3xl">
-                  How it works — <span className="text-brand-green dark:text-brand-green-light">three easy steps</span>
+                  How it works — <span className="text-forest">three easy steps</span>
                 </h3>
                 <StepRow steps={customerSteps} />
               </div>
@@ -197,7 +197,7 @@ export default function FixCycleTabs() {
               <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
                 <div>
                   <h2 className="font-display text-3xl font-bold tracking-tight text-brand-ink sm:text-4xl">
-                    Your skills deserve <span className="text-brand-teal">steady work</span> — and fair pay
+                    Your skills deserve <span className="text-teal">steady work</span> — and fair pay
                   </h2>
                   <p className="mt-4 max-w-lg text-lg leading-relaxed text-brand-ink/60">
                     Join hundreds of plumbers, electricians, technicians and handymen earning
@@ -206,7 +206,7 @@ export default function FixCycleTabs() {
                   <ul className="mt-8 space-y-5">
                     {proBenefits.map((b) => (
                       <li key={b.title} className="flex gap-4">
-                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-blue text-white">
+                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[2px] bg-forest text-white">
                           <b.icon className="h-5 w-5" />
                         </span>
                         <div>
@@ -227,15 +227,15 @@ export default function FixCycleTabs() {
                 {/* Pro earnings visual */}
                 <div className="relative mx-auto w-full max-w-sm">
                   <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-teal/15 blur-[80px]" aria-hidden />
-                  <div className="relative rounded-[2.5rem] bg-gradient-to-br from-brand-blue via-brand-blue-soft to-brand-teal p-6 text-white shadow-lift">
+                  <div className="relative rounded-[2px] bg-gradient-to-br from-forest via-forest-deep to-charcoal p-6 text-white shadow-lift">
                     <div className="flex items-center justify-between">
                       <span className="font-display text-sm font-bold">Pro Dashboard</span>
-                      <span className="rounded-full bg-brand-gold px-2.5 py-1 font-mono text-[10px] font-bold text-brand-blue">
+                      <span className="rounded-[2px] bg-lime px-2.5 py-1 font-mono text-[10px] font-bold text-forest-deep">
                         VERIFIED
                       </span>
                     </div>
 
-                    <div className="mt-5 rounded-2xl bg-white/10 p-4 ring-1 ring-white/15">
+                    <div className="mt-5 rounded-[2px] bg-white/10 p-4 ring-1 ring-white/15">
                       <p className="text-xs text-white/60">Earnings this month</p>
                       <p className="font-mono text-3xl font-bold text-brand-gold-light">K14,850</p>
                       <p className="mt-1 flex items-center gap-1 text-xs text-brand-green-light">
@@ -249,7 +249,7 @@ export default function FixCycleTabs() {
                         { label: "Rating", value: "4.9 ★", tint: "bg-brand-gold-light" },
                         { label: "Next payout", value: "K3,200", tint: "bg-white/70" },
                       ].map((row) => (
-                        <div key={row.label} className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 ring-1 ring-white/10">
+                        <div key={row.label} className="flex items-center justify-between rounded-[2px] bg-white/10 px-4 py-3 ring-1 ring-white/10">
                           <span className="text-sm text-white/75">{row.label}</span>
                           <span className="font-mono text-sm font-bold">{row.value}</span>
                           <span className={`ml-2 h-2 w-2 rounded-full ${row.tint}`} />
@@ -257,7 +257,7 @@ export default function FixCycleTabs() {
                       ))}
                     </div>
 
-                    <div className="mt-4 rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
+                    <div className="mt-4 rounded-[2px] bg-white/10 p-4 ring-1 ring-white/10">
                       <p className="flex items-center gap-2 text-sm text-white/85">
                         <GraduationCap className="h-4 w-4 text-brand-green-light" />
                         “Completed the Safety & Pricing masterclass.”
@@ -266,8 +266,8 @@ export default function FixCycleTabs() {
                   </div>
 
                   {/* Floating testimonial chip */}
-                  <div className="absolute -bottom-8 -left-4 w-64 animate-float rounded-2xl bg-surface p-4 shadow-lift sm:-left-6">
-                    <div className="flex gap-1 text-brand-gold">
+                  <div className="absolute -bottom-8 -left-4 w-64 animate-float rounded-[2px] bg-surface p-4 shadow-lift sm:-left-6">
+                    <div className="flex gap-1 text-lime">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <Star key={i} className="h-3.5 w-3.5 fill-current" />
                       ))}
@@ -275,14 +275,14 @@ export default function FixCycleTabs() {
                     <p className="mt-1.5 text-[13px] font-medium leading-snug text-brand-ink">
                       “FixCycle Pro changed how I work — more jobs, paid on time.”
                     </p>
-                    <p className="mt-1.5 text-xs font-semibold text-brand-green-dark">Joseph K. · Electrician, Ndola</p>
+                    <p className="mt-1.5 text-xs font-semibold text-forest">Joseph K. · Electrician, Ndola</p>
                   </div>
                 </div>
               </div>
 
               <div>
                 <h3 className="mb-9 text-center font-display text-2xl font-bold tracking-tight text-brand-ink sm:text-3xl">
-                  How to join — <span className="text-brand-teal">three simple steps</span>
+                  How to join — <span className="text-teal">three simple steps</span>
                 </h3>
                 <StepRow steps={proSteps} />
                 <div className="mt-10 flex justify-center">

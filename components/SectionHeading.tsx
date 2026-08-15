@@ -19,7 +19,7 @@ export default function SectionHeading({
   return (
     <Reveal
       className={cn(
-        "max-w-2xl",
+        "max-w-[640px]",
         align === "center" ? "mx-auto text-center" : "text-left",
         className
       )}
@@ -27,24 +27,33 @@ export default function SectionHeading({
       {eyebrow && (
         <span
           className={cn(
-            "mb-4 inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em]",
-            light ? "bg-white/10 text-brand-green-light ring-1 ring-white/20" : "bg-brand-mint text-brand-green-dark ring-1 ring-brand-green/20"
+            "mb-[22px] inline-flex items-center gap-2.5 font-mono text-[12px] uppercase tracking-[0.16em]",
+            light ? "text-lime" : "text-forest"
           )}
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-current" />
+          <span
+            className={cn("inline-block h-px w-[22px]", light ? "bg-lime" : "bg-forest")}
+            aria-hidden
+          />
           {eyebrow}
         </span>
       )}
       <h2
         className={cn(
-          "font-display text-3xl font-bold leading-[1.15] tracking-tight sm:text-4xl lg:text-[2.75rem]",
-          light ? "text-white" : "text-brand-ink"
+          "font-display text-[clamp(28px,3.4vw,42px)] font-bold leading-[1.15] tracking-tight",
+          light ? "text-paper" : "text-ink"
         )}
       >
         {title}
       </h2>
       {subtitle && (
-        <p className={cn("mt-4 text-lg leading-relaxed", light ? "text-white/70" : "text-brand-ink/65")}>
+        <p
+          className={cn(
+            "mt-4 max-w-[520px] text-[15.5px] leading-relaxed",
+            light ? "text-paper/70" : "text-sage",
+            align === "center" && "mx-auto"
+          )}
+        >
           {subtitle}
         </p>
       )}

@@ -29,16 +29,16 @@ const socials = [
 
 function ContactFormFallback() {
   return (
-    <div aria-hidden="true" className="rounded-3xl border border-brand-green/15 bg-surface p-8 shadow-soft sm:p-10">
-      <div className="h-7 w-48 animate-pulse rounded-full bg-brand-mint" />
-      <div className="mt-2 h-4 w-72 max-w-full animate-pulse rounded-full bg-brand-mint/60" />
+    <div aria-hidden="true" className="rounded-[2px] border border-ink/15 bg-surface p-8 shadow-soft sm:p-10">
+      <div className="h-7 w-48 animate-pulse rounded-[2px] bg-brand-mint" />
+      <div className="mt-2 h-4 w-72 max-w-full animate-pulse rounded-[2px] bg-brand-mint/60" />
       <div className="mt-7 grid gap-5 sm:grid-cols-2">
-        <div className="h-12 animate-pulse rounded-xl bg-brand-cream" />
-        <div className="h-12 animate-pulse rounded-xl bg-brand-cream" />
+        <div className="h-12 animate-pulse rounded-[2px] bg-paper-soft" />
+        <div className="h-12 animate-pulse rounded-[2px] bg-paper-soft" />
       </div>
-      <div className="mt-5 h-12 animate-pulse rounded-xl bg-brand-cream" />
-      <div className="mt-5 h-32 animate-pulse rounded-xl bg-brand-cream" />
-      <div className="mt-7 h-12 w-44 animate-pulse rounded-full bg-brand-mint" />
+      <div className="mt-5 h-12 animate-pulse rounded-[2px] bg-paper-soft" />
+      <div className="mt-5 h-32 animate-pulse rounded-[2px] bg-paper-soft" />
+      <div className="mt-7 h-12 w-44 animate-pulse rounded-[2px] bg-brand-mint" />
     </div>
   );
 }
@@ -65,22 +65,22 @@ export default function ContactPage() {
           {/* Details */}
           <div className="space-y-6">
             <Reveal direction="left">
-              <div className="rounded-3xl bg-brand-cream p-8 ring-1 ring-brand-green/10">
+              <div className="rounded-[2px] bg-paper-soft p-8 ring-1 ring-ink/10">
                 <h3 className="font-display text-xl font-bold text-brand-ink">Contact details</h3>
                 <ul className="mt-6 space-y-5">
                   <li className="flex items-start gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-green-dark shadow-soft">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[2px] bg-brand-mint text-forest shadow-soft">
                       <Mail className="h-5 w-5" />
                     </span>
                     <div>
                       <p className="text-sm text-brand-ink/50">Email us</p>
-                      <a href={`mailto:${site.email}`} className="font-semibold text-brand-ink hover:text-brand-green-dark">
+                      <a href={`mailto:${site.email}`} className="font-semibold text-brand-ink hover:text-forest">
                         {site.email}
                       </a>
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-green-dark shadow-soft">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[2px] bg-brand-mint text-forest shadow-soft">
                       <Phone className="h-5 w-5" />
                     </span>
                     <div>
@@ -90,7 +90,7 @@ export default function ContactPage() {
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-green-dark shadow-soft">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[2px] bg-brand-mint text-forest shadow-soft">
                       <Clock className="h-5 w-5" />
                     </span>
                     <div>
@@ -103,12 +103,12 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal direction="left" delay={0.1}>
-              <div className="rounded-3xl bg-surface p-8 shadow-soft ring-1 ring-black/5 dark:ring-white/10">
+              <div className="rounded-[2px] bg-surface p-8 shadow-soft ring-1 ring-black/5 dark:ring-white/10">
                 <h3 className="font-display text-xl font-bold text-brand-ink">Find our offices</h3>
                 <div className="mt-5 space-y-4">
                   {[site.addressLusaka, site.addressNdola].map((addr) => (
                     <p key={addr} className="flex items-start gap-3 text-[15px] text-brand-ink/70">
-                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-green-dark" />
+                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-forest" />
                       {addr}
                     </p>
                   ))}
@@ -120,9 +120,9 @@ export default function ContactPage() {
                       href={s.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-3 rounded-2xl border border-brand-green/10 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-green/30 hover:shadow-soft"
+                      className="group flex items-center gap-3 rounded-[2px] border border-ink/10 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-soft"
                     >
-                      <span className={`flex h-10 w-10 items-center justify-center rounded-xl ${s.bg} text-white transition-transform duration-300 group-hover:scale-110`}>
+                      <span className={`flex h-10 w-10 items-center justify-center rounded-[2px] ${s.bg} text-white transition-transform duration-300 group-hover:scale-110`}>
                         <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
                           <path d={s.path} />
                         </svg>
@@ -131,7 +131,7 @@ export default function ContactPage() {
                         <p className="font-semibold text-brand-ink">Follow us on {s.name}</p>
                         <p className="text-sm text-brand-ink/50">Latest news & community updates</p>
                       </div>
-                      <Send className="ml-auto h-4 w-4 text-brand-ink/25 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-brand-green" />
+                      <Send className="ml-auto h-4 w-4 text-brand-ink/25 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-lime" />
                     </a>
                   ))}
                 </div>
@@ -142,7 +142,7 @@ export default function ContactPage() {
       </section>
 
       {/* Maps */}
-      <section className="bg-brand-cream py-20 sm:py-24">
+      <section className="bg-paper-soft py-20 sm:py-24">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div className="grid gap-8 lg:grid-cols-2">
             {[
@@ -150,7 +150,7 @@ export default function ContactPage() {
               { city: "Ndola Office", q: "Ndola, Zambia", note: site.addressNdola },
             ].map((m, i) => (
               <Reveal key={m.city} direction={i === 0 ? "left" : "right"}>
-                <div className="overflow-hidden rounded-3xl bg-surface shadow-soft ring-1 ring-black/5 dark:ring-white/10 transition-all duration-300 hover:shadow-lift">
+                <div className="overflow-hidden rounded-[2px] bg-surface shadow-soft ring-1 ring-black/5 dark:ring-white/10 transition-all duration-300 hover:shadow-lift">
                   <iframe
                     title={`Map — ${m.city}`}
                     src={`https://www.google.com/maps?q=${encodeURIComponent(m.q)}&z=11&output=embed`}
@@ -160,7 +160,7 @@ export default function ContactPage() {
                     allowFullScreen
                   />
                   <div className="flex items-center gap-3 p-5">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-mint text-brand-green-dark">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-[2px] bg-brand-mint text-forest">
                       <Building2 className="h-5 w-5" />
                     </span>
                     <div>

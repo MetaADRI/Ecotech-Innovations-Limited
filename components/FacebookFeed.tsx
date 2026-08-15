@@ -11,7 +11,7 @@ export default function FacebookFeed({ height = 560 }: { height?: number }) {
   )}&tabs=timeline&width=500&height=${height}&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`;
 
   return (
-    <div className="overflow-hidden rounded-2xl bg-surface shadow-soft ring-1 ring-black/5 dark:ring-white/10">
+    <div className="overflow-hidden rounded-[2px] bg-surface shadow-soft ring-1 ring-black/5 dark:ring-white/10">
       <iframe
         src={src}
         width="100%"
@@ -32,7 +32,7 @@ export default function FacebookFeed({ height = 560 }: { height?: number }) {
           href={site.facebook}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm font-semibold text-brand-green-dark transition-colors hover:text-brand-green"
+          className="text-sm font-semibold text-forest transition-colors hover:text-lime"
         >
           Open Facebook →
         </a>

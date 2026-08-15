@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Poppins, JetBrains_Mono } from "next/font/google";
+import { Inter, Poppins, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -16,8 +16,9 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 
-const jetbrains = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  weight: ["400", "500", "600"],
   subsets: ["latin"],
 });
 
@@ -26,20 +27,19 @@ export const viewport: Viewport = {
   initialScale: 1,
   // Tint the mobile browser chrome (status bar / URL bar) to match the site.
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f2233" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f1e8" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f2e28" },
   ],
 };
 
 export const metadata: Metadata = {
   title: {
-    default: "Ecotech Innovations Limited | Trade, Sourcing, Freight, Compliance & Green Tech — Zambia",
+    default: "Ecotech Innovations Limited | Innovating Business. Enabling Sustainable Growth.",
     template: `%s | ${site.name}`,
   },
   description:
-    "Ecotech Innovations Limited (EIL) is a Zambian company offering export & import trading, " +
-    "strategic sourcing & procurement, freight brokerage, business registration & compliance, " +
-    "plus green-tech platforms like FixCycle serving households across Zambia.",
+    "Ecotech Innovations Limited (EIL) is a Zambian company driving sustainable growth through trading & supply, " +
+    "business consultancy, sustainable technology, and logistics & mobility — from Ndola, Zambia to the world.",
   keywords: [
     "Ecotech Innovations",
     "FixCycle",
@@ -66,9 +66,9 @@ export const metadata: Metadata = {
     apple: "/logo.png",
   },
   openGraph: {
-    title: "Ecotech Innovations Limited | Trade, Sourcing, Freight, Compliance & Green Tech — Zambia",
+    title: "Ecotech Innovations Limited | Innovating Business. Enabling Sustainable Growth.",
     description:
-      "Zambian company delivering export/import trade, sourcing & procurement, freight brokerage, and business consultancy — alongside green-tech marketplaces for households.",
+      "Zambian company driving sustainable growth through trading & supply, business consultancy, sustainable technology, and logistics & mobility.",
     type: "website",
     locale: "en_ZM",
     siteName: site.name,
@@ -80,7 +80,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${poppins.variable} ${jetbrains.variable} scroll-smooth antialiased`}
+      className={`${inter.variable} ${poppins.variable} ${plexMono.variable} scroll-smooth antialiased`}
     >
       <head>
         {/* Apply theme before first paint to avoid a flash of the wrong mode */}
@@ -93,7 +93,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="flex min-h-screen flex-col bg-surface font-sans text-brand-ink">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-brand-green focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-[2px] focus:bg-brand-green focus:px-5 focus:py-2.5 focus:font-mono focus:text-xs focus:uppercase focus:tracking-widest focus:text-brand-blue-soft"
         >
           Skip to content
         </a>

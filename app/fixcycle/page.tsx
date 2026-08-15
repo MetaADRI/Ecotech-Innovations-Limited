@@ -55,7 +55,7 @@ export default function FixCyclePage() {
       </section>
 
       {/* Downloads */}
-      <section id="downloads" className="relative scroll-mt-24 overflow-hidden bg-brand-cream py-24 sm:py-28">
+      <section id="downloads" className="relative scroll-mt-24 overflow-hidden bg-paper-soft py-24 sm:py-28">
         <div className="bg-dots absolute right-0 top-0 h-72 w-72 opacity-60" aria-hidden />
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <SectionHeading
@@ -68,13 +68,13 @@ export default function FixCyclePage() {
             {stores.map((s, i) => (
               <Reveal key={s.title} delay={0.08 * i}>
                 <div
-                  className={`group flex h-full items-center gap-4 rounded-3xl border p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift ${
+                  className={`group flex h-full items-center gap-4 rounded-[2px] border p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift ${
                     s.soon
-                      ? "cursor-not-allowed border-dashed border-brand-green/30 bg-surface/60 opacity-70"
-                      : "border-brand-green/10 bg-surface shadow-soft hover:border-brand-green/30"
+                      ? "cursor-not-allowed border-dashed border-ink/25 bg-surface/60 opacity-70"
+                      : "border-ink/10 bg-surface shadow-soft hover:border-ink/25"
                   }`}
                 >
-                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-blue text-white transition-transform duration-300 group-hover:scale-110">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[2px] bg-forest text-white transition-transform duration-300 group-hover:scale-110">
                     <s.icon className="h-7 w-7" />
                   </span>
                   <div>

@@ -23,19 +23,19 @@ const bigNumbers = [
 
 const stories = [
   {
-    tint: "from-brand-green to-brand-teal",
+    tint: "from-forest to-teal",
     title: "From dust road to digital doorstep",
     text: "How a Lusaka artisan doubled his bookings after joining FixCycle Pro — and cut his travel by a third.",
     tag: "Artisan story",
   },
   {
-    tint: "from-brand-blue to-brand-teal",
+    tint: "from-charcoal to-teal",
     title: "Green logistics pilot, Ndola",
     text: "Consolidated delivery routes shaved 18% off a partner's last-mile fuel bill in three months.",
     tag: "Partner story",
   },
   {
-    tint: "from-brand-gold to-brand-green-deep",
+    tint: "from-teal to-leaf",
     title: "Volunteers building, together",
     text: "Thirty remote tech volunteers shipped FixCycle's new scheduling engine in a single sprint.",
     tag: "Community story",
@@ -58,9 +58,9 @@ export default function ImpactPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {bigNumbers.map((n, i) => (
               <Reveal key={n.label} delay={0.08 * i}>
-                <div className="group relative h-full overflow-hidden rounded-3xl border border-brand-green/10 bg-brand-cream p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-green/30 hover:shadow-lift">
-                  <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-brand-green/10 transition-transform duration-500 group-hover:scale-150" aria-hidden />
-                  <span className="relative inline-flex h-13 w-13 items-center justify-center rounded-2xl bg-white text-brand-green-dark shadow-soft transition-transform duration-300 group-hover:scale-110">
+                <div className="group relative h-full overflow-hidden rounded-[2px] border border-ink/10 bg-surface p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-ink/25 hover:shadow-lift">
+                  <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-forest/10 transition-transform duration-500 group-hover:scale-150" aria-hidden />
+                  <span className="relative inline-flex h-13 w-13 items-center justify-center rounded-[2px] bg-brand-mint text-forest shadow-soft transition-transform duration-300 group-hover:scale-110">
                     <n.icon className="h-6 w-6" />
                   </span>
                   <p className="relative mt-5 font-mono text-4xl font-bold tracking-tight text-brand-ink">
@@ -74,12 +74,12 @@ export default function ImpactPage() {
 
           {/* Case study */}
           <Reveal className="mt-20">
-            <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-blue via-brand-blue-soft to-brand-green-deep p-9 text-white shadow-lift sm:p-12">
+            <div className="relative overflow-hidden rounded-[2px] bg-gradient-to-br from-forest via-forest-deep to-charcoal p-9 text-white shadow-lift sm:p-12">
               <div className="bg-grid-dark absolute inset-0" aria-hidden />
-              <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-brand-green/25 blur-[100px]" aria-hidden />
+              <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-teal/25 blur-[100px]" aria-hidden />
               <div className="relative grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
                 <div>
-                  <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-green-light ring-1 ring-white/20">
+                  <span className="inline-flex items-center gap-2 rounded-[2px] bg-white/10 px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-green-light ring-1 ring-white/20">
                     <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-green-light" />
                     Case study · Lusaka
                   </span>
@@ -111,7 +111,7 @@ export default function ImpactPage() {
                   <Car className="h-10 w-10 text-white/20" />
                   <div className="mt-3 space-y-3">
                     {[95, 62, 78, 44, 30].map((w, i) => (
-                      <div key={i} className="h-8 rounded-xl bg-white/10 ring-1 ring-white/10" style={{ width: `${w}%` }} />
+                      <div key={i} className="h-8 rounded-[2px] bg-white/10 ring-1 ring-white/10" style={{ width: `${w}%` }} />
                     ))}
                     <p className="pt-1 text-xs text-white/45">Illustrative: trips consolidated per week</p>
                   </div>
@@ -123,7 +123,7 @@ export default function ImpactPage() {
       </section>
 
       {/* Sustainability goals */}
-      <section className="bg-brand-cream py-24 sm:py-28">
+      <section className="bg-paper-soft py-24 sm:py-28">
         <div className="mx-auto w-full max-w-4xl px-5 sm:px-8">
           <SectionHeading
             eyebrow="Sustainability goals"
@@ -137,12 +137,12 @@ export default function ImpactPage() {
           </div>
 
           <Reveal delay={0.2} className="mt-12">
-            <div className="flex flex-col items-center gap-3 rounded-3xl border border-brand-green/15 bg-surface p-7 text-center shadow-soft sm:flex-row sm:text-left">
-              <span className="flex h-13 w-13 shrink-0 items-center justify-center rounded-2xl bg-brand-mint text-brand-green-dark">
+            <div className="flex flex-col items-center gap-3 rounded-[2px] border border-ink/15 bg-surface p-7 text-center shadow-soft sm:flex-row sm:text-left">
+              <span className="flex h-13 w-13 shrink-0 items-center justify-center rounded-[2px] bg-brand-mint text-forest">
                 <TreePine className="h-6 w-6" />
               </span>
               <p className="flex-1 text-[15px] text-brand-ink/65">
-                Partnering on <strong className="text-brand-green-dark">tree planting</strong> and community
+                Partnering on <strong className="text-forest">tree planting</strong> and community
                 green spaces across Lusaka &amp; Ndola. Know an organisation we should work with?
               </p>
               <ButtonLink href="/contact" variant="outline-dark" size="sm">
@@ -165,15 +165,15 @@ export default function ImpactPage() {
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {stories.map((s, i) => (
               <Reveal key={s.title} delay={0.08 * i}>
-                <div className="group h-full overflow-hidden rounded-3xl border border-brand-green/10 bg-surface shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-brand-green/30 hover:shadow-lift">
+                <div className="group h-full overflow-hidden rounded-[2px] border border-ink/10 bg-surface shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-ink/25 hover:shadow-lift">
                   <div className={`relative flex h-40 items-end bg-gradient-to-br ${s.tint} p-5`}>
                     <div className="bg-grid-dark absolute inset-0 opacity-60" aria-hidden />
-                    <span className="relative rounded-full bg-white/20 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white ring-1 ring-white/25 backdrop-blur">
+                    <span className="relative rounded-[2px] bg-white/20 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white ring-1 ring-white/25 backdrop-blur">
                       {s.tag}
                     </span>
                   </div>
                   <div className="p-6">
-                    <h3 className="font-display text-lg font-bold leading-snug text-brand-ink transition-colors group-hover:text-brand-green-dark">
+                    <h3 className="font-display text-lg font-bold leading-snug text-brand-ink transition-colors group-hover:text-forest">
                       {s.title}
                     </h3>
                     <p className="mt-2.5 text-[15px] leading-relaxed text-brand-ink/60">{s.text}</p>
@@ -185,7 +185,7 @@ export default function ImpactPage() {
           <Reveal delay={0.2} className="mt-12 text-center">
             <p className="text-[15px] text-brand-ink/55">
               Share your own Ecotech story with us on{" "}
-              <a href={site.facebook} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-green-dark underline-offset-4 hover:underline">
+              <a href={site.facebook} target="_blank" rel="noopener noreferrer" className="font-semibold text-forest underline-offset-4 hover:underline">
                 Facebook
               </a>
               .

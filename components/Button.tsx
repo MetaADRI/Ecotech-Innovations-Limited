@@ -6,26 +6,26 @@ type Variant = "primary" | "secondary" | "outline-light" | "outline-dark" | "whi
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "group/btn inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-tight transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-green disabled:opacity-60";
+  "group/btn inline-flex items-center justify-center gap-2 rounded-[2px] font-mono font-semibold uppercase tracking-[0.08em] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-lime disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-brand-green text-white shadow-glow hover:bg-brand-green-deep hover:shadow-lift hover:-translate-y-0.5 active:translate-y-0",
+    "bg-lime text-forest-deep shadow-glow hover:-translate-y-0.5 hover:bg-lime-dim active:translate-y-0",
   secondary:
-    "bg-brand-blue text-white shadow-soft hover:bg-brand-blue-soft hover:-translate-y-0.5 active:translate-y-0",
+    "bg-forest text-paper shadow-soft hover:-translate-y-0.5 hover:bg-forest-deep active:translate-y-0",
   "outline-light":
-    "border-2 border-white/40 text-white backdrop-blur-sm hover:bg-white/10 hover:border-white/70 hover:-translate-y-0.5 active:translate-y-0",
+    "border border-paper/35 text-paper backdrop-blur-sm hover:-translate-y-0.5 hover:border-lime hover:text-lime active:translate-y-0",
   "outline-dark":
-    "border-2 border-brand-ink/20 text-brand-ink hover:border-brand-green hover:text-brand-green-dark hover:-translate-y-0.5 active:translate-y-0",
+    "border border-ink/25 text-ink hover:-translate-y-0.5 hover:border-lime-dim hover:text-lime-dim active:translate-y-0",
   white:
-    "bg-white text-brand-green-dark shadow-soft hover:bg-[#e8f7ee] hover:-translate-y-0.5 active:translate-y-0",
-  gold: "bg-brand-gold text-white shadow-glow-gold hover:bg-brand-gold-light hover:text-brand-blue hover:-translate-y-0.5 active:translate-y-0",
+    "bg-paper text-forest-deep shadow-soft hover:-translate-y-0.5 hover:bg-paper-soft active:translate-y-0",
+  gold: "bg-lime text-forest-deep shadow-glow-gold hover:-translate-y-0.5 hover:bg-lime-dim active:translate-y-0",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "px-5 py-2.5 text-sm",
-  md: "px-7 py-3.5 text-[15px]",
-  lg: "px-8 py-4 text-base",
+  sm: "px-5 py-2.5 text-[11.5px]",
+  md: "px-[22px] py-3 text-[12.5px]",
+  lg: "px-7 py-3.5 text-[13px]",
 };
 
 type CommonProps = {

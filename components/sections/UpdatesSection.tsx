@@ -7,19 +7,19 @@ import { ButtonLink } from "@/components/Button";
 const stories = [
   {
     icon: Recycle,
-    tint: "from-brand-green to-brand-teal",
+    tint: "from-forest to-teal",
     tag: "Community",
     title: "How FixCycle is cutting unnecessary trips across Lusaka",
   },
   {
     icon: Leaf,
-    tint: "from-brand-teal to-brand-blue",
+    tint: "from-teal to-forest",
     tag: "Green Innovation",
     title: "Meet the artisans powering Zambia's circular economy",
   },
   {
     icon: Rocket,
-    tint: "from-brand-gold to-brand-green-deep",
+    tint: "from-charcoal to-teal",
     tag: "Opportunity",
     title: "Why we opened the Global Tech Volunteers door",
   },
@@ -33,14 +33,14 @@ export default function UpdatesSection() {
           {/* Stories */}
           <div>
             <Reveal direction="right">
-              <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-mint px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-green-dark ring-1 ring-brand-green/20">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-green" />
+              <span className="mb-[22px] inline-flex items-center gap-2.5 font-mono text-[12px] uppercase tracking-[0.16em] text-forest">
+                <span className="inline-block h-px w-[22px] bg-forest" aria-hidden />
                 Latest updates
               </span>
-              <h2 className="font-display text-3xl font-bold leading-[1.15] tracking-tight text-brand-ink sm:text-4xl">
-                News from the <span className="text-brand-green dark:text-brand-green-light">field</span>
+              <h2 className="font-display text-3xl font-bold leading-[1.15] tracking-tight text-ink sm:text-4xl">
+                News from the <span className="text-forest dark:text-lime">field</span>
               </h2>
-              <p className="mt-4 max-w-lg text-lg text-brand-ink/60">
+              <p className="mt-4 max-w-lg text-lg text-ink/60">
                 Milestones, community stories and green-innovation wins — fresh from our
                 teams in Lusaka &amp; Ndola.
               </p>
@@ -51,22 +51,22 @@ export default function UpdatesSection() {
                 <Reveal key={s.title} delay={0.08 * i} direction="up">
                   <Link
                     href="/blog"
-                    className="group flex items-center gap-5 rounded-3xl border border-brand-green/10 bg-surface p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-green/30 hover:shadow-lift"
+                    className="group flex items-center gap-5 rounded-[2px] border border-ink/10 bg-surface p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-forest/30 hover:shadow-lift"
                   >
                     <span
-                      className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${s.tint} text-white transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6`}
+                      className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-[2px] bg-gradient-to-br ${s.tint} text-white transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6`}
                     >
                       <s.icon className="h-8 w-8" />
                     </span>
                     <div className="min-w-0">
-                      <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-green-dark">
+                      <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-forest">
                         {s.tag}
                       </span>
-                      <h3 className="mt-1 font-display text-[17px] font-bold leading-snug text-brand-ink transition-colors group-hover:text-brand-green-dark">
+                      <h3 className="mt-1 font-display text-[17px] font-bold leading-snug text-ink transition-colors group-hover:text-forest">
                         {s.title}
                       </h3>
                     </div>
-                    <ArrowRight className="ml-auto h-5 w-5 shrink-0 text-brand-green/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-brand-green" />
+                    <ArrowRight className="ml-auto h-5 w-5 shrink-0 text-forest/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-forest" />
                   </Link>
                 </Reveal>
               ))}

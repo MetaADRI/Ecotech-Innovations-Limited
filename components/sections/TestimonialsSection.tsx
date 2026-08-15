@@ -18,13 +18,13 @@ export default function TestimonialsSection() {
           <TestimonialCarousel />
         </div>
         <p className="mt-8 text-center text-sm text-brand-ink/55">
-          <MessageSquareHeart className="mr-1.5 inline h-4 w-4 text-brand-green-dark" />
+          <MessageSquareHeart className="mr-1.5 inline h-4 w-4 text-forest dark:text-lime" />
           More stories on our{" "}
-          <Link href={site.facebook} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-green-dark underline-offset-4 hover:underline">
+          <Link href={site.facebook} target="_blank" rel="noopener noreferrer" className="font-semibold text-forest underline-offset-4 hover:underline dark:text-lime">
             Facebook community
           </Link>{" "}
           and{" "}
-          <Link href={site.linkedin} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-green-dark underline-offset-4 hover:underline">
+          <Link href={site.linkedin} target="_blank" rel="noopener noreferrer" className="font-semibold text-forest underline-offset-4 hover:underline dark:text-lime">
             LinkedIn
           </Link>
           .

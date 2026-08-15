@@ -141,3 +141,94 @@ export const navLinks = [
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
+
+/** The four business divisions — home "What we do" cards and site map. */
+export const divisions = [
+  {
+    id: "trading",
+    code: "DIV.01 — TRADE",
+    title: "Trading & Supply",
+    desc: "Connecting businesses to products, equipment and technology.",
+    href: "/services#export-import-trading",
+    services: [
+      "General trading",
+      "Industrial supplies",
+      "Equipment & technology",
+      "Renewable energy products",
+      "Procurement & sourcing",
+      "Import / export",
+      "Corporate supply",
+    ],
+  },
+  {
+    id: "consultancy",
+    code: "DIV.02 — CONSULT",
+    title: "Business Consultancy",
+    desc: "Helping organisations solve operational, commercial and strategic challenges.",
+    href: "/services#business-consultancy-compliance",
+    services: [
+      "Business development",
+      "Supply-chain consultancy",
+      "Logistics consultancy",
+      "Project management",
+      "Procurement advisory",
+      "Market research",
+      "Sustainability advisory",
+      "Digital transformation",
+    ],
+  },
+  {
+    id: "technology",
+    code: "DIV.03 — TECH",
+    title: "Sustainable Technology",
+    desc: "Developing innovative solutions for a cleaner and smarter future.",
+    href: "/solutions",
+    services: [
+      "FixCycle, MobiLink & Lala",
+      "Solar solutions",
+      "Smart energy solutions",
+      "Waste & recycling technologies",
+      "Digital platforms",
+      "Climate & green technology",
+    ],
+  },
+  {
+    id: "logistics",
+    code: "DIV.04 — MOVE",
+    title: "Logistics & Mobility",
+    desc: "Making movement of people, products and services more efficient.",
+    href: "/services#freight-brokerage",
+    services: [
+      "Transport & logistics",
+      "Last-mile delivery",
+      "Fleet solutions",
+      "Intercity transportation",
+      "Cargo & parcel logistics",
+      "Supply-chain solutions",
+      "Electric mobility",
+      "Logistics technology",
+    ],
+  },
+];
+
+/** Innovation portfolio platforms for the dark home section. */
+export const platforms = [
+  {
+    tag: "Marketplace",
+    title: "FixCycle",
+    text: "A digital marketplace connecting households to repair, maintenance and handyman services — building resilience and local livelihoods.",
+    href: "/fixcycle",
+  },
+  {
+    tag: "Mobility & Parcels",
+    title: "MobiLink",
+    text: "An intercity ride-sharing and parcel delivery platform, moving people and cargo between Zambia's cities more efficiently.",
+    href: "/solutions#mobilink",
+  },
+  {
+    tag: "Hospitality",
+    title: "Lala",
+    text: "A mobile-first, budget accommodation booking platform via Mobile Money and WhatsApp — covering Lusaka, the Copperbelt and Livingstone.",
+    href: "/solutions#lala",
+  },
+];

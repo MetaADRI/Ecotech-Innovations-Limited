@@ -28,7 +28,7 @@ export default function TestimonialCarousel() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="relative overflow-hidden rounded-3xl bg-surface p-8 shadow-lift ring-1 ring-black/5 dark:ring-white/10 sm:p-12">
+      <div className="relative overflow-hidden rounded-[2px] bg-surface p-8 shadow-lift ring-1 ring-black/5 dark:ring-white/10 sm:p-12">
         <Quote className="absolute right-8 top-8 h-16 w-16 text-brand-mint" aria-hidden />
 
         <AnimatePresence mode="wait">
@@ -48,7 +48,7 @@ export default function TestimonialCarousel() {
               “{item.quote}”
             </blockquote>
             <figcaption className="mt-6 flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-brand-green to-brand-teal font-display text-sm font-bold text-white">
+              <span className="flex h-12 w-12 items-center justify-center rounded-[2px] bg-gradient-to-br from-brand-blue to-brand-teal font-display text-sm font-bold text-white">
                 {item.name.charAt(0)}
               </span>
               <div>
@@ -66,7 +66,7 @@ export default function TestimonialCarousel() {
           type="button"
           onClick={prev}
           aria-label="Previous testimonial"
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-surface text-brand-ink shadow-soft ring-1 ring-black/5 dark:ring-white/10 transition-all hover:-translate-y-0.5 hover:text-brand-green-dark"
+          className="flex h-11 w-11 items-center justify-center rounded-[2px] bg-surface text-brand-ink shadow-soft ring-1 ring-black/5 dark:ring-white/10 transition-all hover:-translate-y-0.5 hover:text-forest"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
@@ -88,7 +88,7 @@ export default function TestimonialCarousel() {
           type="button"
           onClick={next}
           aria-label="Next testimonial"
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-surface text-brand-ink shadow-soft ring-1 ring-black/5 dark:ring-white/10 transition-all hover:-translate-y-0.5 hover:text-brand-green-dark"
+          className="flex h-11 w-11 items-center justify-center rounded-[2px] bg-surface text-brand-ink shadow-soft ring-1 ring-black/5 dark:ring-white/10 transition-all hover:-translate-y-0.5 hover:text-forest"
         >
           <ChevronRight className="h-5 w-5" />
         </button>

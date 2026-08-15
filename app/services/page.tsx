@@ -35,7 +35,7 @@ const services = [
   {
     id: "export-import-trading",
     icon: Ship,
-    tint: "from-brand-blue to-brand-teal",
+    tint: "from-forest to-teal",
     title: "Export & Import Trading",
     headline: "Moving goods across borders, without the headaches",
     text: "We facilitate the export and import of goods for businesses and individuals — handling documentation, coordination and logistics so your trade moves smoothly from origin to destination. Whether you're bringing equipment into Zambia or moving local products into regional markets, we manage the process end to end.",
@@ -53,7 +53,7 @@ const services = [
   {
     id: "strategic-sourcing-procurement",
     icon: PackageSearch,
-    tint: "from-brand-gold to-brand-green-deep",
+    tint: "from-charcoal to-teal",
     title: "Strategic Sourcing & Procurement",
     headline: "The right goods, the right suppliers, the right price",
     text: "We help businesses and organisations source what they need — from equipment and industrial supplies to bulk goods — by tapping into vetted local and international supplier networks. We handle the sourcing legwork so you get quality, cost-efficiency and reliability without the back-and-forth.",
@@ -71,7 +71,7 @@ const services = [
   {
     id: "freight-brokerage",
     icon: Truck,
-    tint: "from-brand-green to-brand-teal",
+    tint: "from-forest to-forest-deep",
     title: "Freight Brokerage",
     headline: "Your cargo, matched with the right route",
     text: "We connect shippers with reliable carriers — coordinating freight movement across road and regional trade corridors. Our brokerage service takes the guesswork out of logistics: better rates, dependable transit times, and one point of contact from pickup to delivery.",
@@ -89,7 +89,7 @@ const services = [
   {
     id: "business-consultancy-compliance",
     icon: BadgeCheck,
-    tint: "from-brand-blue to-brand-green-deep",
+    tint: "from-teal to-forest",
     title: "Business Consultancy, Registration & Compliance",
     headline: "Get set up right — and stay compliant",
     text: "Starting or running a business in Zambia comes with regulatory steps that are easy to get wrong. We handle the registration and compliance process so you can focus on running your business, not paperwork.",
@@ -108,7 +108,7 @@ const services = [
   {
     id: "green-logistics-agritech",
     icon: Sprout,
-    tint: "from-brand-teal to-brand-green-deep",
+    tint: "from-teal to-leaf",
     title: "Green Logistics & Agri-Tech",
     headline: "Sustainability built into every mile",
     text: "Low-emission last-mile delivery and smart-farming market linkages that put more value in local hands while reducing environmental impact.",
@@ -149,7 +149,7 @@ export default function ServicesPage() {
                   {/* Visual panel */}
                   <Reveal direction={flip ? "right" : "left"} className={flip ? "lg:order-2" : ""}>
                     <div
-                      className={`group relative overflow-hidden rounded-[2rem] bg-gradient-to-br ${s.tint} p-10 text-white shadow-lift transition-transform duration-500 hover:-translate-y-2 sm:p-12`}
+                      className={`group relative overflow-hidden rounded-[2px] bg-gradient-to-br ${s.tint} p-10 text-white shadow-lift transition-transform duration-500 hover:-translate-y-2 sm:p-12`}
                     >
                       <div className="bg-grid-dark absolute inset-0 opacity-70" aria-hidden />
                       <div
@@ -157,7 +157,7 @@ export default function ServicesPage() {
                         aria-hidden
                       />
 
-                      <span className="relative inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 ring-1 ring-white/25 backdrop-blur transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
+                      <span className="relative inline-flex h-16 w-16 items-center justify-center rounded-[2px] bg-white/15 ring-1 ring-white/25 backdrop-blur transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
                         <s.icon className="h-8 w-8" />
                       </span>
 
@@ -170,7 +170,7 @@ export default function ServicesPage() {
                         {s.icons.map((Icon, j) => (
                           <span
                             key={j}
-                            className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/20 transition-transform duration-300 hover:scale-110"
+                            className="flex h-12 w-12 items-center justify-center rounded-[2px] bg-white/15 ring-1 ring-white/20 transition-transform duration-300 hover:scale-110"
                           >
                             <Icon className="h-6 w-6" />
                           </span>
@@ -181,7 +181,7 @@ export default function ServicesPage() {
 
                   {/* Copy */}
                   <Reveal direction={flip ? "left" : "right"} className={flip ? "lg:order-1" : ""}>
-                    <span className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-brand-green-dark">
+                    <span className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-forest">
                       Service {String(i + 1).padStart(2, "0")}
                     </span>
                     <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-ink sm:text-4xl">
@@ -195,7 +195,7 @@ export default function ServicesPage() {
                     <ul className="mt-4 space-y-3.5">
                       {s.points.map((p) => (
                         <li key={p} className="flex items-start gap-3 text-[15px] text-brand-ink/75">
-                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-mint text-brand-green-dark">
+                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-[2px] bg-brand-mint text-forest">
                             <Check className="h-3 w-3" />
                           </span>
                           {p}

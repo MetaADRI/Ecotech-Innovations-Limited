@@ -14,7 +14,7 @@ export default function NewsletterForm({ dark = false }: { dark?: boolean }) {
 
   if (done) {
     return (
-      <p className="flex items-center gap-2 rounded-full bg-brand-green/15 px-4 py-3 text-sm font-semibold text-brand-green-light">
+      <p className="flex items-center gap-2 rounded-[2px] bg-lime/15 px-4 py-3 text-sm font-semibold text-lime-dim">
         <CheckCircle2 className="h-4 w-4 shrink-0" />
         Subscribed! Watch your inbox for updates.
       </p>
@@ -23,7 +23,7 @@ export default function NewsletterForm({ dark = false }: { dark?: boolean }) {
 
   return (
     <form onSubmit={onSubmit}>
-      <div className="flex overflow-hidden rounded-full bg-white/10 ring-1 ring-white/20 backdrop-blur focus-within:ring-brand-green">
+      <div className="flex overflow-hidden rounded-[2px] bg-white/10 ring-1 ring-white/20 backdrop-blur focus-within:ring-lime">
         <input
           type="email"
           required
@@ -36,7 +36,7 @@ export default function NewsletterForm({ dark = false }: { dark?: boolean }) {
         <button
           type="submit"
           aria-label="Subscribe"
-          className="flex items-center gap-1 bg-brand-green px-4 text-sm font-semibold transition-colors hover:bg-brand-green-deep"
+          className="flex items-center gap-1 bg-lime px-4 text-sm font-semibold text-forest-deep transition-colors hover:bg-lime-dim"
         >
           <Send className="h-4 w-4" />
         </button>
