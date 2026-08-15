@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { platforms } from "@/lib/site";
@@ -18,9 +17,11 @@ export default function Portfolio() {
 
       <div className="wrap mt-14 grid grid-cols-1 gap-px border border-paper/[0.14] bg-paper/[0.14] lg:grid-cols-3">
         {platforms.map((p) => (
-          <Link
+          <a
             key={p.title}
             href={p.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex flex-col bg-charcoal px-8 py-[38px] transition-colors duration-200 hover:bg-[#1A2020] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-lime"
           >
             <span className="mb-[18px] inline-block self-start rounded-[2px] border border-lime/40 px-[9px] py-1 font-mono text-[10.5px] uppercase tracking-[0.12em] text-lime">
@@ -32,7 +33,7 @@ export default function Portfolio() {
               Explore
               <ArrowRight className="h-3.5 w-3.5" />
             </span>
-          </Link>
+          </a>
         ))}
       </div>
     </section>

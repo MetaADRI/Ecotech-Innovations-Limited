@@ -217,18 +217,18 @@ export const platforms = [
     tag: "Marketplace",
     title: "FixCycle",
     text: "A digital marketplace connecting households to repair, maintenance and handyman services — building resilience and local livelihoods.",
-    href: "/fixcycle",
+    href: "https://play.google.com/store/apps/details?id=com.fixcyclehandy.user",
   },
   {
     tag: "Mobility & Parcels",
     title: "MobiLink",
     text: "An intercity ride-sharing and parcel delivery platform, moving people and cargo between Zambia's cities more efficiently.",
-    href: "/solutions#mobilink",
+    href: "https://eilzm.com/",
   },
   {
     tag: "Hospitality",
     title: "Lala",
     text: "A mobile-first, budget accommodation booking platform via Mobile Money and WhatsApp — covering Lusaka, the Copperbelt and Livingstone.",
-    href: "/solutions#lala",
+    href: "https://www.lalabookings.com/",
   },
 ];

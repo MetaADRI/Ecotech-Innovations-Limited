@@ -18,7 +18,7 @@ const stores = [
     title: "Google Play",
     sub: "Android — FixCycle",
     note: "Get it on",
-    href: "#",
+    href: "https://play.google.com/store/apps/details?id=com.fixcyclehandy.user",
   },
   {
     icon: Download,
@@ -65,8 +65,9 @@ export default function FixCyclePage() {
           />
 
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
-            {stores.map((s, i) => (
-              <Reveal key={s.title} delay={0.08 * i}>
+            {stores.map((s, i) => {
+              const linkable = !s.soon && s.href && s.href !== "#";
+              const card = (
                 <div
                   className={`group flex h-full items-center gap-4 rounded-[2px] border p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift ${
                     s.soon
@@ -83,8 +84,24 @@ export default function FixCyclePage() {
                     <p className="text-sm text-brand-ink/55">{s.sub}</p>
                   </div>
                 </div>
-              </Reveal>
-            ))}
+              );
+              return (
+                <Reveal key={s.title} delay={0.08 * i}>
+                  {linkable ? (
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block h-full focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-lime"
+                    >
+                      {card}
+                    </a>
+                  ) : (
+                    card
+                  )}
+                </Reveal>
+              );
+            })}
           </div>
 
           <Reveal delay={0.2} className="mt-12 text-center">

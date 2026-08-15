@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import { ButtonLink } from "@/components/Button";
+import { ButtonAnchor, ButtonLink } from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "Solutions",
@@ -164,10 +164,16 @@ export default function SolutionsPage() {
                 An intercity ride-sharing and parcel delivery platform, moving people and cargo between
                 Zambia&apos;s cities more efficiently.
               </p>
-              <ButtonLink href="/contact" variant="outline-light" className="mt-8">
-                Partner with MobiLink
+              <ButtonAnchor
+                href="https://eilzm.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outline-light"
+                className="mt-8"
+              >
+                Visit MobiLink
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-              </ButtonLink>
+              </ButtonAnchor>
             </div>
 
             <div id="lala" className="scroll-mt-28 bg-charcoal p-8 sm:p-10">
@@ -179,10 +185,16 @@ export default function SolutionsPage() {
                 A mobile-first, budget accommodation booking platform via Mobile Money and WhatsApp — covering
                 Lusaka, the Copperbelt and Livingstone.
               </p>
-              <ButtonLink href="/contact" variant="outline-light" className="mt-8">
-                Partner with Lala
+              <ButtonAnchor
+                href="https://www.lalabookings.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outline-light"
+                className="mt-8"
+              >
+                Visit Lala
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-              </ButtonLink>
+              </ButtonAnchor>
             </div>
           </div>
         </div>
