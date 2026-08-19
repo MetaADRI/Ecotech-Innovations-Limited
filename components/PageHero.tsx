@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
@@ -25,12 +26,14 @@ export default function PageHero({
   subtitle,
   crumb,
   actions,
+  logo,
 }: {
   eyebrow: string;
   title: string;
   subtitle?: string;
   crumb: string;
   actions?: HeroAction[];
+  logo?: { src: string; alt: string; width?: number; height?: number };
 }) {
   return (
     <section
@@ -47,6 +50,26 @@ export default function PageHero({
       />
 
       <div className="wrap relative">
+        {/* Optional logo — positioned far right */}
+        {logo && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.8, ease }}
+            className="pointer-events-none absolute right-0 top-0 hidden h-full w-auto items-center justify-center lg:flex"
+          >
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={logo.width ?? 240}
+              height={logo.height ?? 240}
+              className="h-auto w-[200px] xl:w-[240px]"
+              style={{ filter: "drop-shadow(0 0 40px rgba(201,162,39,0.25))" }}
+              priority
+            />
+          </motion.div>
+        )}
+
         {/* Breadcrumb */}
         <motion.nav
           initial="hidden"

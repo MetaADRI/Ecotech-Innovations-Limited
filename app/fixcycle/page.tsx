@@ -52,6 +52,7 @@ export default function FixCyclePage() {
         eyebrow="The Flagship Platform"
         title="FixCycle — Zambia's home-services marketplace"
         subtitle="Two apps, one mission: connect every household with trusted, verified service providers — and give skilled artisans the platform they deserve."
+        logo={{ src: "/fixcycle-logo.png", alt: "FixCycle logo" }}
       />
 
       {/* Tabs */}

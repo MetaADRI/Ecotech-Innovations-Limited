@@ -152,7 +152,7 @@ export default function FixCycleTabs() {
               <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
                 <div className="relative mx-auto hidden lg:block">
                   <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-green/15 blur-[90px]" aria-hidden />
-                  <PhoneMockup tone="green" className="relative" />
+                  <PhoneMockup className="relative" />
                 </div>
                 <div>
                   <h2 className="font-display text-3xl font-bold tracking-tight text-brand-ink sm:text-4xl">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   ArrowRight,
   Boxes,
@@ -155,46 +156,64 @@ export default function SolutionsPage() {
           </p>
 
           <div className="mt-12 grid gap-px bg-paper/15 sm:grid-cols-2">
-            <div id="mobilink" className="scroll-mt-28 bg-charcoal p-8 sm:p-10">
-              <span className="inline-block bg-lime px-2 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-forest-deep">
-                Mobility &amp; Parcels
-              </span>
-              <h3 className="mt-5 font-display text-2xl font-bold tracking-tight">MobiLink</h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-paper/65">
-                An intercity ride-sharing and parcel delivery platform, moving people and cargo between
-                Zambia&apos;s cities more efficiently.
-              </p>
-              <ButtonAnchor
-                href="https://eilzm.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="outline-light"
-                className="mt-8"
-              >
-                Visit MobiLink
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-              </ButtonAnchor>
+            <div id="mobilink" className="scroll-mt-28 relative overflow-hidden bg-charcoal p-8 sm:p-10">
+              <Image
+                src="/mobilink-landing.png"
+                alt=""
+                fill
+                className="object-cover opacity-[0.12]"
+                aria-hidden
+              />
+              <div className="relative">
+                <span className="inline-block bg-lime px-2 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-forest-deep">
+                  Mobility &amp; Parcels
+                </span>
+                <h3 className="mt-5 font-display text-2xl font-bold tracking-tight">MobiLink</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-paper/65">
+                  An intercity ride-sharing and parcel delivery platform, moving people and cargo between
+                  Zambia&apos;s cities more efficiently.
+                </p>
+                <ButtonAnchor
+                  href="https://eilzm.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outline-light"
+                  className="mt-8"
+                >
+                  Visit MobiLink
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                </ButtonAnchor>
+              </div>
             </div>
 
-            <div id="lala" className="scroll-mt-28 bg-charcoal p-8 sm:p-10">
-              <span className="inline-block bg-lime px-2 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-forest-deep">
-                Hospitality
-              </span>
-              <h3 className="mt-5 font-display text-2xl font-bold tracking-tight">Lala</h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-paper/65">
-                A mobile-first, budget accommodation booking platform via Mobile Money and WhatsApp — covering
-                Lusaka, the Copperbelt and Livingstone.
-              </p>
-              <ButtonAnchor
-                href="https://www.lalabookings.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="outline-light"
-                className="mt-8"
-              >
-                Visit Lala
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-              </ButtonAnchor>
+            <div id="lala" className="scroll-mt-28 relative overflow-hidden bg-charcoal p-8 sm:p-10">
+              <Image
+                src="/lala-landing.png"
+                alt=""
+                fill
+                className="object-cover opacity-[0.12]"
+                aria-hidden
+              />
+              <div className="relative">
+                <span className="inline-block bg-lime px-2 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-forest-deep">
+                  Hospitality
+                </span>
+                <h3 className="mt-5 font-display text-2xl font-bold tracking-tight">Lala</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-paper/65">
+                  A mobile-first, budget accommodation booking platform via Mobile Money and WhatsApp — covering
+                  Lusaka, the Copperbelt and Livingstone.
+                </p>
+                <ButtonAnchor
+                  href="https://www.lalabookings.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outline-light"
+                  className="mt-8"
+                >
+                  Visit Lala
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                </ButtonAnchor>
+              </div>
             </div>
           </div>
         </div>
