@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { Apple, BadgeCheck, Download, Play, Smartphone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
@@ -59,6 +61,42 @@ export default function FixCyclePage() {
       <section className="bg-surface py-20 sm:py-24">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <FixCycleTabs />
+        </div>
+      </section>
+
+      {/* FixCycle Pro CTA */}
+      <section className="relative overflow-hidden bg-forest-deep py-20 sm:py-24">
+        <div className="bg-grid-dark absolute inset-0 opacity-30" aria-hidden />
+        <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <Reveal>
+            <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:text-left">
+              <Image
+                src="/fixcycle-pro-logo.png"
+                alt="FixCycle Pro"
+                width={140}
+                height={140}
+                className="h-[120px] w-[120px] shrink-0 rounded-full object-cover lg:h-[140px] lg:w-[140px]"
+                priority
+              />
+              <div className="flex-1">
+                <span className="inline-block bg-lime px-2 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-forest-deep">
+                  For Artisans
+                </span>
+                <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-paper sm:text-4xl">
+                  Meet FixCycle Pro
+                </h2>
+                <p className="mt-3 max-w-xl text-lg leading-relaxed text-paper/70">
+                  Grow your handyman business — manage services, bookings, availability, and earnings all in one app.
+                </p>
+                <Link
+                  href="/fixcycle-pro"
+                  className="mt-6 inline-flex items-center gap-2 rounded-[2px] bg-lime px-7 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-forest-deep transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  Learn more about FixCycle Pro
+                </Link>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

@@ -17,7 +17,7 @@ import {
   Wallet,
 } from "lucide-react";
 import PhoneMockup from "@/components/PhoneMockup";
-import { ButtonAnchor, ButtonLink } from "@/components/Button";
+import { ButtonLink } from "@/components/Button";
 import { cn } from "@/lib/utils";
 
 const tabs = [
@@ -217,16 +217,14 @@ export default function FixCycleTabs() {
                     ))}
                   </ul>
                   <div className="mt-9 flex flex-wrap gap-3">
-                    <ButtonAnchor
-                      href="https://play.google.com/store/apps/details?id=com.fixcyclehandy.driver"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <ButtonLink
+                      href="/fixcycle-pro"
                       variant="secondary"
                       size="lg"
                     >
-                      Register as a Pro
+                      Learn more about FixCycle Pro
                       <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                    </ButtonAnchor>
+                    </ButtonLink>
                   </div>
                 </div>
 
