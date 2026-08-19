@@ -75,7 +75,7 @@ export default function FixCyclePage() {
                 alt="FixCycle Pro"
                 width={140}
                 height={140}
-                className="h-[120px] w-[120px] shrink-0 rounded-full object-cover lg:h-[140px] lg:w-[140px]"
+                className="h-[120px] w-[120px] shrink-0 object-cover lg:h-[140px] lg:w-[140px]"
                 priority
               />
               <div className="flex-1">

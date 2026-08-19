@@ -119,7 +119,7 @@ export default function FixCycleProPage() {
                 alt="FixCycle Pro"
                 width={80}
                 height={80}
-                className="h-20 w-20 rounded-full object-cover"
+                className="h-20 w-20 object-cover"
               />
             </div>
           </Reveal>
