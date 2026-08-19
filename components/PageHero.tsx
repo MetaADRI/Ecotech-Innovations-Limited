@@ -63,7 +63,7 @@ export default function PageHero({
               alt={logo.alt}
               width={logo.width ?? 240}
               height={logo.height ?? 240}
-              className="h-auto w-[200px] xl:w-[240px]"
+              className="h-auto w-[200px] rounded-full xl:w-[240px]"
               style={{ filter: "drop-shadow(0 0 40px rgba(201,162,39,0.25))" }}
               priority
             />
