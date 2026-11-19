@@ -1,198 +1,68 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { Apple, BadgeCheck, Download, Globe, Play, Smartphone } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import SectionHeading from "@/components/SectionHeading";
-import FixCycleTabs from "@/components/fixcycle/FixCycleTabs";
-import FixCycleWebSection from "@/components/fixcycle/FixCycleWebSection";
-import { ButtonLink } from "@/components/Button";
-import { fixcycleWeb } from "@/lib/site";
+import { fixcycleWeb, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "FixCycle",
-  description:
-    "FixCycle connects households with verified local service providers — and FixCycle Pro helps skilled artisans find jobs and get paid digitally. A browser version is also in development.",
+  description: "FixCycle is a digital platform in the Ecotech Innovations Limited solutions portfolio.",
 };
-
-const stores = [
-  {
-    icon: Play,
-    title: "Google Play",
-    sub: "Android — FixCycle",
-    note: "Get it on",
-    href: "https://play.google.com/store/apps/details?id=com.fixcyclehandy.user",
-  },
-  {
-    icon: BadgeCheck,
-    title: "FixCycle Pro",
-    sub: "Android — for artisans",
-    note: "Get it on",
-    href: "https://play.google.com/store/apps/details?id=com.fixcyclehandy.driver",
-    tag: "Web version coming soon",
-  },
-  {
-    icon: Globe,
-    title: "Web version",
-    sub: "Any browser — no install",
-    note: "Open",
-    href: fixcycleWeb.url,
-    tag: fixcycleWeb.status,
-    external: true,
-  },
-  {
-    icon: Download,
-    title: "Direct APK",
-    sub: "Install on any Android",
-    note: "Download",
-    href: "#",
-  },
-  {
-    icon: Apple,
-    title: "App Store",
-    sub: "iOS — coming soon",
-    note: "Get it on",
-    href: "#",
-    soon: true,
-  },
-];
 
 export default function FixCyclePage() {
   return (
     <>
       <PageHero
         crumb="FixCycle"
-        eyebrow="The Flagship Platform"
-        title="FixCycle — Zambia's home-services marketplace"
-        subtitle="Two apps, one mission: connect every household with trusted, verified service providers — and give skilled artisans the platform they deserve. A browser version is now in development."
-        logo={{ src: "/fixcycle-logo.png", alt: "FixCycle logo" }}
+        eyebrow="Digital Platform"
+        title="FixCycle"
+        subtitle="FixCycle is part of the Ecotech Innovations Limited digital platforms portfolio, alongside MobiLink and Lala."
         actions={[
-          { label: "Get the app", href: "#downloads", primary: true },
-          { label: "Web version — in development", href: "#web-version" },
+          { label: "Contact us", href: `/contact?subject=${encodeURIComponent("Digital platforms (FixCycle, MobiLink, Lala)")}`, primary: true },
+          { label: "View all solutions", href: "/solutions" },
         ]}
       />
 
-      {/* Tabs */}
       <section className="bg-surface py-20 sm:py-24">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <FixCycleTabs />
-        </div>
-      </section>
-
-      {/* FixCycle Pro CTA */}
-      <section className="relative overflow-hidden bg-forest-deep py-20 sm:py-24">
-        <div className="bg-grid-dark absolute inset-0 opacity-30" aria-hidden />
-        <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8">
+        <div className="mx-auto w-full max-w-5xl space-y-8 px-5 sm:px-8">
           <Reveal>
-            <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:text-left">
-              <Image
-                src="/fixcycle-pro-logo.png"
-                alt="FixCycle Pro"
-                width={140}
-                height={140}
-                className="h-[120px] w-[120px] shrink-0 object-cover lg:h-[140px] lg:w-[140px]"
-                priority
-              />
-              <div className="flex-1">
-                <span className="inline-block bg-lime px-2 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-forest-deep">
-                  For Artisans
-                </span>
-                <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-paper sm:text-4xl">
-                  Meet FixCycle Pro
-                </h2>
-                <p className="mt-3 max-w-xl text-lg leading-relaxed text-paper/70">
-                  Grow your handyman business — manage services, bookings, availability, and earnings all in one app.
-                </p>
-                <Link
-                  href="/fixcycle-pro"
-                  className="mt-6 inline-flex items-center gap-2 rounded-[2px] bg-lime px-7 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-forest-deep transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            <div className="rounded-[2px] border border-ink/10 bg-paper p-8 shadow-soft">
+              <h2 className="font-display text-2xl font-bold text-ink">Platform overview</h2>
+              <p className="mt-4 text-[15.5px] leading-relaxed text-ink/70">{fixcycleWeb.summary}</p>
+              <p className="mt-4 text-[15.5px] leading-relaxed text-ink/70">
+                For partnership, product or platform enquiries, contact us at{" "}
+                <a href={`mailto:${site.enquiryEmail}`} className="font-semibold text-forest hover:underline">{site.enquiryEmail}</a>.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-4">
+                <a
+                  href={fixcycleWeb.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-[2px] bg-forest px-5 py-3 font-mono text-[12px] font-semibold uppercase tracking-[0.08em] text-paper hover:bg-forest-deep"
                 >
-                  Learn more about FixCycle Pro
+                  Open web preview <ExternalLink className="h-4 w-4" />
+                </a>
+                <Link href="/solutions" className="inline-flex items-center gap-2 rounded-[2px] border border-ink/20 px-5 py-3 font-mono text-[12px] uppercase tracking-[0.08em] text-ink hover:border-forest hover:text-forest">
+                  Back to solutions <ArrowRight className="h-4 w-4" />
                 </Link>
-                <p className="mt-4 font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/45">
-                  FixCycle Pro web version — coming soon
-                </p>
               </div>
+              <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.1em] text-ink/45">Status: {fixcycleWeb.status}</p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.05}>
+            <div className="grid gap-5 sm:grid-cols-3">
+              {fixcycleWeb.pillars.map((p) => (
+                <div key={p.title} className="rounded-[2px] border border-ink/10 bg-paper-soft p-6">
+                  <h3 className="font-display text-lg font-bold text-ink">{p.title}</h3>
+                  <p className="mt-2 text-[14.5px] leading-relaxed text-ink/70">{p.text}</p>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
       </section>
-
-      {/* Downloads */}
-      <section id="downloads" className="relative scroll-mt-24 overflow-hidden bg-paper-soft py-24 sm:py-28">
-        <div className="bg-dots absolute right-0 top-0 h-72 w-72 opacity-60" aria-hidden />
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <SectionHeading
-            eyebrow="Get the app"
-            title="Download FixCycle today"
-            subtitle="Join thousands of customers and artisans across Lusaka & Ndola. It takes less than a minute."
-          />
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {stores.map((s, i) => {
-              const linkable = !s.soon && s.href && s.href !== "#";
-              const card = (
-                <div
-                  className={`group flex h-full items-center gap-4 rounded-[2px] border p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift ${
-                    s.soon
-                      ? "cursor-not-allowed border-dashed border-ink/25 bg-surface/60 opacity-70"
-                      : "border-ink/10 bg-surface shadow-soft hover:border-ink/25"
-                  }`}
-                >
-                  <span
-                    className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-[2px] transition-transform duration-300 group-hover:scale-110 ${
-                      s.external ? "bg-lime text-forest-deep" : "bg-forest text-white"
-                    }`}
-                  >
-                    <s.icon className="h-7 w-7" />
-                  </span>
-                  <div>
-                    <p className="text-xs font-medium uppercase tracking-wide text-brand-ink/50">{s.note}</p>
-                    <p className="font-display text-lg font-bold text-brand-ink">{s.title}</p>
-                    <p className="text-sm text-brand-ink/55">{s.sub}</p>
-                    {s.tag && (
-                      <span className="mt-2 inline-flex items-center gap-1.5 rounded-[2px] bg-lime/15 px-2 py-1 font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-forest">
-                        <span className="h-1.5 w-1.5 rounded-full bg-lime-dim" aria-hidden />
-                        {s.tag}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              );
-              return (
-                <Reveal key={s.title} delay={0.08 * i}>
-                  {linkable ? (
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block h-full focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-lime"
-                    >
-                      {card}
-                    </a>
-                  ) : (
-                    card
-                  )}
-                </Reveal>
-              );
-            })}
-          </div>
-
-          <Reveal delay={0.2} className="mt-12 text-center">
-            <p className="mx-auto max-w-xl text-[15px] text-brand-ink/55">
-              Need help getting set up? Our team is one message away —{" "}
-              <ButtonLink href="/contact" variant="outline-dark" size="sm" className="ml-1">
-                <Smartphone className="h-4 w-4" />
-                Contact us
-              </ButtonLink>
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Web version — under development */}
-      <FixCycleWebSection />
     </>
   );
 }

@@ -3,62 +3,84 @@
 import { useState, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
-import { site } from "@/lib/site";
+import { site, contactSubjects } from "@/lib/site";
 
 type Status = "idle" | "sending" | "done" | "error";
 
-const subjects = [
-  "General enquiry",
-  "Export & Import Trading",
-  "Strategic Sourcing & Procurement",
-  "Freight Brokerage",
-  "Business Consultancy & Compliance",
-  "Green Logistics & Agri-Tech",
-  "FixCycle — I'm a customer",
-  "FixCycle Pro — I'm an artisan",
-  "Partner with us",
-  "Volunteer programme",
-  "Press & media",
-];
+function buildMailto(data: Record<string, string>) {
+  const subject = encodeURIComponent(`Website enquiry — ${data.subject || "General enquiry"}`);
+  const body = encodeURIComponent(
+    [
+      `Name: ${data.name || ""}`,
+      `Email: ${data.email || ""}`,
+      data.phone ? `Phone: ${data.phone}` : "",
+      data.company ? `Company: ${data.company}` : "",
+      `Subject: ${data.subject || ""}`,
+      "",
+      data.message || "",
+    ]
+      .filter(Boolean)
+      .join("\n")
+  );
+  return `mailto:${site.enquiryEmail}?subject=${subject}&body=${body}`;
+}
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const searchParams = useSearchParams();
   const requestedSubject = searchParams.get("subject") ?? "";
-  const presetSubject = subjects.includes(requestedSubject) ? requestedSubject : "";
+  const presetSubject = contactSubjects.includes(requestedSubject) ? requestedSubject : "";
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries()) as Record<string, string>;
 
-    // Formspree niceties: readable subject line + reply-to in notification emails.
-    data._subject = `Ecotech website — ${data.subject ?? "Enquiry"}`;
-    if (data.email) data._replyto = data.email;
+    if (data.website) {
+      setStatus("done");
+      form.reset();
+      return;
+    }
 
-    if (site.formspreeContact) {
+    const payload = {
+      name: data.name,
+      email: data.email,
+      phone: data.phone || "",
+      company: data.company || "",
+      subject: data.subject || "General enquiry",
+      message: data.message,
+      website: data.website || "",
+      source: "website-contact-form",
+    };
+
+    const endpoint = site.enquiryEndpoint || site.formspreeContact;
+    if (endpoint) {
       setStatus("sending");
       try {
-        const res = await fetch(site.formspreeContact, {
+        const res = await fetch(endpoint, {
           method: "POST",
           headers: { Accept: "application/json", "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+          body: JSON.stringify(payload),
         });
         if (res.ok) {
           setStatus("done");
           form.reset();
-        } else {
-          setStatus("error");
+          return;
         }
+        window.location.href = buildMailto(data);
+        setStatus("done");
+        form.reset();
+        return;
       } catch {
-        setStatus("error");
+        window.location.href = buildMailto(data);
+        setStatus("done");
+        form.reset();
+        return;
       }
-      return;
     }
 
-    const subject = encodeURIComponent(`Website enquiry — ${data.subject ?? ""}`);
-    const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nSubject: ${data.subject}\n\n${data.message}`);
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
+    window.location.href = buildMailto(data);
     setStatus("done");
   }
 
@@ -66,19 +88,14 @@ export default function ContactForm() {
     return (
       <div className="rounded-[2px] border border-forest/25 bg-brand-mint p-10 text-center">
         <CheckCircle2 className="mx-auto h-12 w-12 text-forest" />
-        <h3 className="mt-4 font-display text-xl font-bold text-brand-ink">Message sent 🎉</h3>
+        <h3 className="mt-4 font-display text-xl font-bold text-brand-ink">Enquiry submitted</h3>
         <p className="mt-2 text-[15px] text-brand-ink/65">
-          Thanks for reaching out — we&apos;ll get back to you within 1–2 working days.
-          {!site.formspreeContact && (
-            <>
-              {" "}
-              (If your email app didn&apos;t open, email us directly at{" "}
-              <a href={`mailto:${site.email}`} className="font-semibold text-forest underline">
-                {site.email}
-              </a>
-              .)
-            </>
-          )}
+          Thank you for contacting {site.shortName}. If your email app did not open or if no backend is configured,
+          you can email us directly at{" "}
+          <a href={`mailto:${site.enquiryEmail}`} className="font-semibold text-forest underline">
+            {site.enquiryEmail}
+          </a>
+          .
         </p>
       </div>
     );
@@ -86,20 +103,16 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="rounded-[2px] border border-ink/15 bg-surface p-8 shadow-soft sm:p-10">
-      <h3 className="font-display text-2xl font-bold text-brand-ink">Send us a message</h3>
+      <h3 className="font-display text-2xl font-bold text-brand-ink">Send an enquiry</h3>
       <p className="mt-2 text-sm text-brand-ink/55">
-        Questions, partnerships, feedback — we read everything.
+        Tell us what you need and we’ll respond by email. Enquiries are directed to{" "}
+        <a href={`mailto:${site.enquiryEmail}`} className="font-semibold text-forest underline-offset-2 hover:underline">
+          {site.enquiryEmail}
+        </a>
+        .
       </p>
 
-      {/* Formspree honeypot — hidden from humans; bots that fill it get silently dropped. */}
-      <input
-        type="text"
-        name="_gotcha"
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden="true"
-        className="hidden"
-      />
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
 
       <div className="mt-7 grid gap-5 sm:grid-cols-2">
         <label className="block">
@@ -123,6 +136,25 @@ export default function ContactForm() {
         </label>
       </div>
 
+      <div className="mt-5 grid gap-5 sm:grid-cols-2">
+        <label className="block">
+          <span className="mb-1.5 block text-sm font-semibold text-brand-ink">Phone (optional)</span>
+          <input
+            name="phone"
+            placeholder="+260 ..."
+            className="w-full rounded-[2px] border border-ink/20 bg-paper-soft px-4 py-3 text-[15px] text-brand-ink placeholder:text-brand-ink/35 transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/25"
+          />
+        </label>
+        <label className="block">
+          <span className="mb-1.5 block text-sm font-semibold text-brand-ink">Company (optional)</span>
+          <input
+            name="company"
+            placeholder="Company or organisation"
+            className="w-full rounded-[2px] border border-ink/20 bg-paper-soft px-4 py-3 text-[15px] text-brand-ink placeholder:text-brand-ink/35 transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/25"
+          />
+        </label>
+      </div>
+
       <label className="mt-5 block">
         <span className="mb-1.5 block text-sm font-semibold text-brand-ink">Subject</span>
         <select
@@ -134,7 +166,7 @@ export default function ContactForm() {
           <option value="" disabled>
             Choose a subject
           </option>
-          {subjects.map((s) => (
+          {contactSubjects.map((s) => (
             <option key={s} value={s}>
               {s}
             </option>
@@ -146,22 +178,12 @@ export default function ContactForm() {
         <span className="mb-1.5 block text-sm font-semibold text-brand-ink">Message</span>
         <textarea
           name="message"
-          rows={5}
+          rows={6}
           required
-          placeholder="How can we help?"
+          placeholder="Tell us about your enquiry (products, quantities, timelines, compliance needs, monitoring/logistics requirements, etc.)"
           className="w-full resize-y rounded-[2px] border border-ink/20 bg-paper-soft px-4 py-3 text-[15px] text-brand-ink placeholder:text-brand-ink/35 transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/25"
         />
       </label>
-
-      {status === "error" && (
-        <p className="mt-4 text-sm font-medium text-red-600">
-          Something went wrong — please email us directly at{" "}
-          <a href={`mailto:${site.email}`} className="underline">
-            {site.email}
-          </a>
-          .
-        </p>
-      )}
 
       <button
         type="submit"
@@ -174,11 +196,14 @@ export default function ContactForm() {
           </>
         ) : (
           <>
-            Send message
+            Send enquiry
             <Send className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
           </>
         )}
       </button>
+      <p className="mt-4 text-xs text-brand-ink/45">
+        Submissions use a configured enquiry endpoint when available, otherwise your email app opens to {site.enquiryEmail}.
+      </p>
     </form>
   );
 }

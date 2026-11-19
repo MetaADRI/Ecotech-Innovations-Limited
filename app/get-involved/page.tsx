@@ -1,45 +1,13 @@
 import type { Metadata } from "next";
-import {
-  ArrowRight,
-  Award,
-  Briefcase,
-  CalendarCheck,
-  Code2,
-  Globe2,
-  HeartHandshake,
-  Lightbulb,
-  Laptop,
-  LineChart,
-  Palette,
-  PenTool,
-  Rocket,
-  Users,
-} from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Handshake, Mail } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import SectionHeading from "@/components/SectionHeading";
-import VolunteerForm from "@/components/forms/VolunteerForm";
-import { ButtonLink } from "@/components/Button";
-import { volunteerBenefits, volunteerRoles, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Get Involved",
-  description:
-    "Join the Global Tech Volunteers programme at Ecotech Innovations — build Africa's next impact platform from anywhere in the world.",
-};
-
-const activities = [
-  { icon: Code2, title: "Develop features", text: "Ship real product features for FixCycle and our green-tech tools." },
-  { icon: PenTool, title: "Design", text: "Craft clean, accessible interfaces for Zambian users." },
-  { icon: Laptop, title: "Mentor & support", text: "Coach junior talent and share your expertise with the team." },
-  { icon: CalendarCheck, title: "Test & QA", text: "Make sure every release is smooth, safe and reliable." },
-];
-
-const roleIcons: Record<(typeof volunteerRoles)[number]["icon"], typeof Code2> = {
-  code: Code2,
-  palette: Palette,
-  chart: LineChart,
-  clipboard: Briefcase,
+  description: "Partner with Ecotech Innovations Limited or enquire about opportunities.",
 };
 
 export default function GetInvolvedPage() {
@@ -47,177 +15,34 @@ export default function GetInvolvedPage() {
     <>
       <PageHero
         crumb="Get Involved"
-        eyebrow="Global Tech Volunteers"
-        title="Help us build Africa's next impact platform"
-        subtitle="We're calling passionate developers, engineers and tech volunteers worldwide to join a small, mission-driven team building the green economy — one app at a time."
+        eyebrow="Partnerships & Opportunities"
+        title="Work with Ecotech Innovations"
+        subtitle="We welcome enquiries from customers, suppliers, partners and collaborators across trading, consultancy and compliance, monitoring, logistics, agriculture and digital platforms."
+        actions={[{ label: "Send an enquiry", href: "/contact", primary: true }]}
       />
-
-      {/* Banner CTA */}
       <section className="bg-surface py-20 sm:py-24">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+        <div className="mx-auto grid w-full max-w-6xl gap-8 px-5 sm:px-8 lg:grid-cols-2">
           <Reveal>
-            <div className="relative overflow-hidden rounded-[2px] bg-gradient-to-br from-forest via-forest-deep to-charcoal p-9 text-white shadow-lift sm:p-12">
-              <div className="bg-grid-dark absolute inset-0" aria-hidden />
-              <div className="absolute -right-24 -top-24 h-80 w-80 animate-float-slow rounded-full bg-teal/25 blur-[100px]" aria-hidden />
-              <div className="relative grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-                <div>
-                  <span className="inline-flex items-center gap-2 rounded-[2px] bg-white/15 px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] ring-1 ring-white/25">
-                    <Globe2 className="h-4 w-4" />
-                    Remote · Flexible · Real impact
-                  </span>
-                  <h2 className="mt-6 font-display text-3xl font-bold leading-[1.12] tracking-tight sm:text-4xl">
-                    Calling Global Tech Volunteers — join us in building{" "}
-                    <span className="text-gradient-gold">Africa&apos;s next impact platform!</span>
-                  </h2>
-                  <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-white/80">
-                    Work alongside our team on products that connect communities and cut carbon
-                    footprints. Contribute a few hours a week — or dive in deep. It&apos;s up to you.
-                  </p>
-                </div>
-                <div className="flex justify-center lg:justify-end">
-                  <a
-                    href="#apply"
-                    className="inline-flex items-center gap-3 rounded-[2px] bg-lime px-8 py-4 font-display text-lg font-bold text-forest-deep shadow-glow transition-all duration-300 hover:-translate-y-1 hover:shadow-lift"
-                  >
-                    <Rocket className="h-6 w-6" />
-                    Apply Now
-                  </a>
-                </div>
-              </div>
+            <div className="h-full rounded-[2px] border border-ink/10 bg-paper p-8 shadow-soft">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-[2px] bg-brand-mint text-forest"><Handshake className="h-6 w-6" /></span>
+              <h2 className="mt-5 font-display text-2xl font-bold text-ink">Partnerships & supply</h2>
+              <p className="mt-3 text-[15.5px] leading-relaxed text-ink/70">
+                Contact us for wholesale trading and supply opportunities (including cement as an authorized agent for Chilanga Cement PLC, fuels and acids, vehicle importation, consumer and household goods), agriculture commodity sourcing and supply, logistics and freight brokerage, or other collaboration enquiries.
+              </p>
+              <Link href={`/contact?subject=${encodeURIComponent("Partnership enquiry")}`} className="mt-6 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.08em] text-forest hover:text-lime-dim">
+                Partnership enquiry <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* What you'll do */}
-      <section className="bg-surface pb-8">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <SectionHeading eyebrow="What you'll do" title="Build, shape and sharpen" />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {activities.map((a, i) => (
-              <Reveal key={a.title} delay={0.08 * i}>
-                <div className="group h-full rounded-[2px] border border-ink/10 bg-surface p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-ink/25 hover:shadow-lift">
-                  <span className="inline-flex h-13 w-13 items-center justify-center rounded-[2px] bg-brand-mint text-forest shadow-soft transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
-                    <a.icon className="h-6 w-6" />
-                  </span>
-                  <h3 className="mt-5 font-display text-lg font-bold text-brand-ink">{a.title}</h3>
-                  <p className="mt-2 text-[14.5px] leading-relaxed text-brand-ink/60">{a.text}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Who we need + benefits */}
-      <section className="bg-paper-soft py-24 sm:py-28">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="grid gap-14 lg:grid-cols-2">
-            <div>
-              <Reveal direction="right">
-                <span className="mb-4 inline-flex items-center gap-2 rounded-[2px] bg-forest px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-paper ring-1 ring-forest/20">
-                  <Users className="h-3.5 w-3.5" />
-                  Who we need
-                </span>
-                <h2 className="font-display text-3xl font-bold tracking-tight text-brand-ink">
-                  Bring your skills. <span className="text-forest">Leave your mark.</span>
-                </h2>
-              </Reveal>
-              <div className="mt-8 space-y-4">
-                {volunteerRoles.map((r, i) => {
-                  const Icon = roleIcons[r.icon];
-                  return (
-                    <Reveal key={r.title} delay={0.06 * i}>
-                      <div className="group flex items-start gap-4 rounded-[2px] bg-surface p-5 shadow-soft ring-1 ring-black/5 dark:ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
-                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[2px] bg-brand-mint text-forest transition-transform duration-300 group-hover:scale-110">
-                          <Icon className="h-5 w-5" />
-                        </span>
-                        <div>
-                          <h3 className="font-semibold text-brand-ink">{r.title}</h3>
-                          <p className="mt-0.5 text-sm text-brand-ink/55">{r.text}</p>
-                        </div>
-                      </div>
-                    </Reveal>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div>
-              <Reveal direction="left">
-                <span className="mb-4 inline-flex items-center gap-2 rounded-[2px] bg-forest px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-paper ring-1 ring-forest/20">
-                  <HeartHandshake className="h-3.5 w-3.5" />
-                  What you get
-                </span>
-                <h2 className="font-display text-3xl font-bold tracking-tight text-brand-ink">
-                  More than a <span className="text-forest">reference letter</span>
-                </h2>
-              </Reveal>
-              <div className="mt-8 rounded-[2px] bg-gradient-to-br from-forest via-forest-deep to-charcoal p-8 text-white shadow-lift sm:p-10">
-                <ul className="space-y-4">
-                  {volunteerBenefits.map((b, i) => (
-                    <Reveal key={b} delay={0.06 * i}>
-                      <li className="flex items-start gap-3.5">
-                        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-[2px] bg-lime text-forest-deep">
-                          <Award className="h-3.5 w-3.5" />
-                        </span>
-                        <span className="text-[15px] leading-relaxed text-white/85">{b}</span>
-                      </li>
-                    </Reveal>
-                  ))}
-                </ul>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <ButtonLink href="#apply" variant="gold">
-                    <Lightbulb className="h-4 w-4" />
-                    Apply now
-                  </ButtonLink>
-                  <ButtonLink href="/contact" variant="outline-light">
-                    Ask a question
-                  </ButtonLink>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Apply form */}
-      <section id="apply" className="scroll-mt-24 bg-surface py-24 sm:py-28">
-        <div className="mx-auto w-full max-w-4xl px-5 sm:px-8">
-          <SectionHeading
-            eyebrow="Apply now"
-            title="Ready to build with us?"
-            subtitle="Fill in the form and our community lead will get back to you within a few days."
-          />
-          <Reveal delay={0.15} className="mt-12">
-            <VolunteerForm />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Careers */}
-      <section className="bg-paper-soft py-20 sm:py-24">
-        <div className="mx-auto w-full max-w-4xl px-5 sm:px-8">
-          <Reveal>
-            <div className="flex flex-col items-center gap-5 rounded-[2px] border border-dashed border-ink/25 bg-surface/70 p-10 text-center sm:flex-row sm:text-left">
-              <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-[2px] bg-brand-mint text-forest">
-                <Briefcase className="h-8 w-8" />
-              </span>
-              <div className="flex-1">
-                <h2 className="font-display text-xl font-bold text-brand-ink">Careers at Ecotech</h2>
-                <p className="mt-1.5 text-[15px] text-brand-ink/60">
-                  No open full-time positions right now — but we&apos;re always looking for
-                  passionate people. Send your CV to{" "}
-                  <a href={`mailto:${site.emailCareers}`} className="font-semibold text-forest underline-offset-4 hover:underline">
-                    {site.emailCareers}
-                  </a>{" "}
-                  and tell us what you&apos;d love to build.
-                </p>
-              </div>
-              <ButtonLink href={`mailto:${site.emailCareers}`} variant="outline-dark" className="shrink-0">
-                Email us
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-              </ButtonLink>
+          <Reveal delay={0.05}>
+            <div className="h-full rounded-[2px] border border-ink/10 bg-paper p-8 shadow-soft">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-[2px] bg-brand-mint text-forest"><Mail className="h-6 w-6" /></span>
+              <h2 className="mt-5 font-display text-2xl font-bold text-ink">General opportunities</h2>
+              <p className="mt-3 text-[15.5px] leading-relaxed text-ink/70">
+                For opportunities, proposals or general enquiries, please reach out to us directly by email. We review messages and respond as appropriate.
+              </p>
+              <a href={`mailto:${site.enquiryEmail}`} className="mt-4 inline-flex text-[15px] font-semibold text-forest hover:underline">{site.enquiryEmail}</a>
+              <p className="mt-4 text-sm text-ink/55">All enquiries are directed to {site.enquiryEmail}.</p>
             </div>
           </Reveal>
         </div>

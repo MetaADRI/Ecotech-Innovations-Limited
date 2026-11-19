@@ -25,7 +25,6 @@ const plexMono = IBM_Plex_Mono({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  // Tint the mobile browser chrome (status bar / URL bar) to match the site.
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f5f1e8" },
     { media: "(prefers-color-scheme: dark)", color: "#0f2e28" },
@@ -34,41 +33,44 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Ecotech Innovations Limited | Innovating Business. Enabling Sustainable Growth.",
+    default: `${site.name} | Wholesale Trading, Consultancy & Solutions`,
     template: `%s | ${site.name}`,
   },
-  description:
-    "Ecotech Innovations Limited (EIL) is a Zambian company driving sustainable growth through trading & supply, " +
-    "business consultancy, sustainable technology, and logistics & mobility — from Ndola, Zambia to the world.",
+  description: site.description,
   keywords: [
-    "Ecotech Innovations",
-    "FixCycle",
-    "FixCycle Pro",
-    "Zambia",
-    "export import trading Zambia",
-    "strategic sourcing & procurement",
-    "freight brokerage",
-    "business registration Zambia",
+    "Ecotech Innovations Limited",
+    "wholesale trading Zambia",
+    "Chilanga Cement PLC authorized agent",
+    "cement supply Zambia",
+    "fuels and acids supply",
+    "importation of cars Zambia",
+    "consumer goods and household items",
+    "agriculture commodity sourcing",
+    "maize soya beans groundnuts beans rice",
+    "business consultancy Zambia",
     "PACRA registration",
+    "ZRA compliance",
     "NAPSA registration",
     "NHIMA registration",
-    "green technology",
-    "green logistics",
-    "agri-tech",
-    "sustainability",
+    "Workers Compensation",
+    "CEEC compliance",
+    "independent project monitoring and MVT verification",
+    "logistics management consultancy",
+    "freight brokerage Zambia",
+    "mining coming soon",
+    "FixCycle",
+    "MobiLink",
+    "Lala",
     "Lusaka",
     "Ndola",
-    "home services",
-    "tech volunteers",
   ],
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     apple: "/logo.png",
   },
   openGraph: {
-    title: "Ecotech Innovations Limited | Innovating Business. Enabling Sustainable Growth.",
-    description:
-      "Zambian company driving sustainable growth through trading & supply, business consultancy, sustainable technology, and logistics & mobility.",
+    title: `${site.name} | Wholesale Trading, Consultancy & Solutions`,
+    description: site.description,
     type: "website",
     locale: "en_ZM",
     siteName: site.name,
@@ -83,7 +85,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       className={`${inter.variable} ${poppins.variable} ${plexMono.variable} scroll-smooth antialiased`}
     >
       <head>
-        {/* Apply theme before first paint to avoid a flash of the wrong mode */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var s=localStorage.getItem('ecotech-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d);}catch(e){}})();`,
@@ -93,7 +94,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="flex min-h-screen flex-col bg-surface font-sans text-brand-ink">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-[2px] focus:bg-brand-green focus:px-5 focus:py-2.5 focus:font-mono focus:text-xs focus:uppercase focus:tracking-widest focus:text-brand-blue-soft"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-[2px] focus:bg-lime focus:px-5 focus:py-2.5 focus:font-mono focus:text-xs focus:uppercase focus:tracking-widest focus:text-forest-deep"
         >
           Skip to content
         </a>

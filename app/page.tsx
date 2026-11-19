@@ -11,10 +11,10 @@ export default function HomePage() {
     <>
       <Hero />
       <WhatWeDo />
+      <UpdatesSection />
       <Portfolio />
       <ImpactBand />
       <TestimonialsSection />
-      <UpdatesSection />
       <CTABand />
     </>
   );

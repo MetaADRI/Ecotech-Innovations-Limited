@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { site } from "@/lib/site";
 
-/** Ecotech logo in a clean white tile (the source logo sits on a light background). */
+/** Ecotech logo in a clean white tile. */
 export default function Logo({ light = false, size = "md" }: { light?: boolean; size?: "md" | "lg" }) {
   const box = size === "lg" ? "h-14 w-14" : "h-11 w-11";
   return (
-    <Link href="/" className="group flex shrink-0 items-center gap-3" aria-label="Ecotech Innovations — home">
+    <Link href="/" className="group flex shrink-0 items-center gap-3" aria-label="Ecotech Innovations Limited — home">
       <span
         className={cn(
           "relative flex shrink-0 items-center justify-center overflow-hidden rounded-[2px] bg-white shadow-soft ring-1 ring-black/5 transition-transform duration-300 group-hover:scale-[1.04]",
@@ -27,7 +26,6 @@ export default function Logo({ light = false, size = "md" }: { light?: boolean; 
         <span
           className={cn(
             "font-display font-bold tracking-tight",
-            // Shrink the wordmark a touch on very narrow phones so the navbar fits.
             size === "lg" ? "text-2xl" : "text-[15px] min-[400px]:text-lg",
             light ? "text-white" : "text-brand-ink"
           )}
@@ -41,7 +39,7 @@ export default function Logo({ light = false, size = "md" }: { light?: boolean; 
             light ? "text-white/60" : "text-brand-ink/45"
           )}
         >
-          Zambia · Est. {site.established}
+          Zambia — Trading & Solutions
         </span>
       </span>
     </Link>

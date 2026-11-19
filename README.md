@@ -1,71 +1,87 @@
-# Ecotech Innovations Limited — Company Website
+# Ecotech Innovations Limited – Website
 
-A modern, green-led marketing website for **Ecotech Innovations Limited**, the Zambian
-sustainability-driven technology company behind **FixCycle** (User & Pro apps).
+Marketing website for **Ecotech Innovations Limited** (Zambia), built with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, **Tailwind CSS v4**, and **Framer Motion**.
 
-Built with **Next.js 16 · Tailwind CSS v4 · Framer Motion** — all pages are statically
-pre-rendered for fast loading and great SEO.
+## Business profile (site content)
 
-## Run locally
+The website reflects Ecotech Innovations Limited’s profile:
+
+- **Core business:** Wholesale trading (cement, maize, fuels and acids sourced and supplied, importation of cars, consumer goods and household items, etc.). Currently an **authorized agent for Chilanga Cement PLC**.
+- **Business consultancy & compliance:** Registration and compliance support including PACRA, ZRA, NAPSA, NHIMA, Workers Compensation, CEEC, etc.
+- **Independent project monitoring and MVT verification**
+- **Logistics management consultancy** and **freight brokerage**
+- **Agriculture commodity sourcing and supply:** maize, soya beans, groundnuts, beans, rice, etc.
+- **Mining:** Coming Soon
+- **Digital platforms:** FixCycle, MobiLink, Lala
+
+## Project notes
+
+- **Static export:** `next.config.ts` uses `output: "export"` with `images.unoptimized: true`.
+- **Deployment target:** Netlify (see `netlify.toml`): build `npm run build`, publish `out/`, Node `22`.
+- **No runtime Next.js API routes** in static export. The enquiry/contact backend is a separate deployable service in `backend/`.
+
+## Content & configuration
+
+Most editable site content/config lives in [`lib/site.ts`](lib/site.ts), including:
+
+- Company profile, milestones, testimonials, navigation
+- Services, platforms, agriculture commodities
+- Contact/enquiry details (`email`, `enquiryEmail`, `emailCareers` = `ecotechinnoltd@gmail.com`)
+- Phone/location placeholders (do not invent missing exact address/phone details)
+- Enquiry routing: `enquiryEndpoint` (`NEXT_PUBLIC_ENQUIRY_ENDPOINT`) and `contactSubjects`
+
+## Enquiry flow (frontend)
+
+`components/forms/ContactForm.tsx` posts JSON enquiries to `site.enquiryEndpoint` (or `site.formspreeContact` fallback) with a honeypot field.  
+If no endpoint is configured or the request fails, it falls back to opening the user’s email client via `mailto:ecotechinnoltd@gmail.com`.
+
+## Backend enquiry service (`backend/`)
+
+An Express-based enquiry API is provided separately for deployments where a backend endpoint is available:
+
+- `GET /api/health`
+- `POST /api/enquiries` (validation, honeypot, rate limiting, JSONL storage, optional SMTP notifications)
+- `GET /api/enquiries` (admin, bearer token via `ADMIN_TOKEN`)
+
+### Backend setup
 
 ```bash
-npm install        # first time only
-npm run dev        # http://localhost:3000
+cd backend
+npm install
+cp .env.example .env   # create/edit env values as needed
+npm run dev
 ```
 
-Production build (static export into `out/`):
+Key env vars (see `backend/.env.example`): `PORT`, `CORS_ORIGIN`, `NOTIFY_TO` (defaults to `ecotechinnoltd@gmail.com`), `SMTP_*`, `ADMIN_TOKEN`, `DATA_DIR`.
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000
+
+## Build
 
 ```bash
 npm run build
-npm run preview   # serves the static build locally
 ```
 
-> A preview server is already running at **http://localhost:3000** if you just
-> finished setting this up.
+Build output is generated in `out/` for static hosting.
 
-## Where to edit content
+## Lint
 
-Almost all editable content lives in **one file**: [`lib/site.ts`](lib/site.ts).
-
-| You want to change… | Edit… |
-| --- | --- |
-| Contact details, emails, phones, addresses | `site.email`, `site.phoneLusaka`, … |
-| Stats (artisans, downloads, CO₂, jobs) | `site.stats` |
-| Testimonials | `site.testimonials` |
-| Company timeline | `milestones` |
-| Sustainability goals / progress bars | `impactGoals` |
-| Volunteer roles & benefits | `volunteerRoles`, `volunteerBenefits` |
-| Navigation links | `navLinks` |
-| Facebook / LinkedIn links | `site.facebook`, `site.linkedin` |
-
-The brand palette (green `#00A651`, deep blue `#0A2F44`, teal `#008080`, gold accent
-`#C9A227` sampled from the logo) and global styles live in [`app/globals.css`](app/globals.css).
-
-## Going live
-
-1. **Contact & volunteer forms** — create a free [Formspree](https://formspree.io) form and
-   paste its endpoint into `site.formspreeContact` / `site.formspreeVolunteer`.
-   Until then, forms fall back to opening the visitor's email app (mailto).
-2. **Newsletter** — the signup boxes are placeholder UX; connect a provider when the CEO wants it.
-3. **Real data** — replace the placeholder stats, phones and emails in `lib/site.ts`.
-4. **Photos** — the site uses gradients/SVG art so it works with zero assets. Drop real Zambian
-   photos into `public/` and swap them in where imagery is wanted.
-5. **Deploy (Netlify)** — push to GitHub, then in [app.netlify.com](https://app.netlify.com):
-
-   **Add new site → Import an existing project → GitHub**, authorize Netlify and
-   pick this repo. The included [`netlify.toml`](netlify.toml) already sets the
-   build command (`npm run build`), publish directory (`out`) and Node 22 — so
-   just click **Deploy site**.
-
-   Every push to `main` then auto-deploys to `https://<site-name>.netlify.app`.
-   Free tier — no config needed.
-
-## Structure
-
+```bash
+npm run lint
 ```
-app/                  routes (Home, About, FixCycle, Solutions, Impact, Get Involved, Blog, Contact)
-components/           shared UI (Navbar, Footer, buttons, reveals, counters, phone mockup…)
-components/sections/  home-page sections
-lib/site.ts           ALL editable content
-public/logo.png       company logo
-```
+
+## Structure (high level)
+
+- `app/` – routes/pages (`/`, `/about`, `/services`, `/solutions`, `/contact`, plus legacy/supporting pages)
+- `components/` – shared UI and page sections/forms
+- `lib/site.ts` – primary content/config source of truth
+- `backend/` – separate enquiry API service
+- `public/` – static assets
+- `netlify.toml` – Netlify static deploy config

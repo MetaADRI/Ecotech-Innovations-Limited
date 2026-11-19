@@ -4,25 +4,18 @@ import { FacebookIcon, LinkedInIcon } from "@/components/icons/BrandIcons";
 import { site } from "@/lib/site";
 import Logo from "@/components/Logo";
 
-const divisions = [
-  { label: "Trading & Supply", href: "/services#export-import-trading" },
-  { label: "Business Consultancy", href: "/services#business-consultancy-compliance" },
-  { label: "Sustainable Technology", href: "/solutions" },
-  { label: "Logistics & Mobility", href: "/services#freight-brokerage" },
-];
-
-const portfolio = [
-  { label: "FixCycle", href: "/fixcycle" },
-  { label: "MobiLink", href: "/solutions#mobilink" },
-  { label: "Lala", href: "/solutions#lala" },
+const businessAreas = [
+  { label: "Wholesale Trading & Supply", href: "/services#wholesale-trading" },
+  { label: "Business Consultancy & Compliance", href: "/services#business-consultancy" },
+  { label: "Monitoring, Logistics & Brokerage", href: "/services#monitoring-logistics" },
+  { label: "Agriculture, Mining & Digital", href: "/services#agriculture-mining-digital" },
 ];
 
 const company = [
   { label: "About Us", href: "/about" },
-  { label: "Impact", href: "/impact" },
-  { label: "Blog", href: "/blog" },
-  { label: "Get Involved", href: "/get-involved" },
-  { label: "Partner With Us", href: "/contact" },
+  { label: "Services", href: "/services" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
@@ -30,12 +23,13 @@ export default function Footer() {
     <footer className="bg-charcoal pb-7 pt-16 text-[#F5F1E8]/60">
       <div className="wrap">
         <div className="grid grid-cols-1 gap-10 border-b border-[#F5F1E8]/[0.14] pb-12 min-[760px]:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          {/* Brand */}
-          <div className="footer-col footer-brand">
+          <div>
             <Logo light size="lg" />
-            <p className="mt-3 max-w-[280px] text-[13.5px] leading-relaxed text-[#F5F1E8]/55">
-              Ecotech Innovations Limited — innovating today for a sustainable tomorrow, across
-              trading, consultancy, technology and logistics.
+            <p className="mt-3 max-w-[320px] text-[13.5px] leading-relaxed text-[#F5F1E8]/55">
+              {site.description}
+            </p>
+            <p className="mt-3 max-w-[320px] text-[13px] leading-relaxed text-lime/80">
+              Currently an authorized agent for Chilanga Cement PLC.
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a
@@ -59,11 +53,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Divisions */}
           <div>
-            <h4 className="mb-4 font-mono text-[11px] uppercase tracking-[0.1em] text-sage">Divisions</h4>
+            <h4 className="mb-4 font-mono text-[11px] uppercase tracking-[0.1em] text-sage">Business Areas</h4>
             <ul>
-              {divisions.map((d) => (
+              {businessAreas.map((d) => (
                 <li key={d.label} className="mb-[9px] text-sm">
                   <Link href={d.href} className="transition-colors hover:text-paper">
                     {d.label}
@@ -73,22 +66,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Portfolio */}
-          <div>
-            <h4 className="mb-4 font-mono text-[11px] uppercase tracking-[0.1em] text-sage">Portfolio</h4>
-            <ul>
-              {portfolio.map((p) => (
-                <li key={p.label} className="mb-[9px] text-sm">
-                  <Link href={p.href} className="transition-colors hover:text-paper">
-                    {p.label}
-                  </Link>
-                </li>
-              ))}
-              <li className="mb-[9px] text-sm text-[#F5F1E8]/45">FixCycle Pro</li>
-            </ul>
-          </div>
-
-          {/* Company */}
           <div>
             <h4 className="mb-4 font-mono text-[11px] uppercase tracking-[0.1em] text-sage">Company</h4>
             <ul>
@@ -99,27 +76,39 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-              <li className="flex items-start gap-2 pt-1 text-[13px] text-[#F5F1E8]/55">
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-4 font-mono text-[11px] uppercase tracking-[0.1em] text-sage">Contact</h4>
+            <ul className="space-y-2">
+              <li className="flex items-start gap-2 text-[13px] text-[#F5F1E8]/55">
                 <Mail className="mt-0.5 h-3.5 w-3.5 shrink-0 text-lime" />
                 <a href={`mailto:${site.email}`} className="break-all hover:text-paper">
                   {site.email}
                 </a>
               </li>
-              <li className="flex items-start gap-2 pt-1 text-[13px] text-[#F5F1E8]/55">
+              <li className="flex items-start gap-2 text-[13px] text-[#F5F1E8]/55">
                 <Phone className="mt-0.5 h-3.5 w-3.5 shrink-0 text-lime" />
-                {site.phoneLusaka}
+                <a href={`tel:${site.phonePrimary.replace(/[^+\d]/g, "")}`} className="hover:text-paper">
+                  {site.phonePrimary}
+                </a>
               </li>
-              <li className="flex items-start gap-2 pt-1 text-[13px] text-[#F5F1E8]/55">
+              <li className="flex items-start gap-2 text-[13px] text-[#F5F1E8]/55">
                 <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-lime" />
-                {site.addressLusaka}
+                <span>{site.addressHeadOffice}</span>
+              </li>
+              <li className="flex items-start gap-2 text-[13px] text-[#F5F1E8]/55">
+                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-lime" />
+                <span>{site.addressBranch}</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3 pt-6 font-mono text-[11.5px] uppercase tracking-[0.05em] text-[#F5F1E8]/40">
-          <span>© {new Date().getFullYear()} Ecotech Innovations Limited</span>
-          <span>Ndola · Zambia</span>
+          <span>© {new Date().getFullYear()} {site.name}</span>
+          <span>Enquiries: {site.enquiryEmail}</span>
         </div>
       </div>
     </footer>

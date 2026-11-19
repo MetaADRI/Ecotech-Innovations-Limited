@@ -1,267 +1,321 @@
 /**
- * ─────────────────────────────────────────────────────────────────────────────
- * ECOTECH INNOVATIONS — SITE CONTENT
- * Everything the CEO might want to tweak lives here: contact details, stats,
- * testimonials, milestones and form endpoints. Edit once, update site-wide.
- * All numbers marked "placeholder" should be replaced with real data.
- * ─────────────────────────────────────────────────────────────────────────────
+ * ECOTECH INNOVATIONS — SITE CONTENT (single source of truth)
+ * Edit this file to update company details, services, platforms, contact info,
+ * enquiry routing, and page content across the website.
  */
 
 export const site = {
   name: "Ecotech Innovations Limited",
-  shortName: "Ecotech",
-  tagline: "Innovating Today for a Sustainable Tomorrow.",
+  shortName: "Ecotech Innovations",
+  tagline: "Trading, consultancy, monitoring and digital solutions for growth.",
+  description:
+    "Ecotech Innovations Limited is a Zambian company engaged in wholesale trading, business consultancy, independent project monitoring and MVT verification, logistics and freight brokerage, agriculture commodity sourcing and supply, and digital platforms.",
   established: 2021,
   cities: ["Lusaka", "Ndola"],
 
-  // ── Contact details ──
-  email: "ecotechinnoltd@gmail.com", // CEO email
-  emailCareers: "ecotechinnoltd@gmail.com", // careers go to the same inbox for now
-  phoneLusaka: "+260 76 9723838", // CEO / main line
+  // Contact (use ecotechinnoltd@gmail.com everywhere for contact/enquiry/notifications)
+  email: "ecotechinnoltd@gmail.com",
+  enquiryEmail: "ecotechinnoltd@gmail.com",
+  emailCareers: "ecotechinnoltd@gmail.com",
+  phonePrimary: "+260 76 9723838",
+  addressHeadOffice: "Lusaka, Zambia (Head Office)",
+  addressBranch: "Ndola, Zambia (Branch Office)",
+
+  // Legacy aliases kept for compatibility with existing components
+  phoneLusaka: "+260 76 9723838",
   addressLusaka: "Lusaka, Zambia (Head Office)",
   addressNdola: "Ndola, Zambia (Branch Office)",
 
-  // ── Official socials ──
+  // Enquiry backend endpoint (set for deployed backend, e.g. https://api.example.com/api/enquiries)
+  enquiryEndpoint: process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT || "",
+  formspreeContact: "",
+  formspreeVolunteer: "",
+
+  // Socials
   facebook: "https://www.facebook.com/profile.php?id=100040816121761",
   linkedin: "https://www.linkedin.com/company/ecotech-innovations-limited/",
 
-  // ── Forms: set your Formspree / Web3Forms id to go live, or leave empty
-  //    to use the graceful "email us directly" fallback. ──
-  formspreeContact: "", // e.g. "https://formspree.io/f/abcdwxyz"
-  formspreeVolunteer: "", // e.g. "https://formspree.io/f/abcdwxyz"
+  highlights: [
+    { label: "Core business", value: "Wholesale trading" },
+    { label: "Cement partner", value: "Authorized agent — Chilanga Cement PLC" },
+    { label: "Coverage", value: "Zambia & regional partners" },
+  ],
 
-  // ── Home hero stats (placeholders) ──
   stats: {
     founded: 2021,
     cities: 2,
-    artisans: 500,
-    downloads: 10000,
-    co2Tonnes: 250,
-    jobsCreated: 120,
-    homesServed: 3000,
   },
 
-  // ── Testimonials (text-only placeholders to start) ──
   testimonials: [
     {
       quote:
-        "I booked a plumber on FixCycle and someone arrived within the hour — verified, professional, and at a fair price. It has completely changed how I find help at home.",
-      name: "Namwali M.",
-      role: "FixCycle customer · Lusaka",
+        "Ecotech Innovations provided dependable sourcing and clear communication from enquiry to delivery.",
+      name: "Business client",
+      role: "Trading & supply partner",
     },
     {
       quote:
-        "FixCycle Pro gave me a steady stream of jobs I didn't have to chase. The digital payments mean I get paid on time, every single time.",
-      name: "Joseph K.",
-      role: "Electrician · Ndola",
+        "Their consultancy support made our registration and compliance process straightforward and well-coordinated.",
+      name: "SME client",
+      role: "Business registration & compliance",
     },
     {
       quote:
-        "Ecotech thinks about impact first. It's rare to find a company this young with such a clear vision for Zambia's green economy.",
-      name: "Community partner",
-      role: "NGO collaborator · Lusaka",
-    },
-    {
-      quote:
-        "Joining as a global tech volunteer let me work on real product challenges while giving back. The team is small, fast and genuinely mission-driven.",
-      name: "Remote volunteer",
-      role: "Software developer · Global",
+        "Professional coordination and timely updates helped us manage logistics and freight requirements with confidence.",
+      name: "Operations partner",
+      role: "Logistics & freight brokerage",
     },
   ],
 };
 
-/** Company milestones for the About timeline (year → story). */
+/** Company milestones (high-level). */
 export const milestones = [
   {
-    year: 2021,
-    title: "Ecotech Innovations is founded",
-    text: "Founded in Lusaka with a mission to build smart, eco-friendly digital marketplaces that connect communities and reduce carbon footprints.",
+    year: "2021",
+    title: "Company established",
+    text: "Ecotech Innovations Limited was established in Zambia to deliver trading, consultancy and practical business solutions.",
   },
   {
-    year: 2022,
-    title: "FixCycle beta launches",
-    text: "The first version of FixCycle goes live, matching households with verified local service providers across Lusaka.",
+    year: "Today",
+    title: "Diversified operations",
+    text: "Core wholesale trading supported by consultancy, compliance services, logistics and freight brokerage, agriculture commodity sourcing, and digital platforms.",
   },
   {
-    year: 2023,
-    title: "Expansion to Ndola & FixCycle Pro",
-    text: "Operations extend to the Copperbelt, and FixCycle Pro launches so skilled artisans can find jobs and get paid digitally.",
+    year: "Partnership",
+    title: "Authorized cement agency",
+    text: "Serving as an authorized agent for Chilanga Cement PLC as part of our trading and supply operations.",
   },
   {
-    year: 2024,
-    title: "Green sector pilots",
-    text: "Pilot programmes begin in green logistics, agri-tech and supply-chain innovation with community and business partners.",
+    year: "Growing portfolio",
+    title: "Monitoring, logistics and platforms",
+    text: "Expanding independent project monitoring and MVT verification, logistics consultancy, and digital platforms including FixCycle, MobiLink and Lala.",
   },
   {
-    year: 2025,
-    title: "Global Tech Volunteers programme",
-    text: "We open our doors to developers and engineers worldwide to help build Africa's next impact platform.",
-  },
-  {
-    year: 2026,
-    title: "Scaling impact",
-    text: "Growing the FixCycle network, deepening sustainability metrics, and expanding our reach across Zambia.",
+    year: "Coming soon",
+    title: "Mining operations",
+    text: "Mining is part of our growth pipeline and is currently marked as Coming Soon.",
   },
 ];
 
-/** Sustainability goals for the Impact page (label → progress %). */
-export const impactGoals = [
-  { label: "Carbon reduction target (vs. 2021 baseline)", value: 42, caption: "42% of 2030 goal" },
-  { label: "Artisans moved to digital payments", value: 65, caption: "65% of active Pros" },
-  { label: "Tree planting partnerships", value: 38, caption: "38% of 10,000 trees" },
-  { label: "Homes reached in underserved areas", value: 55, caption: "55% of 2030 goal" },
+/** Home "What we do" / core business areas. */
+export const divisions = [
+  {
+    id: "trading",
+    code: "01 — TRADING",
+    title: "Wholesale Trading & Supply",
+    desc: "Core wholesale trading and sourcing across construction, fuels, vehicles, consumer and household goods.",
+    href: "/services#wholesale-trading",
+    services: [
+      "Cement (authorized agent for Chilanga Cement PLC)",
+      "Maize and agricultural commodities",
+      "Fuels and acids — sourced and supplied",
+      "Importation of cars",
+      "Consumer goods and household items",
+      "General wholesale trading and sourcing",
+    ],
+  },
+  {
+    id: "consultancy",
+    code: "02 — CONSULTANCY",
+    title: "Business Consultancy & Compliance",
+    desc: "Registration and statutory compliance support for businesses operating in Zambia.",
+    href: "/services#business-consultancy",
+    services: [
+      "PACRA registration and compliance",
+      "ZRA registration and compliance",
+      "NAPSA registration and compliance",
+      "NHIMA registration and compliance",
+      "Workers Compensation compliance",
+      "CEEC and related business compliance support",
+    ],
+  },
+  {
+    id: "monitoring-logistics",
+    code: "03 — MONITORING & LOGISTICS",
+    title: "Monitoring, Logistics & Brokerage",
+    desc: "Independent oversight, logistics management consultancy and freight brokerage services.",
+    href: "/services#monitoring-logistics",
+    services: [
+      "Independent project monitoring",
+      "MVT verification",
+      "Logistics management consultancy",
+      "Freight brokerage and coordination",
+    ],
+  },
+  {
+    id: "agri-mining-digital",
+    code: "04 — GROWTH SECTORS",
+    title: "Agriculture, Mining & Digital Platforms",
+    desc: "Commodity sourcing and supply, mining pipeline, and in-house digital platforms.",
+    href: "/services#agriculture-mining-digital",
+    services: [
+      "Agriculture commodity sourcing and supply",
+      "Maize, soya beans, groundnuts, beans, rice, etc.",
+      "Mining (Coming Soon)",
+      "FixCycle, MobiLink and Lala platforms",
+    ],
+  },
 ];
 
-/**
- * ─────────────────────────────────────────────────────────────────────────────
- * FIXCYCLE WEB PLATFORM
- * The browser build of FixCycle — live preview hosted on Render. It is a work
- * in progress, so it is always presented as "under development" while the
- * link stays clickable so visitors can try it.
- * ─────────────────────────────────────────────────────────────────────────────
- */
+/** Detailed service groups for the Services page. */
+export const serviceGroups = [
+  {
+    id: "wholesale-trading",
+    title: "Wholesale Trading & Supply",
+    summary:
+      "Wholesale trading is our core business, supplying products and sourcing goods for customers and partners with reliable coordination.",
+    highlight: "Currently an authorized agent for Chilanga Cement PLC.",
+    items: [
+      "Cement supply (authorized agent for Chilanga Cement PLC)",
+      "Maize trading and supply",
+      "Fuels and acids — sourced and supplied",
+      "Importation of cars",
+      "Consumer goods and household items",
+      "General wholesale trading and product sourcing",
+    ],
+    cta: "Request a trading enquiry",
+  },
+  {
+    id: "business-consultancy",
+    title: "Business Consultancy & Compliance",
+    summary:
+      "We support businesses with registration and compliance processes so they can start, operate and remain compliant.",
+    highlight: "Practical guidance across key statutory and regulatory bodies.",
+    items: [
+      "Company and business registration support (including PACRA)",
+      "ZRA registration and compliance support",
+      "NAPSA registration and compliance",
+      "NHIMA registration and compliance",
+      "Workers Compensation compliance support",
+      "CEEC and related compliance assistance",
+    ],
+    cta: "Discuss consultancy needs",
+  },
+  {
+    id: "monitoring-logistics",
+    title: "Independent Monitoring, Logistics & Freight Brokerage",
+    summary:
+      "Oversight and movement services that help projects and supply chains stay accountable, coordinated and efficient.",
+    highlight: "Includes independent project monitoring and MVT verification.",
+    items: [
+      "Independent project monitoring",
+      "MVT verification",
+      "Logistics management consultancy",
+      "Freight brokerage and shipment coordination",
+      "Coordination support for trading and supply movements",
+    ],
+    cta: "Talk to us about monitoring or logistics",
+  },
+  {
+    id: "agriculture-mining-digital",
+    title: "Agriculture, Mining & Digital Platforms",
+    summary:
+      "Commodity sourcing and supply, a mining pipeline, and digital platforms that support service delivery and access.",
+    highlight: "Mining: Coming Soon.",
+    items: [
+      "Agriculture commodity sourcing and supply: maize, soya beans, groundnuts, beans, rice, etc.",
+      "Mining (Coming Soon)",
+      "Digital platforms: FixCycle, MobiLink and Lala",
+    ],
+    cta: "Explore opportunities",
+  },
+];
 
+/** Agriculture commodities (explicit list for pages). */
+export const agricultureCommodities = [
+  "Maize",
+  "Soya beans",
+  "Groundnuts",
+  "Beans",
+  "Rice",
+  "Other agricultural commodities (on enquiry)",
+];
+
+/** Digital platforms / solutions portfolio. */
+export const platforms = [
+  {
+    id: "fixcycle",
+    tag: "Service Platform",
+    title: "FixCycle",
+    text: "A platform connecting customers with service providers for repairs, maintenance and related services.",
+    href: "/fixcycle",
+    external: false,
+  },
+  {
+    id: "mobilink",
+    tag: "Mobility & Logistics",
+    title: "MobiLink",
+    text: "A mobility and parcel-delivery platform supporting efficient movement of people and goods.",
+    href: "https://eilzm.com/",
+    external: true,
+  },
+  {
+    id: "lala",
+    tag: "Accommodation Platform",
+    title: "Lala",
+    text: "A booking platform for accessible accommodation options.",
+    href: "https://www.lalabookings.com/",
+    external: true,
+  },
+];
+
+/** FixCycle reference info kept for existing FixCycle pages/components. */
 export const fixcycleWeb = {
   url: "https://fixcyclepro.onrender.com/",
   status: "Under development",
   tagline: "Mobility · Delivery · Services",
   summary:
-    "FixCycle now runs in the browser too — book a ride, send a parcel, or hire a vetted handyman without installing anything.",
-  /** Swap these files for the real screenshots (same names, same aspect). */
+    "FixCycle is part of our digital platforms portfolio. A browser version is available for preview while development continues.",
   desktopShot: "/fixcycle-web-desktop.png",
   mobileShot: "/fixcycle-web-mobile.png",
   pillars: [
     {
-      title: "Go anywhere",
-      text: "City rides, rentals, transfers and outstation trips at transparent fares — tracked live from pickup to drop.",
+      title: "Service access",
+      text: "Connect customers with service providers for repairs and maintenance needs.",
     },
     {
-      title: "Send anything",
-      text: "Same-day couriers for documents, groceries and parcels — with multiple stops and proof of delivery.",
+      title: "Platform convenience",
+      text: "Digital access to request and coordinate services.",
     },
     {
-      title: "Fix and hire",
-      text: "Skilled handymen and service professionals, ready when you are. Book by the hour or by the job.",
+      title: "Part of our portfolio",
+      text: "One of the digital platforms developed and supported by Ecotech Innovations.",
     },
   ],
 };
 
-/** Volunteer roles for the Get Involved page. */
-export const volunteerRoles = [
-  { icon: "code", title: "Frontend / Backend Developers", text: "Ship features for FixCycle and our green-tech tools." },
-  { icon: "palette", title: "UI / UX Designers", text: "Shape clean, accessible experiences for Zambian users." },
-  { icon: "chart", title: "Data Analysts", text: "Turn impact and product data into decisions and stories." },
-  { icon: "clipboard", title: "Project Managers", text: "Keep our sprints and volunteer squads moving." },
-] as const;
+// Compatibility exports for existing pages (kept lightweight / repurposed)
+export const impactGoals = [
+  { label: "Trading & supply reliability", value: 100, caption: "Core focus" },
+  { label: "Compliance support coverage", value: 100, caption: "PACRA, ZRA, NAPSA, NHIMA, Workers Compensation, CEEC, etc." },
+  { label: "Monitoring & MVT verification", value: 100, caption: "Independent oversight services" },
+  { label: "Mining operations", value: 10, caption: "Coming Soon" },
+];
 
-/** Volunteer benefits list. */
-export const volunteerBenefits = [
-  "Work on products with real environmental and social impact",
-  "100% remote collaboration — join from anywhere",
-  "Hands-on mentorship from a mission-driven team",
-  "A reference letter recognising your contribution",
-  "A fast track to future full-time roles at Ecotech",
-] as const;
+export const volunteerRoles = [] as const;
+export const volunteerBenefits = [] as const;
 
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/fixcycle", label: "FixCycle" },
   { href: "/solutions", label: "Solutions" },
-  { href: "/impact", label: "Impact" },
-  { href: "/get-involved", label: "Get Involved" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
-/** The four business divisions — home "What we do" cards and site map. */
-export const divisions = [
-  {
-    id: "trading",
-    code: "DIV.01 — TRADE",
-    title: "Trading & Supply",
-    desc: "Connecting businesses to products, equipment and technology.",
-    href: "/services#export-import-trading",
-    services: [
-      "General trading",
-      "Industrial supplies",
-      "Equipment & technology",
-      "Renewable energy products",
-      "Procurement & sourcing",
-      "Import / export",
-      "Corporate supply",
-    ],
-  },
-  {
-    id: "consultancy",
-    code: "DIV.02 — CONSULT",
-    title: "Business Consultancy",
-    desc: "Helping organisations solve operational, commercial and strategic challenges.",
-    href: "/services#business-consultancy-compliance",
-    services: [
-      "Business development",
-      "Supply-chain consultancy",
-      "Logistics consultancy",
-      "Project management",
-      "Procurement advisory",
-      "Market research",
-      "Sustainability advisory",
-      "Digital transformation",
-    ],
-  },
-  {
-    id: "technology",
-    code: "DIV.03 — TECH",
-    title: "Sustainable Technology",
-    desc: "Developing innovative solutions for a cleaner and smarter future.",
-    href: "/solutions",
-    services: [
-      "FixCycle, MobiLink & Lala",
-      "Solar solutions",
-      "Smart energy solutions",
-      "Waste & recycling technologies",
-      "Digital platforms",
-      "Climate & green technology",
-    ],
-  },
-  {
-    id: "logistics",
-    code: "DIV.04 — MOVE",
-    title: "Logistics & Mobility",
-    desc: "Making movement of people, products and services more efficient.",
-    href: "/services#freight-brokerage",
-    services: [
-      "Transport & logistics",
-      "Last-mile delivery",
-      "Fleet solutions",
-      "Intercity transportation",
-      "Cargo & parcel logistics",
-      "Supply-chain solutions",
-      "Electric mobility",
-      "Logistics technology",
-    ],
-  },
-];
-
-/** Innovation portfolio platforms for the dark home section. */
-export const platforms = [
-  {
-    tag: "Marketplace",
-    title: "FixCycle",
-    text: "A digital marketplace connecting households to repair, maintenance and handyman services — building resilience and local livelihoods.",
-    href: "https://play.google.com/store/apps/details?id=com.fixcyclehandy.user",
-  },
-  {
-    tag: "Mobility & Parcels",
-    title: "MobiLink",
-    text: "An intercity ride-sharing and parcel delivery platform, moving people and cargo between Zambia's cities more efficiently.",
-    href: "https://eilzm.com/",
-  },
-  {
-    tag: "Hospitality",
-    title: "Lala",
-    text: "A mobile-first, budget accommodation booking platform via Mobile Money and WhatsApp — covering Lusaka, the Copperbelt and Livingstone.",
-    href: "https://www.lalabookings.com/",
-  },
+export const contactSubjects = [
+  "General enquiry",
+  "Wholesale trading & supply",
+  "Cement (Chilanga Cement PLC)",
+  "Fuels and acids",
+  "Vehicle importation",
+  "Consumer & household goods",
+  "Agriculture commodity sourcing & supply",
+  "Business consultancy & compliance",
+  "Independent project monitoring / MVT verification",
+  "Logistics management consultancy",
+  "Freight brokerage",
+  "Mining (Coming Soon)",
+  "Digital platforms (FixCycle, MobiLink, Lala)",
+  "Partnership enquiry",
 ];
