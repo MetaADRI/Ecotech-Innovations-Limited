@@ -1,115 +1,407 @@
-import React from 'react';
-import { View, Text, TextInput, ScrollView, TouchableOpacity, Image } from 'react-react-native';
-import { 
-  Bell, Search, MapPin, Home, ClipboardList, Wallet, User, 
-  Wrench, Scissors, Zap, Car, ShieldAlert, Paintbrush, Hammer 
-} from 'lucide-react-native';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung One UI Concept</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        }
 
-const CATEGORIES = [
-  { id: 1, name: 'Home Repair', icon: Wrench },
-  { id: 2, name: 'Salon & Care', icon: Scissors },
-  { id: 3, name: 'Electrical', icon: Zap },
-  { id: 4, name: 'Automotive', icon: Car },
-  { id: 5, name: 'Pest Control', icon: ShieldAlert },
-  { id: 6, name: 'Painting', icon: Paintbrush },
-  { id: 7, name: 'Carpentry', icon: Hammer },
-];
+        body {
+            background-color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-export default function OneUIScreen() {
-  return (
-    <View className="flex-1 bg-[#F4F5F7]">
-      {/* Scrollable Viewing & Interaction Area */}
-      <ScrollView className="flex-1 px-5 pt-12" showsVerticalScrollIndicator={false}>
-        
-        {/* Top Header Section */}
-        <View className="flex-row justify-between items-center mb-2">
-          <Text className="text-2xl font-bold text-[#1C1C1E]">Good Evening, Apporio</Text>
-          <TouchableOpacity className="p-2.5 bg-white rounded-full shadow-sm">
-            <Bell size={20} color="#1C1C1E" />
-          </TouchableOpacity>
-        </View>
+        /* Mobile Device Frame */
+        .phone-frame {
+            width: 380px;
+            height: 780px;
+            background-color: #f4f5f7;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 12px #1e293b;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
 
-        {/* Location Badge */}
-        <View className="flex-row items-center mb-6">
-          <MapPin size={14} color="#0066FF" />
-          <Text className="ml-1 text-xs text-[#8E8E93] font-medium" numberOfLines={1}>
-            ITHUM TOWER, Block A, Industrial Area, Sector...
-          </Text>
-        </View>
+        /* Status Bar */
+        .status-bar {
+            height: 44px;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1c1c1e;
+            padding-top: 8px;
+        }
 
-        {/* One UI Search Bar (Pill Shape) */}
-        <View className="flex-row items-center bg-white px-4 py-3 rounded-full shadow-sm mb-6">
-          <Search size={18} color="#8E8E93" />
-          <TextInput 
-            placeholder="Search for a service..." 
-            placeholderTextColor="#8E8E93"
-            className="ml-3 flex-1 text-sm text-[#1C1C1E]"
-          />
-        </View>
+        .status-icons {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
 
-        {/* Promotional Banner (Squircle Container) */}
-        <View className="bg-[#0066FF] rounded-3xl p-5 mb-8 shadow-sm flex-row justify-between items-center">
-          <View className="flex-1 pr-3">
-            <Text className="text-white text-xs font-semibold uppercase tracking-wider mb-1 opacity-80">
-              Special Offer
-            </Text>
-            <Text className="text-white text-lg font-bold mb-3">
-              Tools & Home Services
-            </Text>
-            <TouchableOpacity className="bg-white px-4 py-2 rounded-full self-start">
-              <Text className="text-[#0066FF] text-xs font-bold">Book Now</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        /* Main Scrollable Content */
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px 20px 90px 20px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
-        {/* Categories Section */}
-        <Text className="text-lg font-bold text-[#1C1C1E] mb-4">Handyman Services</Text>
+        .content::-webkit-scrollbar {
+            display: none;
+        }
 
-        {/* 2-Column Grid with Squircle Cards */}
-        <View className="flex-row flex-wrap justify-between pb-24">
-          {CATEGORIES.map((item) => {
-            const IconComponent = item.icon;
-            return (
-              <TouchableOpacity 
-                key={item.id}
-                className="w-[48%] bg-white p-4 rounded-3xl mb-4 items-center shadow-sm active:opacity-70"
-              >
-                <View className="w-12 h-12 rounded-2xl bg-[#F0F4FF] justify-center items-center mb-3">
-                  <IconComponent size={24} color="#0066FF" />
-                </View>
-                <Text className="text-sm font-semibold text-[#1C1C1E] text-center">
-                  {item.name}
-                </Text>
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-      </ScrollView>
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
 
-      {/* Floating One UI Bottom Navigation */}
-      <View className="absolute bottom-0 left-0 right-0 bg-white/95 border-t border-gray-100 px-6 py-3 flex-row justify-around items-center">
-        <TouchableOpacity className="items-center">
-          <View className="bg-[#E5F0FF] px-4 py-1.5 rounded-full mb-1">
-            <Home size={20} color="#0066FF" />
-          </View>
-          <Text className="text-xs font-bold text-[#0066FF]">Home</Text>
-        </TouchableOpacity>
+        .greeting {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1c1c1e;
+        }
 
-        <TouchableOpacity className="items-center opacity-50">
-          <ClipboardList size={20} color="#1C1C1E" />
-          <Text className="text-xs text-[#1C1C1E] mt-1">Orders</Text>
-        </TouchableOpacity>
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            cursor: pointer;
+        }
 
-        <TouchableOpacity className="items-center opacity-50">
-          <Wallet size={20} color="#1C1C1E" />
-          <Text className="text-xs text-[#1C1C1E] mt-1">Wallet</Text>
-        </TouchableOpacity>
+        .location-chip {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 20px;
+        }
 
-        <TouchableOpacity className="items-center opacity-50">
-          <User size={20} color="#1C1C1E" />
-          <Text className="text-xs text-[#1C1C1E] mt-1">Settings</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-}
+        .location-text {
+            font-size: 12px;
+            color: #8e8e93;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            background-color: #ffffff;
+            border-radius: 24px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 14px;
+            color: #1c1c1e;
+            width: 100%;
+        }
+
+        .search-input::placeholder {
+            color: #8e8e93;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(135deg, #0066ff 0%, #0044cc 100%);
+            border-radius: 24px;
+            padding: 20px;
+            color: #ffffff;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-tag {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            opacity: 0.85;
+            margin-bottom: 4px;
+        }
+
+        .banner-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .banner-btn {
+            background-color: #ffffff;
+            color: #0066ff;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1c1c1e;
+            margin-bottom: 14px;
+        }
+
+        /* Grid Services */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 22px;
+            padding: 18px 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .icon-wrapper {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background-color: #f0f4ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .card-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1c1c1e;
+            text-align: center;
+        }
+
+        /* Bottom Navigation Bar */
+        .nav-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 72px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid #f1f3f5;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-bottom: 10px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .nav-pill {
+            padding: 4px 16px;
+            border-radius: 16px;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-item.active .nav-pill {
+            background-color: #e5f0ff;
+        }
+
+        .nav-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: #8e8e93;
+        }
+
+        .nav-item.active .nav-text {
+            color: #0066ff;
+            font-weight: 700;
+        }
+
+        /* SVG Colors */
+        .icon-blue {
+            stroke: #0066ff;
+        }
+        .icon-dark {
+            stroke: #1c1c1e;
+        }
+        .icon-muted {
+            stroke: #8e8e93;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-frame">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span>9:41</span>
+            <div class="status-icons">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1c1c1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1c1c1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"></rect><line x1="22" y1="11" x2="22" y2="13"></line></svg>
+            </div>
+        </div>
+
+        <!-- Scrollable Body Content -->
+        <div class="content">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="greeting">Good Evening, John</h1>
+                <div class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="icon-dark" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                </div>
+            </div>
+
+            <!-- Location -->
+            <div class="location-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="icon-blue" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span class="location-text">ITHUM TOWER, Block A, Industrial Area, Sector...</span>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="icon-muted" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" class="search-input" placeholder="Search for a service...">
+            </div>
+
+            <!-- Promo Banner -->
+            <div class="promo-banner">
+                <div class="banner-tag">Special Offer</div>
+                <div class="banner-title">Tools & Home Services</div>
+                <button class="banner-btn">Book Now</button>
+            </div>
+
+            <!-- Handyman Services Section -->
+            <div class="section-title">Handyman Services</div>
+
+            <div class="grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-blue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    </div>
+                    <span class="card-label">Home Repair</span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-blue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+                    </div>
+                    <span class="card-label">Salon & Care</span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-blue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    </div>
+                    <span class="card-label">Electrical</span>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-blue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
+                    </div>
+                    <span class="card-label">Automotive</span>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-blue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <span class="card-label">Pest Control</span>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="icon-blue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><mpath d="m19 11-8-8-8.6 8.6a2 2 0 0 0 0 2.8l5.2 5.2c.8.8 2 .8 2.8 0L19 11Z"></mpath><path d="m5 2 5 5"></path><path d="M2 13h15"></path><path d="M22 20a2 2 0 1 1-4 0c0-1.6 1.7-2.4 2-4 .3 1.6 2 2.4 2 4Z"></path></svg>
+                    </div>
+                    <span class="card-label">Painting</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="nav-bar">
+            <div class="nav-item active">
+                <div class="nav-pill">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="icon-blue" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </div>
+                <span class="nav-text">Home</span>
+            </div>
+            <div class="nav-item">
+                <div class="nav-pill">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="icon-muted" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                </div>
+                <span class="nav-text">Orders</span>
+            </div>
+            <div class="nav-item">
+                <div class="nav-pill">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="icon-muted" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="12" y1="12" x2="12" y2="12.01"></line></svg>
+                </div>
+                <span class="nav-text">Wallet</span>
+            </div>
+            <div class="nav-item">
+                <div class="nav-pill">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="icon-muted" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <span class="nav-text">Settings</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

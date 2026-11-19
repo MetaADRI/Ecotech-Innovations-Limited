@@ -112,6 +112,40 @@ export const impactGoals = [
   { label: "Homes reached in underserved areas", value: 55, caption: "55% of 2030 goal" },
 ];
 
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * FIXCYCLE WEB PLATFORM
+ * The browser build of FixCycle — live preview hosted on Render. It is a work
+ * in progress, so it is always presented as "under development" while the
+ * link stays clickable so visitors can try it.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+export const fixcycleWeb = {
+  url: "https://fixcyclepro.onrender.com/",
+  status: "Under development",
+  tagline: "Mobility · Delivery · Services",
+  summary:
+    "FixCycle now runs in the browser too — book a ride, send a parcel, or hire a vetted handyman without installing anything.",
+  /** Swap these files for the real screenshots (same names, same aspect). */
+  desktopShot: "/fixcycle-web-desktop.png",
+  mobileShot: "/fixcycle-web-mobile.png",
+  pillars: [
+    {
+      title: "Go anywhere",
+      text: "City rides, rentals, transfers and outstation trips at transparent fares — tracked live from pickup to drop.",
+    },
+    {
+      title: "Send anything",
+      text: "Same-day couriers for documents, groceries and parcels — with multiple stops and proof of delivery.",
+    },
+    {
+      title: "Fix and hire",
+      text: "Skilled handymen and service professionals, ready when you are. Book by the hour or by the job.",
+    },
+  ],
+};
+
 /** Volunteer roles for the Get Involved page. */
 export const volunteerRoles = [
   { icon: "code", title: "Frontend / Backend Developers", text: "Ship features for FixCycle and our green-tech tools." },

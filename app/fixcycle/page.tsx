@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Apple, BadgeCheck, Download, Play, Smartphone } from "lucide-react";
+import { Apple, BadgeCheck, Download, Globe, Play, Smartphone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import FixCycleTabs from "@/components/fixcycle/FixCycleTabs";
+import FixCycleWebSection from "@/components/fixcycle/FixCycleWebSection";
 import { ButtonLink } from "@/components/Button";
+import { fixcycleWeb } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "FixCycle",
   description:
-    "FixCycle connects households with verified local service providers — and FixCycle Pro helps skilled artisans find jobs and get paid digitally.",
+    "FixCycle connects households with verified local service providers — and FixCycle Pro helps skilled artisans find jobs and get paid digitally. A browser version is also in development.",
 };
 
 const stores = [
@@ -28,6 +30,16 @@ const stores = [
     sub: "Android — for artisans",
     note: "Get it on",
     href: "https://play.google.com/store/apps/details?id=com.fixcyclehandy.driver",
+    tag: "Web version coming soon",
+  },
+  {
+    icon: Globe,
+    title: "Web version",
+    sub: "Any browser — no install",
+    note: "Open",
+    href: fixcycleWeb.url,
+    tag: fixcycleWeb.status,
+    external: true,
   },
   {
     icon: Download,
@@ -53,8 +65,12 @@ export default function FixCyclePage() {
         crumb="FixCycle"
         eyebrow="The Flagship Platform"
         title="FixCycle — Zambia's home-services marketplace"
-        subtitle="Two apps, one mission: connect every household with trusted, verified service providers — and give skilled artisans the platform they deserve."
+        subtitle="Two apps, one mission: connect every household with trusted, verified service providers — and give skilled artisans the platform they deserve. A browser version is now in development."
         logo={{ src: "/fixcycle-logo.png", alt: "FixCycle logo" }}
+        actions={[
+          { label: "Get the app", href: "#downloads", primary: true },
+          { label: "Web version — in development", href: "#web-version" },
+        ]}
       />
 
       {/* Tabs */}
@@ -94,6 +110,9 @@ export default function FixCyclePage() {
                 >
                   Learn more about FixCycle Pro
                 </Link>
+                <p className="mt-4 font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/45">
+                  FixCycle Pro web version — coming soon
+                </p>
               </div>
             </div>
           </Reveal>
@@ -110,7 +129,7 @@ export default function FixCyclePage() {
             subtitle="Join thousands of customers and artisans across Lusaka & Ndola. It takes less than a minute."
           />
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {stores.map((s, i) => {
               const linkable = !s.soon && s.href && s.href !== "#";
               const card = (
@@ -121,13 +140,23 @@ export default function FixCyclePage() {
                       : "border-ink/10 bg-surface shadow-soft hover:border-ink/25"
                   }`}
                 >
-                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[2px] bg-forest text-white transition-transform duration-300 group-hover:scale-110">
+                  <span
+                    className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-[2px] transition-transform duration-300 group-hover:scale-110 ${
+                      s.external ? "bg-lime text-forest-deep" : "bg-forest text-white"
+                    }`}
+                  >
                     <s.icon className="h-7 w-7" />
                   </span>
                   <div>
                     <p className="text-xs font-medium uppercase tracking-wide text-brand-ink/50">{s.note}</p>
                     <p className="font-display text-lg font-bold text-brand-ink">{s.title}</p>
                     <p className="text-sm text-brand-ink/55">{s.sub}</p>
+                    {s.tag && (
+                      <span className="mt-2 inline-flex items-center gap-1.5 rounded-[2px] bg-lime/15 px-2 py-1 font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-forest">
+                        <span className="h-1.5 w-1.5 rounded-full bg-lime-dim" aria-hidden />
+                        {s.tag}
+                      </span>
+                    )}
                   </div>
                 </div>
               );
@@ -161,6 +190,9 @@ export default function FixCyclePage() {
           </Reveal>
         </div>
       </section>
+
+      {/* Web version — under development */}
+      <FixCycleWebSection />
     </>
   );
 }

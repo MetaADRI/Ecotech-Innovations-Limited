@@ -216,7 +216,7 @@ export default function FixCycleTabs() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-9 flex flex-wrap gap-3">
+                  <div className="mt-9 flex flex-wrap items-center gap-3">
                     <ButtonLink
                       href="/fixcycle-pro"
                       variant="secondary"
@@ -225,6 +225,10 @@ export default function FixCycleTabs() {
                       Learn more about FixCycle Pro
                       <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                     </ButtonLink>
+                    <span className="inline-flex items-center gap-2 rounded-[2px] border border-dashed border-brand-ink/25 px-3 py-2 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-ink/55">
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-lime-dim" aria-hidden />
+                      Web version coming soon
+                    </span>
                   </div>
                 </div>
 

@@ -8,15 +8,17 @@ import {
   History,
   Bell,
   Play,
+  ExternalLink,
 } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import { fixcycleWeb } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "FixCycle Pro",
   description:
-    "Grow your handyman business with FixCycle Pro — manage services, bookings, availability, and earnings from one app.",
+    "Grow your handyman business with FixCycle Pro — manage services, bookings, availability, and earnings from one app. A web version is coming soon.",
 };
 
 const features = [
@@ -63,6 +65,39 @@ export default function FixCycleProPage() {
         logo={{ src: "/fixcycle-pro-logo.png", alt: "FixCycle Pro logo" }}
         actions={[{ label: "Get it on Google Play", href: "https://play.google.com/store/apps/details?id=com.fixcyclehandy.driver&hl=en", primary: true }]}
       />
+
+      {/* Web version — coming soon */}
+      <section className="border-b border-ink/10 bg-surface-soft py-10">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <Reveal>
+            <div className="flex flex-col gap-6 rounded-[2px] border border-dashed border-ink/20 bg-surface p-7 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <span className="inline-flex items-center gap-2 rounded-[2px] bg-lime px-2.5 py-1 font-mono text-[10.5px] font-bold uppercase tracking-[0.14em] text-forest-deep">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-forest-deep" aria-hidden />
+                  Coming soon
+                </span>
+                <h2 className="mt-3 font-display text-xl font-bold tracking-tight text-ink sm:text-2xl">
+                  FixCycle Pro web version
+                </h2>
+                <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-ink/60">
+                  Run your whole business from any browser — bookings, availability and earnings
+                  without installing the app. Meanwhile, the FixCycle web platform is live and
+                  open to try.
+                </p>
+              </div>
+              <a
+                href={fixcycleWeb.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex shrink-0 items-center gap-2 self-start rounded-[2px] bg-forest px-6 py-3.5 font-mono text-[12px] font-semibold uppercase tracking-[0.08em] text-paper shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-forest-deep sm:self-auto"
+              >
+                Open the FixCycle web app
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* About */}
       <section className="bg-surface py-20 sm:py-24">
@@ -113,6 +148,9 @@ export default function FixCycleProPage() {
                 Get it on Google Play
               </a>
             </div>
+            <p className="mt-5 font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/50">
+              Web version — coming soon
+            </p>
             <div className="mt-6 flex justify-center">
               <Image
                 src="/fixcycle-pro-logo.png"
