@@ -19,7 +19,7 @@ export default function FixCyclePage() {
         title="FixCycle"
         subtitle="FixCycle is part of the Ecotech Innovations Limited digital platforms portfolio, alongside MobiLink and Lala."
         actions={[
-          { label: "Contact us", href: `/contact?subject=${encodeURIComponent("Digital platforms (FixCycle, MobiLink, Lala)")}`, primary: true },
+          { label: "Open FixCycle", href: fixcycleWeb.url, primary: true },
           { label: "View all solutions", href: "/solutions" },
         ]}
       />
@@ -31,7 +31,10 @@ export default function FixCyclePage() {
               <h2 className="font-display text-2xl font-bold text-ink">Platform overview</h2>
               <p className="mt-4 text-[15.5px] leading-relaxed text-ink/70">{fixcycleWeb.summary}</p>
               <p className="mt-4 text-[15.5px] leading-relaxed text-ink/70">
-                For partnership, product or platform enquiries, contact us at{" "}
+                Visit FixCycle at{" "}
+                <a href={fixcycleWeb.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-forest hover:underline">
+                  {fixcycleWeb.url}
+                </a>. For partnership, product or platform enquiries, contact us at{" "}
                 <a href={`mailto:${site.enquiryEmail}`} className="font-semibold text-forest hover:underline">{site.enquiryEmail}</a>.
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
@@ -41,7 +44,7 @@ export default function FixCyclePage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-[2px] bg-forest px-5 py-3 font-mono text-[12px] font-semibold uppercase tracking-[0.08em] text-paper hover:bg-forest-deep"
                 >
-                  Open web preview <ExternalLink className="h-4 w-4" />
+                  Visit FixCycle <ExternalLink className="h-4 w-4" />
                 </a>
                 <Link href="/solutions" className="inline-flex items-center gap-2 rounded-[2px] border border-ink/20 px-5 py-3 font-mono text-[12px] uppercase tracking-[0.08em] text-ink hover:border-forest hover:text-forest">
                   Back to solutions <ArrowRight className="h-4 w-4" />

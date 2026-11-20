@@ -238,8 +238,8 @@ export const platforms = [
     tag: "Service Platform",
     title: "FixCycle",
     text: "A platform connecting customers with service providers for repairs, maintenance and related services.",
-    href: "/fixcycle",
-    external: false,
+    href: "https://fixcyclepro.onrender.com/",
+    external: true,
   },
   {
     id: "mobilink",
